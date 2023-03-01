@@ -22,9 +22,10 @@ cd postgres-qa
 npm install
 ```
 Set the following environment variables:
-
+```
 OPENAI_API_KEY: Your OpenAI API key.
 DATABASE_URL: The connection URL for your Neon database.
+```
 
 Create the `documents` and `openai_ft_data` tables in your Neon database by running the following command:
 
