@@ -1,0 +1,270 @@
+
+
+
+PostgreSQL: Documentation: 15: 22.6. Function Security
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+22.6. Function Security
+
+
+Prev 
+Up
+Chapter 22. Database Roles
+Home
+ Next
+
+
+
+
+
+
+
+
+22.6. Function Security
+
+
+
+Functions, triggers and row-level security policies allow users to insert code into the backend server that other users might execute unintentionally. Hence, these mechanisms permit users to “Trojan horse” others with relative ease. The strongest protection is tight control over who can define objects. Where that is infeasible, write queries referring only to objects having trusted owners. Remove from search_path any schemas that permit untrusted users to create objects.
+Functions run inside the backend server process with the operating system permissions of the database server daemon. If the programming language used for the function allows unchecked memory accesses, it is possible to change the server's internal data structures. Hence, among many other things, such functions can circumvent any system access controls. Function languages that allow such access are considered “untrusted”, and PostgreSQL allows only superusers to create functions written in those languages.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+22.5. Predefined Roles 
+Home
+ Chapter 23. Managing Databases
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

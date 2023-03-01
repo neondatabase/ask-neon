@@ -1,0 +1,258 @@
+
+
+
+PostgreSQL: Documentation: 15: ALTER ROUTINE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALTER ROUTINE
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+ALTER ROUTINE
+ALTER ROUTINE — change the definition of a routine
+
+
+Synopsis
+
+ALTER ROUTINE name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
+    action [ ... ] [ RESTRICT ]
+ALTER ROUTINE name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
+    RENAME TO new_name
+ALTER ROUTINE name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
+    OWNER TO { new_owner | CURRENT_ROLE | CURRENT_USER | SESSION_USER }
+ALTER ROUTINE name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
+    SET SCHEMA new_schema
+ALTER ROUTINE name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
+    [ NO ] DEPENDS ON EXTENSION extension_name
+
+where action is one of:
+
+    IMMUTABLE | STABLE | VOLATILE
+    [ NOT ] LEAKPROOF
+    [ EXTERNAL ] SECURITY INVOKER | [ EXTERNAL ] SECURITY DEFINER
+    PARALLEL { UNSAFE | RESTRICTED | SAFE }
+    COST execution_cost
+    ROWS result_rows
+    SET configuration_parameter { TO | = } { value | DEFAULT }
+    SET configuration_parameter FROM CURRENT
+    RESET configuration_parameter
+    RESET ALL
+
+
+
+Description
+ALTER ROUTINE changes the definition of a routine, which can be an aggregate function, a normal function, or a procedure. See under ALTER AGGREGATE, ALTER FUNCTION, and ALTER PROCEDURE for the description of the parameters, more examples, and further details.
+
+
+Examples
+To rename the routine foo for type integer to foobar:
+
+ALTER ROUTINE foo(integer) RENAME TO foobar;
+
+This command will work independent of whether foo is an aggregate, function, or procedure.
+
+
+Compatibility
+This statement is partially compatible with the ALTER ROUTINE statement in the SQL standard. See under ALTER FUNCTION and ALTER PROCEDURE for more details. Allowing routine names to refer to aggregate functions is a PostgreSQL extension.
+
+
+See AlsoALTER AGGREGATE, ALTER FUNCTION, ALTER PROCEDURE, DROP ROUTINE
+Note that there is no CREATE ROUTINE command.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+ALTER ROLE 
+Home
+ ALTER RULE
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

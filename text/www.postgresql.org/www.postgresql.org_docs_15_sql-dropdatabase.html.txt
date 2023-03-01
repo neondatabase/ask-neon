@@ -1,0 +1,313 @@
+
+
+
+PostgreSQL: Documentation: 15: DROP DATABASE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP DATABASE
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DROP DATABASE
+DROP DATABASE — remove a database
+
+
+Synopsis
+
+DROP DATABASE [ IF EXISTS ] name [ [ WITH ] ( option [, ...] ) ]
+
+where option can be:
+
+    FORCE
+
+
+
+Description
+DROP DATABASE drops a database. It removes the catalog entries for the database and deletes the directory containing the data. It can only be executed by the database owner. It cannot be executed while you are connected to the target database. (Connect to postgres or any other database to issue this command.) Also, if anyone else is connected to the target database, this command will fail unless you use the FORCE option described below.
+DROP DATABASE cannot be undone. Use it with care!
+
+
+Parameters
+
+
+IF EXISTS
+
+Do not throw an error if the database does not exist. A notice is issued in this case.
+
+name
+
+The name of the database to remove.
+
+FORCE
+
+Attempt to terminate all existing connections to the target database. It doesn't terminate if prepared transactions, active logical replication slots or subscriptions are present in the target database.
+This will fail if the current user has no permissions to terminate other connections. Required permissions are the same as with pg_terminate_backend, described in Section 9.27.2. This will also fail if we are not able to terminate connections.
+
+
+
+
+
+Notes
+DROP DATABASE cannot be executed inside a transaction block.
+This command cannot be executed while connected to the target database. Thus, it might be more convenient to use the program dropdb instead, which is a wrapper around this command.
+
+
+Compatibility
+There is no DROP DATABASE statement in the SQL standard.
+
+
+See AlsoCREATE DATABASE
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+DROP CONVERSION 
+Home
+ DROP DOMAIN
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

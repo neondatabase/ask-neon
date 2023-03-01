@@ -1,0 +1,345 @@
+
+
+
+PostgreSQL: Documentation: 15: H.1. Client Interfaces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H.1. Client Interfaces
+
+
+Prev 
+Up
+Appendix H. External Projects
+Home
+ Next
+
+
+
+
+
+
+
+
+H.1. Client Interfaces
+
+
+
+There are only two client interfaces included in the base PostgreSQL distribution:
+
+
+
+libpq is included because it is the primary C language interface, and because many other client interfaces are built on top of it.
+
+
+ECPG is included because it depends on the server-side SQL grammar, and is therefore sensitive to changes in PostgreSQL itself.
+
+
+
+All other language interfaces are external projects and are distributed separately. Table H.1 includes a list of some of these projects. Note that some of these packages might not be released under the same license as PostgreSQL. For more information on each language interface, including licensing terms, refer to its website and documentation.
+
+Table H.1. Externally Maintained Client Interfaces
+
+
+
+
+
+
+
+
+
+
+Name
+Language
+Comments
+Website
+
+
+
+
+DBD::Pg
+Perl
+Perl DBI driver
+https://metacpan.org/release/DBD-Pg
+
+
+JDBC
+Java
+Type 4 JDBC driver
+https://jdbc.postgresql.org/
+
+
+libpqxx
+C++
+C++ interface
+https://pqxx.org/
+
+
+node-postgres
+JavaScript
+Node.js driver
+https://node-postgres.com/
+
+
+Npgsql
+.NET
+.NET data provider
+https://www.npgsql.org/
+
+
+pgtcl
+Tcl
+ 
+https://github.com/flightaware/Pgtcl
+
+
+pgtclng
+Tcl
+ 
+https://sourceforge.net/projects/pgtclng/
+
+
+pq
+Go
+Pure Go driver for Go's database/sql
+https://github.com/lib/pq
+
+
+psqlODBC
+ODBC
+ODBC driver
+https://odbc.postgresql.org/
+
+
+psycopg
+Python
+DB API 2.0-compliant
+https://www.psycopg.org/
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Appendix H. External Projects 
+Home
+ H.2. Administration Tools
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

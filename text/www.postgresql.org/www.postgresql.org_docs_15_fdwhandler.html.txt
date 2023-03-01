@@ -1,0 +1,270 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 59. Writing a Foreign Data Wrapper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 59. Writing a Foreign Data Wrapper
+
+
+Prev 
+Up
+Part VII. Internals
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 59. Writing a Foreign Data Wrapper
+
+
+
+
+Table of Contents
+
+59.1. Foreign Data Wrapper Functions
+59.2. Foreign Data Wrapper Callback Routines
+
+
+59.2.1. FDW Routines for Scanning Foreign Tables
+59.2.2. FDW Routines for Scanning Foreign Joins
+59.2.3. FDW Routines for Planning Post-Scan/Join Processing
+59.2.4. FDW Routines for Updating Foreign Tables
+59.2.5. FDW Routines for TRUNCATE
+59.2.6. FDW Routines for Row Locking
+59.2.7. FDW Routines for EXPLAIN
+59.2.8. FDW Routines for ANALYZE
+59.2.9. FDW Routines for IMPORT FOREIGN SCHEMA
+59.2.10. FDW Routines for Parallel Execution
+59.2.11. FDW Routines for Asynchronous Execution
+59.2.12. FDW Routines for Reparameterization of Paths
+
+
+59.3. Foreign Data Wrapper Helper Functions
+59.4. Foreign Data Wrapper Query Planning
+59.5. Row Locking in Foreign Data Wrappers
+
+
+All operations on a foreign table are handled through its foreign data wrapper, which consists of a set of functions that the core server calls. The foreign data wrapper is responsible for fetching data from the remote data source and returning it to the PostgreSQL executor. If updating foreign tables is to be supported, the wrapper must handle that, too. This chapter outlines how to write a new foreign data wrapper.
+The foreign data wrappers included in the standard distribution are good references when trying to write your own. Look into the contrib subdirectory of the source tree. The CREATE FOREIGN DATA WRAPPER reference page also has some useful details.
+
+Note
+The SQL standard specifies an interface for writing foreign data wrappers. However, PostgreSQL does not implement that API, because the effort to accommodate it into PostgreSQL would be large, and the standard API hasn't gained wide adoption anyway.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Chapter 58. Writing a Procedural Language Handler 
+Home
+ 59.1. Foreign Data Wrapper Functions
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,223 @@
+
+
+
+PostgreSQL: Documentation: 15: 21.12. Certificate Authentication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+21.12. Certificate Authentication
+
+
+Prev 
+Up
+Chapter 21. Client Authentication
+Home
+ Next
+
+
+
+
+
+
+
+
+21.12. Certificate Authentication
+
+
+
+This authentication method uses SSL client certificates to perform authentication. It is therefore only available for SSL connections. When using this authentication method, the server will require that the client provide a valid, trusted certificate. No password prompt will be sent to the client. The cn (Common Name) attribute of the certificate will be compared to the requested database user name, and if they match the login will be allowed. User name mapping can be used to allow cn to be different from the database user name.
+The following configuration options are supported for SSL certificate authentication:
+
+
+map
+
+Allows for mapping between system and database user names. See Section 21.2 for details.
+
+
+
+It is redundant to use the clientcert option with cert authentication because cert authentication is effectively trust authentication with clientcert=verify-full.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+21.11. RADIUS Authentication 
+Home
+ 21.13. PAM Authentication
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

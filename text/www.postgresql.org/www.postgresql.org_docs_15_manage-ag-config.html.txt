@@ -1,0 +1,268 @@
+
+
+
+PostgreSQL: Documentation: 15: 23.4. Database Configuration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+23.4. Database Configuration
+
+
+Prev 
+Up
+Chapter 23. Managing Databases
+Home
+ Next
+
+
+
+
+
+
+
+
+23.4. Database Configuration
+
+
+
+Recall from Chapter 20 that the PostgreSQL server provides a large number of run-time configuration variables. You can set database-specific default values for many of these settings.
+For example, if for some reason you want to disable the GEQO optimizer for a given database, you'd ordinarily have to either disable it for all databases or make sure that every connecting client is careful to issue SET geqo TO off. To make this setting the default within a particular database, you can execute the command:
+
+ALTER DATABASE mydb SET geqo TO off;
+
+This will save the setting (but not set it immediately). In subsequent connections to this database it will appear as though SET geqo TO off; had been executed just before the session started. Note that users can still alter this setting during their sessions; it will only be the default. To undo any such setting, use ALTER DATABASE dbname RESET varname.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+23.3. Template Databases 
+Home
+ 23.5. Destroying a Database
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

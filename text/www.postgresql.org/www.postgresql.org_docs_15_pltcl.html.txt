@@ -1,0 +1,286 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 44. PL/Tcl — Tcl Procedural Language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 44. PL/Tcl — Tcl Procedural Language
+
+
+Prev 
+Up
+Part V. Server Programming
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 44. PL/Tcl — Tcl Procedural Language
+
+
+
+
+Table of Contents
+
+44.1. Overview
+44.2. PL/Tcl Functions and Arguments
+44.3. Data Values in PL/Tcl
+44.4. Global Data in PL/Tcl
+44.5. Database Access from PL/Tcl
+44.6. Trigger Functions in PL/Tcl
+44.7. Event Trigger Functions in PL/Tcl
+44.8. Error Handling in PL/Tcl
+44.9. Explicit Subtransactions in PL/Tcl
+44.10. Transaction Management
+44.11. PL/Tcl Configuration
+44.12. Tcl Procedure Names
+
+
+PL/Tcl is a loadable procedural language for the PostgreSQL database system that enables the Tcl language to be used to write PostgreSQL functions and procedures.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+43.13. Porting from Oracle PL/SQL 
+Home
+ 44.1. Overview
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,297 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 41. The Rule System
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 41. The Rule System
+
+
+Prev 
+Up
+Part V. Server Programming
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 41. The Rule System
+
+
+
+
+Table of Contents
+
+41.1. The Query Tree
+41.2. Views and the Rule System
+
+
+41.2.1. How SELECT Rules Work
+41.2.2. View Rules in Non-SELECT Statements
+41.2.3. The Power of Views in PostgreSQL
+41.2.4. Updating a View
+
+
+41.3. Materialized Views
+41.4. Rules on INSERT, UPDATE, and DELETE
+
+
+41.4.1. How Update Rules Work
+41.4.2. Cooperation with Views
+
+
+41.5. Rules and Privileges
+41.6. Rules and Command Status
+41.7. Rules Versus Triggers
+
+
+This chapter discusses the rule system in PostgreSQL. Production rule systems are conceptually simple, but there are many subtle points involved in actually using them.
+Some other database systems define active database rules, which are usually stored procedures and triggers. In PostgreSQL, these can be implemented using functions and triggers as well.
+The rule system (more precisely speaking, the query rewrite rule system) is totally different from stored procedures and triggers. It modifies queries to take rules into consideration, and then passes the modified query to the query planner for planning and execution. It is very powerful, and can be used for many things such as query language procedures, views, and versions. The theoretical foundations and the power of this rule system are also discussed in [ston90b] and [ong90].
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+40.5. A Table Rewrite Event Trigger Example 
+Home
+ 41.1. The Query Tree
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

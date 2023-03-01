@@ -1,0 +1,338 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.45. pg_rewrite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.45. pg_rewrite
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.45. pg_rewrite
+
+
+
+The catalog pg_rewrite stores rewrite rules for tables and views.
+
+Table 53.45. pg_rewrite Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+oid oid
+Row identifier
+
+
+
+
+rulename name
+Rule name
+
+
+
+
+ev_class oid (references pg_class.oid)
+The table this rule is for
+
+
+
+
+ev_type char
+Event type that the rule is for: 1 = SELECT, 2 = UPDATE, 3 = INSERT, 4 = DELETE
+
+
+
+
+ev_enabled char
+Controls in which session_replication_role modes the rule fires. O = rule fires in “origin” and “local” modes, D = rule is disabled, R = rule fires in “replica” mode, A = rule fires always.
+
+
+
+
+is_instead bool
+True if the rule is an INSTEAD rule
+
+
+
+
+ev_qual pg_node_tree
+Expression tree (in the form of a nodeToString() representation) for the rule's qualifying condition
+
+
+
+
+ev_action pg_node_tree
+Query tree (in the form of a nodeToString() representation) for the rule's action
+
+
+
+
+
+
+
+Note
+pg_class.relhasrules must be true if a table has any rules in this catalog.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.44. pg_replication_origin 
+Home
+ 53.46. pg_seclabel
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

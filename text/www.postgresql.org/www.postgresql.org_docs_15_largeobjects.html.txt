@@ -1,0 +1,295 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 35. Large Objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 35. Large Objects
+
+
+Prev 
+Up
+Part IV. Client Interfaces
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 35. Large Objects
+
+
+
+
+Table of Contents
+
+35.1. Introduction
+35.2. Implementation Features
+35.3. Client Interfaces
+
+
+35.3.1. Creating a Large Object
+35.3.2. Importing a Large Object
+35.3.3. Exporting a Large Object
+35.3.4. Opening an Existing Large Object
+35.3.5. Writing Data to a Large Object
+35.3.6. Reading Data from a Large Object
+35.3.7. Seeking in a Large Object
+35.3.8. Obtaining the Seek Position of a Large Object
+35.3.9. Truncating a Large Object
+35.3.10. Closing a Large Object Descriptor
+35.3.11. Removing a Large Object
+
+
+35.4. Server-Side Functions
+35.5. Example Program
+
+
+PostgreSQL has a large object facility, which provides stream-style access to user data that is stored in a special large-object structure. Streaming access is useful when working with data values that are too large to manipulate conveniently as a whole.
+This chapter describes the implementation and the programming and query language interfaces to PostgreSQL large object data. We use the libpq C library for the examples in this chapter, but most programming interfaces native to PostgreSQL support equivalent functionality. Other interfaces might use the large object interface internally to provide generic support for large values. This is not described here.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+34.22. Example Programs 
+Home
+ 35.1. Introduction
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,271 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.17. pg_publication_tables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.17. pg_publication_tables
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.17. pg_publication_tables
+
+
+
+The view pg_publication_tables provides information about the mapping between publications and information of tables they contain. Unlike the underlying catalog pg_publication_rel, this view expands publications defined as FOR ALL TABLES and FOR TABLES IN SCHEMA, so for such publications there will be a row for each eligible table.
+
+Table 54.17. pg_publication_tables Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+pubname name (references pg_publication.pubname)
+Name of publication
+
+
+
+
+schemaname name (references pg_namespace.nspname)
+Name of schema containing table
+
+
+
+
+tablename name (references pg_class.relname)
+Name of table
+
+
+
+
+attnames name[] (references pg_attribute.attname)
+Names of table columns included in the publication. This contains all the columns of the table when the user didn't specify the column list for the table.
+
+
+
+
+rowfilter text
+Expression for the table's publication qualifying condition
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.16. pg_prepared_xacts 
+Home
+ 54.18. pg_replication_origin_status
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

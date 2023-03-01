@@ -1,0 +1,576 @@
+
+
+
+PostgreSQL: Documentation: 15: Appendix L. Acronyms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix L. Acronyms
+
+
+Prev 
+Up
+Part VIII. Appendixes
+Home
+ Next
+
+
+
+
+
+
+
+
+Appendix L. Acronyms
+
+
+
+This is a list of acronyms commonly used in the PostgreSQL documentation and in discussions about PostgreSQL.
+
+
+ANSI
+
+American National Standards Institute
+
+API
+
+Application Programming Interface
+
+ASCII
+
+American Standard Code for Information Interchange
+
+BKI
+
+Backend Interface
+
+CA
+
+Certificate Authority
+
+CIDR
+
+Classless Inter-Domain Routing
+
+CPAN
+
+Comprehensive Perl Archive Network
+
+CRL
+
+Certificate Revocation List
+
+CSV
+
+Comma Separated Values
+
+CTE
+
+Common Table Expression
+
+CVE
+
+Common Vulnerabilities and Exposures
+
+DBA
+
+Database Administrator
+
+DBI
+
+Database Interface (Perl)
+
+DBMS
+
+Database Management System
+
+DDL
+
+Data Definition Language, SQL commands such as CREATE TABLE, ALTER USER
+
+DML
+
+Data Manipulation Language, SQL commands such as INSERT, UPDATE, DELETE
+
+DST
+
+Daylight Saving Time
+
+ECPG
+
+Embedded C for PostgreSQL
+
+ESQL
+
+Embedded SQL
+
+FAQ
+
+Frequently Asked Questions
+
+FSM
+
+Free Space Map
+
+GEQO
+
+Genetic Query Optimizer
+
+GIN
+
+Generalized Inverted Index
+
+GiST
+
+Generalized Search Tree
+
+Git
+
+Git
+
+GMT
+
+Greenwich Mean Time
+
+GSSAPI
+
+Generic Security Services Application Programming Interface
+
+GUC
+
+Grand Unified Configuration, the PostgreSQL subsystem that handles server configuration
+
+HBA
+
+Host-Based Authentication
+
+HOT
+
+Heap-Only Tuples
+
+IEC
+
+International Electrotechnical Commission
+
+IEEE
+
+Institute of Electrical and Electronics Engineers
+
+IPC
+
+Inter-Process Communication
+
+ISO
+
+International Organization for Standardization
+
+ISSN
+
+International Standard Serial Number
+
+JDBC
+
+Java Database Connectivity
+
+JIT
+
+Just-in-Time compilation
+
+JSON
+
+JavaScript Object Notation
+
+LDAP
+
+Lightweight Directory Access Protocol
+
+LSN
+
+Log Sequence Number, see pg_lsn and WAL Internals.
+
+MITM
+
+Man-in-the-middle attack
+
+MSVC
+
+Microsoft Visual C
+
+MVCC
+
+Multi-Version Concurrency Control
+
+NLS
+
+National Language Support
+
+ODBC
+
+Open Database Connectivity
+
+OID
+
+Object Identifier
+
+OLAP
+
+Online Analytical Processing
+
+OLTP
+
+Online Transaction Processing
+
+ORDBMS
+
+Object-Relational Database Management System
+
+PAM
+
+Pluggable Authentication Modules
+
+PGSQL
+
+PostgreSQL
+
+PGXS
+
+PostgreSQL Extension System
+
+PID
+
+Process Identifier
+
+PITR
+
+Point-In-Time Recovery (Continuous Archiving)
+
+PL
+
+Procedural Languages (server-side)
+
+POSIX
+
+Portable Operating System Interface
+
+RDBMS
+
+Relational Database Management System
+
+RFC
+
+Request For Comments
+
+SGML
+
+Standard Generalized Markup Language
+
+SNI
+
+Server Name Indication, RFC 6066
+
+SPI
+
+Server Programming Interface
+
+SP-GiST
+
+Space-Partitioned Generalized Search Tree
+
+SQL
+
+Structured Query Language
+
+SRF
+
+Set-Returning Function
+
+SSH
+
+Secure Shell
+
+SSL
+
+Secure Sockets Layer
+
+SSPI
+
+Security Support Provider Interface
+
+SYSV
+
+Unix System V
+
+TCP/IP
+
+Transmission Control Protocol (TCP) / Internet Protocol (IP)
+
+TID
+
+Tuple Identifier
+
+TLS
+
+Transport Layer Security
+
+TOAST
+
+The Oversized-Attribute Storage Technique
+
+TPC
+
+Transaction Processing Performance Council
+
+URL
+
+Uniform Resource Locator
+
+UTC
+
+Coordinated Universal Time
+
+UTF
+
+Unicode Transformation Format
+
+UTF8
+
+Eight-Bit Unicode Transformation Format
+
+UUID
+
+Universally Unique Identifier
+
+WAL
+
+Write-Ahead Log
+
+XID
+
+Transaction Identifier
+
+XML
+
+Extensible Markup Language
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Appendix K. PostgreSQL Limits 
+Home
+ Appendix M. Glossary
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

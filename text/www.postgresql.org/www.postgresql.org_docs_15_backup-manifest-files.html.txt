@@ -1,0 +1,229 @@
+
+
+
+PostgreSQL: Documentation: 15: 76.2. Backup Manifest File Object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+76.2. Backup Manifest File Object
+
+
+Prev 
+Up
+Chapter 76. Backup Manifest Format
+Home
+ Next
+
+
+
+
+
+
+
+
+76.2. Backup Manifest File Object
+
+
+
+The object which describes a single file contains either a Path key or an Encoded-Path key. Normally, the Path key will be present. The associated string value is the path of the file relative to the root of the backup directory. Files located in a user-defined tablespace will have paths whose first two components are pg_tblspc and the OID of the tablespace. If the path is not a string that is legal in UTF-8, or if the user requests that encoded paths be used for all files, then the Encoded-Path key will be present instead. This stores the same data, but it is encoded as a string of hexadecimal digits. Each pair of hexadecimal digits in the string represents a single octet.
+The following two keys are always present:
+
+
+Size
+
+The expected size of this file, as an integer.
+
+Last-Modified
+
+The last modification time of the file as reported by the server at the time of the backup. Unlike the other fields stored in the backup, this field is not used by pg_verifybackup. It is included only for informational purposes.
+
+
+
+If the backup was taken with file checksums enabled, the following keys will be present:
+
+
+Checksum-Algorithm
+
+The checksum algorithm used to compute a checksum for this file. Currently, this will be the same for every file in the backup manifest, but this may change in future releases. At present, the supported checksum algorithms are CRC32C, SHA224, SHA256, SHA384, and SHA512.
+
+Checksum
+
+The checksum computed for this file, stored as a series of hexadecimal characters, two for each byte of the checksum.
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+76.1. Backup Manifest Top-level Object 
+Home
+ 76.3. Backup Manifest WAL Range Object
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

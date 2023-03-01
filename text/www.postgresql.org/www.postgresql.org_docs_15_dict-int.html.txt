@@ -1,0 +1,305 @@
+
+
+
+PostgreSQL: Documentation: 15: F.13. dict_int
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F.13. dict_int
+
+
+Prev 
+Up
+Appendix F. Additional Supplied Modules
+Home
+ Next
+
+
+
+
+
+
+
+
+F.13. dict_int
+
+
+
+
+
+F.13.1. Configuration
+F.13.2. Usage
+
+
+dict_int is an example of an add-on dictionary template for full-text search. The motivation for this example dictionary is to control the indexing of integers (signed and unsigned), allowing such numbers to be indexed while preventing excessive growth in the number of unique words, which greatly affects the performance of searching.
+This module is considered “trusted”, that is, it can be installed by non-superusers who have CREATE privilege on the current database.
+
+
+
+
+F.13.1. Configuration
+
+
+
+The dictionary accepts three options:
+
+
+
+The maxlen parameter specifies the maximum number of digits allowed in an integer word. The default value is 6.
+
+
+The rejectlong parameter specifies whether an overlength integer should be truncated or ignored. If rejectlong is false (the default), the dictionary returns the first maxlen digits of the integer. If rejectlong is true, the dictionary treats an overlength integer as a stop word, so that it will not be indexed. Note that this also means that such an integer cannot be searched for.
+
+
+The absval parameter specifies whether leading “+” or “-” signs should be removed from integer words. The default is false. When true, the sign is removed before maxlen is applied.
+
+
+
+
+
+
+
+
+F.13.2. Usage
+
+
+
+Installing the dict_int extension creates a text search template intdict_template and a dictionary intdict based on it, with the default parameters. You can alter the parameters, for example
+
+mydb# ALTER TEXT SEARCH DICTIONARY intdict (MAXLEN = 4, REJECTLONG = true);
+ALTER TEXT SEARCH DICTIONARY
+
+or create new dictionaries based on the template.
+To test the dictionary, you can try
+
+mydb# select ts_lexize('intdict', '12345678');
+ ts_lexize
+-----------
+ {123456}
+
+but real-world usage will involve including it in a text search configuration as described in Chapter 12. That might look like this:
+
+ALTER TEXT SEARCH CONFIGURATION english
+    ALTER MAPPING FOR int, uint WITH intdict;
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+dblink_build_sql_update 
+Home
+ F.14. dict_xsyn
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

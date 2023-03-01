@@ -1,0 +1,220 @@
+
+
+
+PostgreSQL: Documentation: 15: SPI_start_transaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SPI_start_transaction
+
+
+Prev 
+Up
+47.4. Transaction Management
+Home
+ Next
+
+
+
+
+
+
+
+SPI_start_transaction
+SPI_start_transaction — obsolete function
+
+
+Synopsis
+
+void SPI_start_transaction(void)
+
+
+
+Description
+SPI_start_transaction does nothing, and exists only for code compatibility with earlier PostgreSQL releases. It used to be required after calling SPI_commit or SPI_rollback, but now those functions start a new transaction automatically.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+SPI_rollback 
+Home
+ 47.5. Visibility of Data Changes
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

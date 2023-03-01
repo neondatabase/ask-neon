@@ -1,0 +1,263 @@
+
+
+
+PostgreSQL: Documentation: 15: DROP STATISTICS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP STATISTICS
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DROP STATISTICS
+DROP STATISTICS — remove extended statistics
+
+
+Synopsis
+
+DROP STATISTICS [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
+
+
+
+Description
+DROP STATISTICS removes statistics object(s) from the database. Only the statistics object's owner, the schema owner, or a superuser can drop a statistics object.
+
+
+Parameters
+
+
+IF EXISTS
+
+Do not throw an error if the statistics object does not exist. A notice is issued in this case.
+
+name
+
+The name (optionally schema-qualified) of the statistics object to drop.
+
+CASCADERESTRICT
+
+These key words do not have any effect, since there are no dependencies on statistics.
+
+
+
+
+
+Examples
+To destroy two statistics objects in different schemas, without failing if they don't exist:
+
+DROP STATISTICS IF EXISTS
+    accounting.users_uid_creation,
+    public.grants_user_role;
+
+
+
+Compatibility
+There is no DROP STATISTICS command in the SQL standard.
+
+
+See AlsoALTER STATISTICS, CREATE STATISTICS
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+DROP SERVER 
+Home
+ DROP SUBSCRIPTION
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,299 @@
+
+
+
+PostgreSQL: Documentation: 15: 34.7. Canceling Queries in Progress
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+34.7. Canceling Queries in Progress
+
+
+Prev 
+Up
+Chapter 34. libpq — C Library
+Home
+ Next
+
+
+
+
+
+
+
+
+34.7. Canceling Queries in Progress
+
+
+
+A client application can request cancellation of a command that is still being processed by the server, using the functions described in this section.
+
+
+PQgetCancel
+
+Creates a data structure containing the information needed to cancel a command issued through a particular database connection.
+
+PGcancel *PQgetCancel(PGconn *conn);
+
+PQgetCancel creates a PGcancel object given a PGconn connection object. It will return NULL if the given conn is NULL or an invalid connection. The PGcancel object is an opaque structure that is not meant to be accessed directly by the application; it can only be passed to PQcancel or PQfreeCancel.
+
+PQfreeCancel
+
+Frees a data structure created by PQgetCancel.
+
+void PQfreeCancel(PGcancel *cancel);
+
+PQfreeCancel frees a data object previously created by PQgetCancel.
+
+PQcancel
+
+Requests that the server abandon processing of the current command.
+
+int PQcancel(PGcancel *cancel, char *errbuf, int errbufsize);
+
+The return value is 1 if the cancel request was successfully dispatched and 0 if not. If not, errbuf is filled with an explanatory error message. errbuf must be a char array of size errbufsize (the recommended size is 256 bytes).
+Successful dispatch is no guarantee that the request will have any effect, however. If the cancellation is effective, the current command will terminate early and return an error result. If the cancellation fails (say, because the server was already done processing the command), then there will be no visible result at all.
+PQcancel can safely be invoked from a signal handler, if the errbuf is a local variable in the signal handler. The PGcancel object is read-only as far as PQcancel is concerned, so it can also be invoked from a thread that is separate from the one manipulating the PGconn object.
+
+
+
+
+
+PQrequestCancel
+
+PQrequestCancel is a deprecated variant of PQcancel.
+
+int PQrequestCancel(PGconn *conn);
+
+Requests that the server abandon processing of the current command. It operates directly on the PGconn object, and in case of failure stores the error message in the PGconn object (whence it can be retrieved by PQerrorMessage). Although the functionality is the same, this approach is not safe within multiple-thread programs or signal handlers, since it is possible that overwriting the PGconn's error message will mess up the operation currently in progress on the connection.
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+34.6. Retrieving Query Results Row-by-Row 
+Home
+ 34.8. The Fast-Path Interface
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

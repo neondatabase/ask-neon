@@ -1,0 +1,253 @@
+
+
+
+PostgreSQL: Documentation: 15: 45.7. PL/Perl Event Triggers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+45.7. PL/Perl Event Triggers
+
+
+Prev 
+Up
+Chapter 45. PL/Perl — Perl Procedural Language
+Home
+ Next
+
+
+
+
+
+
+
+
+45.7. PL/Perl Event Triggers
+
+
+
+PL/Perl can be used to write event trigger functions. In an event trigger function, the hash reference $_TD contains information about the current trigger event. $_TD is a global variable, which gets a separate local value for each invocation of the trigger. The fields of the $_TD hash reference are:
+
+
+$_TD->{event}
+
+The name of the event the trigger is fired for.
+
+$_TD->{tag}
+
+The command tag for which the trigger is fired.
+
+
+
+The return value of the trigger function is ignored.
+Here is an example of an event trigger function, illustrating some of the above:
+
+CREATE OR REPLACE FUNCTION perlsnitch() RETURNS event_trigger AS $$
+  elog(NOTICE, "perlsnitch: " . $_TD->{event} . " " . $_TD->{tag} . " ");
+$$ LANGUAGE plperl;
+
+CREATE EVENT TRIGGER perl_a_snitch
+    ON ddl_command_start
+    EXECUTE FUNCTION perlsnitch();
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+45.6. PL/Perl Triggers 
+Home
+ 45.8. PL/Perl Under the Hood
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

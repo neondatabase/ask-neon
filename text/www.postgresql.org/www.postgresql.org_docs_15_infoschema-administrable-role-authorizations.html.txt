@@ -1,0 +1,289 @@
+
+
+
+PostgreSQL: Documentation: 15: 37.4. administrable_role_​authorizations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37.4. administrable_role_​authorizations
+
+
+Prev 
+Up
+Chapter 37. The Information Schema
+Home
+ Next
+
+
+
+
+
+
+
+
+37.4. administrable_role_​authorizations
+
+
+
+The view administrable_role_authorizations identifies all roles that the current user has the admin option for.
+
+Table 37.2. administrable_role_authorizations Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+grantee sql_identifier
+Name of the role to which this role membership was granted (can be the current user, or a different role in case of nested role memberships)
+
+
+
+
+role_name sql_identifier
+Name of a role
+
+
+
+
+is_grantable yes_or_no
+Always YES
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.3. information_schema_catalog_name 
+Home
+ 37.5. applicable_roles
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

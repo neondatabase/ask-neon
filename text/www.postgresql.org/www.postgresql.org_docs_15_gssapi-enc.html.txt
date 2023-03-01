@@ -1,0 +1,225 @@
+
+
+
+PostgreSQL: Documentation: 15: 19.10. Secure TCP/IP Connections with GSSAPI Encryption
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19.10. Secure TCP/IP Connections with GSSAPI Encryption
+
+
+Prev 
+Up
+Chapter 19. Server Setup and Operation
+Home
+ Next
+
+
+
+
+
+
+
+
+19.10. Secure TCP/IP Connections with GSSAPI Encryption
+
+
+
+
+
+19.10.1. Basic Setup
+
+
+PostgreSQL also has native support for using GSSAPI to encrypt client/server communications for increased security. Support requires that a GSSAPI implementation (such as MIT Kerberos) is installed on both client and server systems, and that support in PostgreSQL is enabled at build time (see Chapter 17).
+
+
+
+
+19.10.1. Basic Setup
+
+
+
+The PostgreSQL server will listen for both normal and GSSAPI-encrypted connections on the same TCP port, and will negotiate with any connecting client whether to use GSSAPI for encryption (and for authentication). By default, this decision is up to the client (which means it can be downgraded by an attacker); see Section 21.1 about setting up the server to require the use of GSSAPI for some or all connections.
+When using GSSAPI for encryption, it is common to use GSSAPI for authentication as well, since the underlying mechanism will determine both client and server identities (according to the GSSAPI implementation) in any case. But this is not required; another PostgreSQL authentication method can be chosen to perform additional verification.
+Other than configuration of the negotiation behavior, GSSAPI encryption requires no setup beyond that which is necessary for GSSAPI authentication. (For more information on configuring that, see Section 21.6.)
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+19.9. Secure TCP/IP Connections with SSL 
+Home
+ 19.11. Secure TCP/IP Connections with SSH Tunnels
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

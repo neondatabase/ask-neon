@@ -1,0 +1,562 @@
+
+
+
+PostgreSQL: Documentation: 15: Part VII. Internals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Part VII. Internals
+
+
+Prev 
+Up
+PostgreSQL 15.2 Documentation
+Home
+ Next
+
+
+
+
+
+
+
+
+Part VII. Internals
+
+
+
+
+This part contains assorted information that might be of use to PostgreSQL developers.
+
+Table of Contents
+
+52. Overview of PostgreSQL Internals
+
+
+52.1. The Path of a Query
+52.2. How Connections Are Established
+52.3. The Parser Stage
+52.4. The PostgreSQL Rule System
+52.5. Planner/Optimizer
+52.6. Executor
+
+
+53. System Catalogs
+
+
+53.1. Overview
+53.2. pg_aggregate
+53.3. pg_am
+53.4. pg_amop
+53.5. pg_amproc
+53.6. pg_attrdef
+53.7. pg_attribute
+53.8. pg_authid
+53.9. pg_auth_members
+53.10. pg_cast
+53.11. pg_class
+53.12. pg_collation
+53.13. pg_constraint
+53.14. pg_conversion
+53.15. pg_database
+53.16. pg_db_role_setting
+53.17. pg_default_acl
+53.18. pg_depend
+53.19. pg_description
+53.20. pg_enum
+53.21. pg_event_trigger
+53.22. pg_extension
+53.23. pg_foreign_data_wrapper
+53.24. pg_foreign_server
+53.25. pg_foreign_table
+53.26. pg_index
+53.27. pg_inherits
+53.28. pg_init_privs
+53.29. pg_language
+53.30. pg_largeobject
+53.31. pg_largeobject_metadata
+53.32. pg_namespace
+53.33. pg_opclass
+53.34. pg_operator
+53.35. pg_opfamily
+53.36. pg_parameter_acl
+53.37. pg_partitioned_table
+53.38. pg_policy
+53.39. pg_proc
+53.40. pg_publication
+53.41. pg_publication_namespace
+53.42. pg_publication_rel
+53.43. pg_range
+53.44. pg_replication_origin
+53.45. pg_rewrite
+53.46. pg_seclabel
+53.47. pg_sequence
+53.48. pg_shdepend
+53.49. pg_shdescription
+53.50. pg_shseclabel
+53.51. pg_statistic
+53.52. pg_statistic_ext
+53.53. pg_statistic_ext_data
+53.54. pg_subscription
+53.55. pg_subscription_rel
+53.56. pg_tablespace
+53.57. pg_transform
+53.58. pg_trigger
+53.59. pg_ts_config
+53.60. pg_ts_config_map
+53.61. pg_ts_dict
+53.62. pg_ts_parser
+53.63. pg_ts_template
+53.64. pg_type
+53.65. pg_user_mapping
+
+
+54. System Views
+
+
+54.1. Overview
+54.2. pg_available_extensions
+54.3. pg_available_extension_versions
+54.4. pg_backend_memory_contexts
+54.5. pg_config
+54.6. pg_cursors
+54.7. pg_file_settings
+54.8. pg_group
+54.9. pg_hba_file_rules
+54.10. pg_ident_file_mappings
+54.11. pg_indexes
+54.12. pg_locks
+54.13. pg_matviews
+54.14. pg_policies
+54.15. pg_prepared_statements
+54.16. pg_prepared_xacts
+54.17. pg_publication_tables
+54.18. pg_replication_origin_status
+54.19. pg_replication_slots
+54.20. pg_roles
+54.21. pg_rules
+54.22. pg_seclabels
+54.23. pg_sequences
+54.24. pg_settings
+54.25. pg_shadow
+54.26. pg_shmem_allocations
+54.27. pg_stats
+54.28. pg_stats_ext
+54.29. pg_stats_ext_exprs
+54.30. pg_tables
+54.31. pg_timezone_abbrevs
+54.32. pg_timezone_names
+54.33. pg_user
+54.34. pg_user_mappings
+54.35. pg_views
+
+
+55. Frontend/Backend Protocol
+
+
+55.1. Overview
+55.2. Message Flow
+55.3. SASL Authentication
+55.4. Streaming Replication Protocol
+55.5. Logical Streaming Replication Protocol
+55.6. Message Data Types
+55.7. Message Formats
+55.8. Error and Notice Message Fields
+55.9. Logical Replication Message Formats
+55.10. Summary of Changes since Protocol 2.0
+
+
+56. PostgreSQL Coding Conventions
+
+
+56.1. Formatting
+56.2. Reporting Errors Within the Server
+56.3. Error Message Style Guide
+56.4. Miscellaneous Coding Conventions
+
+
+57. Native Language Support
+
+
+57.1. For the Translator
+57.2. For the Programmer
+
+
+58. Writing a Procedural Language Handler
+59. Writing a Foreign Data Wrapper
+
+
+59.1. Foreign Data Wrapper Functions
+59.2. Foreign Data Wrapper Callback Routines
+59.3. Foreign Data Wrapper Helper Functions
+59.4. Foreign Data Wrapper Query Planning
+59.5. Row Locking in Foreign Data Wrappers
+
+
+60. Writing a Table Sampling Method
+
+
+60.1. Sampling Method Support Functions
+
+
+61. Writing a Custom Scan Provider
+
+
+61.1. Creating Custom Scan Paths
+61.2. Creating Custom Scan Plans
+61.3. Executing Custom Scans
+
+
+62. Genetic Query Optimizer
+
+
+62.1. Query Handling as a Complex Optimization Problem
+62.2. Genetic Algorithms
+62.3. Genetic Query Optimization (GEQO) in PostgreSQL
+62.4. Further Reading
+
+
+63. Table Access Method Interface Definition
+64. Index Access Method Interface Definition
+
+
+64.1. Basic API Structure for Indexes
+64.2. Index Access Method Functions
+64.3. Index Scanning
+64.4. Index Locking Considerations
+64.5. Index Uniqueness Checks
+64.6. Index Cost Estimation Functions
+
+
+65. Generic WAL Records
+66. Custom WAL Resource Managers
+67. B-Tree Indexes
+
+
+67.1. Introduction
+67.2. Behavior of B-Tree Operator Classes
+67.3. B-Tree Support Functions
+67.4. Implementation
+
+
+68. GiST Indexes
+
+
+68.1. Introduction
+68.2. Built-in Operator Classes
+68.3. Extensibility
+68.4. Implementation
+68.5. Examples
+
+
+69. SP-GiST Indexes
+
+
+69.1. Introduction
+69.2. Built-in Operator Classes
+69.3. Extensibility
+69.4. Implementation
+69.5. Examples
+
+
+70. GIN Indexes
+
+
+70.1. Introduction
+70.2. Built-in Operator Classes
+70.3. Extensibility
+70.4. Implementation
+70.5. GIN Tips and Tricks
+70.6. Limitations
+70.7. Examples
+
+
+71. BRIN Indexes
+
+
+71.1. Introduction
+71.2. Built-in Operator Classes
+71.3. Extensibility
+
+
+72. Hash Indexes
+
+
+72.1. Overview
+72.2. Implementation
+
+
+73. Database Physical Storage
+
+
+73.1. Database File Layout
+73.2. TOAST
+73.3. Free Space Map
+73.4. Visibility Map
+73.5. The Initialization Fork
+73.6. Database Page Layout
+73.7. Heap-Only Tuples (HOT)
+
+
+74. System Catalog Declarations and Initial Contents
+
+
+74.1. System Catalog Declaration Rules
+74.2. System Catalog Initial Data
+74.3. BKI File Format
+74.4. BKI Commands
+74.5. Structure of the Bootstrap BKI File
+74.6. BKI Example
+
+
+75. How the Planner Uses Statistics
+
+
+75.1. Row Estimation Examples
+75.2. Multivariate Statistics Examples
+75.3. Planner Statistics and Security
+
+
+76. Backup Manifest Format
+
+
+76.1. Backup Manifest Top-level Object
+76.2. Backup Manifest File Object
+76.3. Backup Manifest WAL Range Object
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+postmaster 
+Home
+ Chapter 52. Overview of PostgreSQL Internals
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

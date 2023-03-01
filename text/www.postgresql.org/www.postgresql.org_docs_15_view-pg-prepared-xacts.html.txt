@@ -1,0 +1,306 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.16. pg_prepared_xacts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.16. pg_prepared_xacts
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.16. pg_prepared_xacts
+
+
+
+The view pg_prepared_xacts displays information about transactions that are currently prepared for two-phase commit (see PREPARE TRANSACTION for details).
+pg_prepared_xacts contains one row per prepared transaction. An entry is removed when the transaction is committed or rolled back.
+
+Table 54.16. pg_prepared_xacts Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+transaction xid
+Numeric transaction identifier of the prepared transaction
+
+
+
+
+gid text
+Global transaction identifier that was assigned to the transaction
+
+
+
+
+prepared timestamptz
+Time at which the transaction was prepared for commit
+
+
+
+
+owner name (references pg_authid.rolname)
+Name of the user that executed the transaction
+
+
+
+
+database name (references pg_database.datname)
+Name of the database in which the transaction was executed
+
+
+
+
+
+
+When the pg_prepared_xacts view is accessed, the internal transaction manager data structures are momentarily locked, and a copy is made for the view to display. This ensures that the view produces a consistent set of results, while not blocking normal operations longer than necessary. Nonetheless there could be some impact on database performance if this view is frequently accessed.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.15. pg_prepared_statements 
+Home
+ 54.17. pg_publication_tables
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

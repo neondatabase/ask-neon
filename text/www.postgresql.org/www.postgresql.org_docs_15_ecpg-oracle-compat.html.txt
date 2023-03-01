@@ -1,0 +1,227 @@
+
+
+
+PostgreSQL: Documentation: 15: 36.16. Oracle Compatibility Mode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+36.16. Oracle Compatibility Mode
+
+
+Prev 
+Up
+Chapter 36. ECPG — Embedded SQL in C
+Home
+ Next
+
+
+
+
+
+
+
+
+36.16. Oracle Compatibility Mode
+
+
+
+ecpg can be run in a so-called Oracle compatibility mode. If this mode is active, it tries to behave as if it were Oracle Pro*C.
+Specifically, this mode changes ecpg in three ways:
+
+
+
+Pad character arrays receiving character string types with trailing spaces to the specified length
+
+
+Zero byte terminate these character arrays, and set the indicator variable if truncation occurs
+
+
+Set the null indicator to -1 when character arrays receive empty character string types
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+36.15. Informix Compatibility Mode 
+Home
+ 36.17. Internals
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,339 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 53. System Catalogs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 53. System Catalogs
+
+
+Prev 
+Up
+Part VII. Internals
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 53. System Catalogs
+
+
+
+
+Table of Contents
+
+53.1. Overview
+53.2. pg_aggregate
+53.3. pg_am
+53.4. pg_amop
+53.5. pg_amproc
+53.6. pg_attrdef
+53.7. pg_attribute
+53.8. pg_authid
+53.9. pg_auth_members
+53.10. pg_cast
+53.11. pg_class
+53.12. pg_collation
+53.13. pg_constraint
+53.14. pg_conversion
+53.15. pg_database
+53.16. pg_db_role_setting
+53.17. pg_default_acl
+53.18. pg_depend
+53.19. pg_description
+53.20. pg_enum
+53.21. pg_event_trigger
+53.22. pg_extension
+53.23. pg_foreign_data_wrapper
+53.24. pg_foreign_server
+53.25. pg_foreign_table
+53.26. pg_index
+53.27. pg_inherits
+53.28. pg_init_privs
+53.29. pg_language
+53.30. pg_largeobject
+53.31. pg_largeobject_metadata
+53.32. pg_namespace
+53.33. pg_opclass
+53.34. pg_operator
+53.35. pg_opfamily
+53.36. pg_parameter_acl
+53.37. pg_partitioned_table
+53.38. pg_policy
+53.39. pg_proc
+53.40. pg_publication
+53.41. pg_publication_namespace
+53.42. pg_publication_rel
+53.43. pg_range
+53.44. pg_replication_origin
+53.45. pg_rewrite
+53.46. pg_seclabel
+53.47. pg_sequence
+53.48. pg_shdepend
+53.49. pg_shdescription
+53.50. pg_shseclabel
+53.51. pg_statistic
+53.52. pg_statistic_ext
+53.53. pg_statistic_ext_data
+53.54. pg_subscription
+53.55. pg_subscription_rel
+53.56. pg_tablespace
+53.57. pg_transform
+53.58. pg_trigger
+53.59. pg_ts_config
+53.60. pg_ts_config_map
+53.61. pg_ts_dict
+53.62. pg_ts_parser
+53.63. pg_ts_template
+53.64. pg_type
+53.65. pg_user_mapping
+
+
+The system catalogs are the place where a relational database management system stores schema metadata, such as information about tables and columns, and internal bookkeeping information. PostgreSQL's system catalogs are regular tables. You can drop and recreate the tables, add columns, insert and update values, and severely mess up your system that way. Normally, one should not change the system catalogs by hand, there are normally SQL commands to do that. (For example, CREATE DATABASE inserts a row into the pg_database catalog — and actually creates the database on disk.) There are some exceptions for particularly esoteric operations, but many of those have been made available as SQL commands over time, and so the need for direct manipulation of the system catalogs is ever decreasing.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+52.6. Executor 
+Home
+ 53.1. Overview
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

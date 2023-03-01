@@ -1,0 +1,304 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 45. PL/Perl — Perl Procedural Language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 45. PL/Perl — Perl Procedural Language
+
+
+Prev 
+Up
+Part V. Server Programming
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 45. PL/Perl — Perl Procedural Language
+
+
+
+
+Table of Contents
+
+45.1. PL/Perl Functions and Arguments
+45.2. Data Values in PL/Perl
+45.3. Built-in Functions
+
+
+45.3.1. Database Access from PL/Perl
+45.3.2. Utility Functions in PL/Perl
+
+
+45.4. Global Values in PL/Perl
+45.5. Trusted and Untrusted PL/Perl
+45.6. PL/Perl Triggers
+45.7. PL/Perl Event Triggers
+45.8. PL/Perl Under the Hood
+
+
+45.8.1. Configuration
+45.8.2. Limitations and Missing Features
+
+
+
+
+PL/Perl is a loadable procedural language that enables you to write PostgreSQL functions and procedures in the Perl programming language.
+The main advantage to using PL/Perl is that this allows use, within stored functions and procedures, of the manyfold “string munging” operators and functions available for Perl. Parsing complex strings might be easier using Perl than it is with the string functions and control structures provided in PL/pgSQL.
+To install PL/Perl in a particular database, use CREATE EXTENSION plperl.
+
+Tip
+If a language is installed into template1, all subsequently created databases will have the language installed automatically.
+
+
+Note
+Users of source packages must specially enable the build of PL/Perl during the installation process. (Refer to Chapter 17 for more information.) Users of binary packages might find PL/Perl in a separate subpackage.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+44.12. Tcl Procedure Names 
+Home
+ 45.1. PL/Perl Functions and Arguments
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

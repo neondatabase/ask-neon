@@ -1,0 +1,298 @@
+
+
+
+PostgreSQL: Documentation: 15: 37.5. applicable_roles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37.5. applicable_roles
+
+
+Prev 
+Up
+Chapter 37. The Information Schema
+Home
+ Next
+
+
+
+
+
+
+
+
+37.5. applicable_roles
+
+
+
+The view applicable_roles identifies all roles whose privileges the current user can use. This means there is some chain of role grants from the current user to the role in question. The current user itself is also an applicable role. The set of applicable roles is generally used for permission checking.  
+
+Table 37.3. applicable_roles Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+grantee sql_identifier
+Name of the role to which this role membership was granted (can be the current user, or a different role in case of nested role memberships)
+
+
+
+
+role_name sql_identifier
+Name of a role
+
+
+
+
+is_grantable yes_or_no
+YES if the grantee has the admin option on the role, NO if not
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.4. administrable_role_​authorizations 
+Home
+ 37.6. attributes
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

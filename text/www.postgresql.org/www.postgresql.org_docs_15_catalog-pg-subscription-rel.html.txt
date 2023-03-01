@@ -1,0 +1,266 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.55. pg_subscription_rel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.55. pg_subscription_rel
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.55. pg_subscription_rel
+
+
+
+The catalog pg_subscription_rel contains the state for each replicated relation in each subscription. This is a many-to-many mapping.
+This catalog only contains tables known to the subscription after running either CREATE SUBSCRIPTION or ALTER SUBSCRIPTION ... REFRESH PUBLICATION.
+
+Table 53.55. pg_subscription_rel Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+srsubid oid (references pg_subscription.oid)
+Reference to subscription
+
+
+
+
+srrelid oid (references pg_class.oid)
+Reference to relation
+
+
+
+
+srsubstate char
+State code: i = initialize, d = data is being copied, f = finished table copy, s = synchronized, r = ready (normal replication)
+
+
+
+
+srsublsn pg_lsn
+Remote LSN of the state change used for synchronization coordination when in s or r states, otherwise null
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.54. pg_subscription 
+Home
+ 53.56. pg_tablespace
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

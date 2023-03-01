@@ -1,0 +1,401 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 38. Extending SQL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 38. Extending SQL
+
+
+Prev 
+Up
+Part V. Server Programming
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 38. Extending SQL
+
+
+
+
+Table of Contents
+
+38.1. How Extensibility Works
+38.2. The PostgreSQL Type System
+
+
+38.2.1. Base Types
+38.2.2. Container Types
+38.2.3. Domains
+38.2.4. Pseudo-Types
+38.2.5. Polymorphic Types
+
+
+38.3. User-Defined Functions
+38.4. User-Defined Procedures
+38.5. Query Language (SQL) Functions
+
+
+38.5.1. Arguments for SQL Functions
+38.5.2. SQL Functions on Base Types
+38.5.3. SQL Functions on Composite Types
+38.5.4. SQL Functions with Output Parameters
+38.5.5. SQL Procedures with Output Parameters
+38.5.6. SQL Functions with Variable Numbers of Arguments
+38.5.7. SQL Functions with Default Values for Arguments
+38.5.8. SQL Functions as Table Sources
+38.5.9. SQL Functions Returning Sets
+38.5.10. SQL Functions Returning TABLE
+38.5.11. Polymorphic SQL Functions
+38.5.12. SQL Functions with Collations
+
+
+38.6. Function Overloading
+38.7. Function Volatility Categories
+38.8. Procedural Language Functions
+38.9. Internal Functions
+38.10. C-Language Functions
+
+
+38.10.1. Dynamic Loading
+38.10.2. Base Types in C-Language Functions
+38.10.3. Version 1 Calling Conventions
+38.10.4. Writing Code
+38.10.5. Compiling and Linking Dynamically-Loaded Functions
+38.10.6. Composite-Type Arguments
+38.10.7. Returning Rows (Composite Types)
+38.10.8. Returning Sets
+38.10.9. Polymorphic Arguments and Return Types
+38.10.10. Shared Memory and LWLocks
+38.10.11. Using C++ for Extensibility
+
+
+38.11. Function Optimization Information
+38.12. User-Defined Aggregates
+
+
+38.12.1. Moving-Aggregate Mode
+38.12.2. Polymorphic and Variadic Aggregates
+38.12.3. Ordered-Set Aggregates
+38.12.4. Partial Aggregation
+38.12.5. Support Functions for Aggregates
+
+
+38.13. User-Defined Types
+
+
+38.13.1. TOAST Considerations
+
+
+38.14. User-Defined Operators
+38.15. Operator Optimization Information
+
+
+38.15.1. COMMUTATOR
+38.15.2. NEGATOR
+38.15.3. RESTRICT
+38.15.4. JOIN
+38.15.5. HASHES
+38.15.6. MERGES
+
+
+38.16. Interfacing Extensions to Indexes
+
+
+38.16.1. Index Methods and Operator Classes
+38.16.2. Index Method Strategies
+38.16.3. Index Method Support Routines
+38.16.4. An Example
+38.16.5. Operator Classes and Operator Families
+38.16.6. System Dependencies on Operator Classes
+38.16.7. Ordering Operators
+38.16.8. Special Features of Operator Classes
+
+
+38.17. Packaging Related Objects into an Extension
+
+
+38.17.1. Extension Files
+38.17.2. Extension Relocatability
+38.17.3. Extension Configuration Tables
+38.17.4. Extension Updates
+38.17.5. Installing Extensions Using Update Scripts
+38.17.6. Security Considerations for Extensions
+38.17.7. Extension Example
+
+
+38.18. Extension Building Infrastructure
+
+
+In the sections that follow, we will discuss how you can extend the PostgreSQL SQL query language by adding:
+
+
+
+functions (starting in Section 38.3)
+
+
+aggregates (starting in Section 38.12)
+
+
+data types (starting in Section 38.13)
+
+
+operators (starting in Section 38.14)
+
+
+operator classes for indexes (starting in Section 38.16)
+
+
+packages of related objects (starting in Section 38.17)
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Part V. Server Programming 
+Home
+ 38.1. How Extensibility Works
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

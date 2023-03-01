@@ -1,0 +1,301 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 33. Regression Tests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 33. Regression Tests
+
+
+Prev 
+Up
+Part III. Server Administration
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 33. Regression Tests
+
+
+
+
+Table of Contents
+
+33.1. Running the Tests
+
+
+33.1.1. Running the Tests Against a Temporary Installation
+33.1.2. Running the Tests Against an Existing Installation
+33.1.3. Additional Test Suites
+33.1.4. Locale and Encoding
+33.1.5. Custom Server Settings
+33.1.6. Extra Tests
+
+
+33.2. Test Evaluation
+
+
+33.2.1. Error Message Differences
+33.2.2. Locale Differences
+33.2.3. Date and Time Differences
+33.2.4. Floating-Point Differences
+33.2.5. Row Ordering Differences
+33.2.6. Insufficient Stack Depth
+33.2.7. The “random” Test
+33.2.8. Configuration Parameters
+
+
+33.3. Variant Comparison Files
+33.4. TAP Tests
+33.5. Test Coverage Examination
+
+
+The regression tests are a comprehensive set of tests for the SQL implementation in PostgreSQL. They test standard SQL operations as well as the extended capabilities of PostgreSQL.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+32.4. Extensibility 
+Home
+ 33.1. Running the Tests
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

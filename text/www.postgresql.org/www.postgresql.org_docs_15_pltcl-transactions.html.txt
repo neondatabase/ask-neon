@@ -1,0 +1,231 @@
+
+
+
+PostgreSQL: Documentation: 15: 44.10. Transaction Management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+44.10. Transaction Management
+
+
+Prev 
+Up
+Chapter 44. PL/Tcl — Tcl Procedural Language
+Home
+ Next
+
+
+
+
+
+
+
+
+44.10. Transaction Management
+
+
+
+In a procedure called from the top level or an anonymous code block (DO command) called from the top level it is possible to control transactions. To commit the current transaction, call the commit command. To roll back the current transaction, call the rollback command. (Note that it is not possible to run the SQL commands COMMIT or ROLLBACK via spi_exec or similar. It has to be done using these functions.) After a transaction is ended, a new transaction is automatically started, so there is no separate command for that.
+Here is an example:
+
+CREATE PROCEDURE transaction_test1()
+LANGUAGE pltcl
+AS $$
+for {set i 0} {$i < 10} {incr i} {
+    spi_exec "INSERT INTO test1 (a) VALUES ($i)"
+    if {$i % 2 == 0} {
+        commit
+    } else {
+        rollback
+    }
+}
+$$;
+
+CALL transaction_test1();
+
+Transactions cannot be ended when an explicit subtransaction is active.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+44.9. Explicit Subtransactions in PL/Tcl 
+Home
+ 44.11. PL/Tcl Configuration
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

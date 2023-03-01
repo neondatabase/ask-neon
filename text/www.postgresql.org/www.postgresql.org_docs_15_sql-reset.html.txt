@@ -1,0 +1,312 @@
+
+
+
+PostgreSQL: Documentation: 15: RESET
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RESET
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+RESET
+RESET — restore the value of a run-time parameter to the default value
+
+
+Synopsis
+
+RESET configuration_parameter
+RESET ALL
+
+
+
+Description
+RESET restores run-time parameters to their default values. RESET is an alternative spelling for
+
+SET configuration_parameter TO DEFAULT
+
+Refer to SET for details.
+The default value is defined as the value that the parameter would have had, if no SET had ever been issued for it in the current session. The actual source of this value might be a compiled-in default, the configuration file, command-line options, or per-database or per-user default settings. This is subtly different from defining it as “the value that the parameter had at session start”, because if the value came from the configuration file, it will be reset to whatever is specified by the configuration file now. See Chapter 20 for details.
+The transactional behavior of RESET is the same as SET: its effects will be undone by transaction rollback.
+
+
+Parameters
+
+
+configuration_parameter
+
+Name of a settable run-time parameter. Available parameters are documented in Chapter 20 and on the SET reference page.
+
+ALL
+
+Resets all settable run-time parameters to default values.
+
+
+
+
+
+Examples
+Set the timezone configuration variable to its default value:
+
+RESET timezone;
+
+
+
+Compatibility
+RESET is a PostgreSQL extension.
+
+
+See AlsoSET, SHOW
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+RELEASE SAVEPOINT 
+Home
+ REVOKE
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

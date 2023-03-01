@@ -1,0 +1,285 @@
+
+
+
+PostgreSQL: Documentation: 15: DROP EXTENSION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP EXTENSION
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DROP EXTENSION
+DROP EXTENSION — remove an extension
+
+
+Synopsis
+
+DROP EXTENSION [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
+
+
+
+Description
+DROP EXTENSION removes extensions from the database. Dropping an extension causes its member objects, and other explicitly dependent routines (see ALTER ROUTINE, the DEPENDS ON EXTENSION extension_name action), to be dropped as well.
+You must own the extension to use DROP EXTENSION.
+
+
+Parameters
+
+
+IF EXISTS
+
+Do not throw an error if the extension does not exist. A notice is issued in this case.
+
+name
+
+The name of an installed extension.
+
+CASCADE
+
+Automatically drop objects that depend on the extension, and in turn all objects that depend on those objects (see Section 5.14).
+
+RESTRICT
+
+This option prevents the specified extensions from being dropped if other objects, besides these extensions, their members, and their explicitly dependent routines, depend on them.  This is the default.
+
+
+
+
+
+Examples
+To remove the extension hstore from the current database:
+
+DROP EXTENSION hstore;
+
+This command will fail if any of hstore's objects are in use in the database, for example if any tables have columns of the hstore type. Add the CASCADE option to forcibly remove those dependent objects as well.
+
+
+Compatibility
+DROP EXTENSION is a PostgreSQL extension.
+
+
+See AlsoCREATE EXTENSION, ALTER EXTENSION
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+DROP EVENT TRIGGER 
+Home
+ DROP FOREIGN DATA WRAPPER
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

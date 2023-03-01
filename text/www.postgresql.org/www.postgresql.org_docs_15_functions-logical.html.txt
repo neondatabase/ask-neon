@@ -1,0 +1,342 @@
+
+
+
+PostgreSQL: Documentation: 15: 9.1. Logical Operators
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9.1. Logical Operators
+
+
+Prev 
+Up
+Chapter 9. Functions and Operators
+Home
+ Next
+
+
+
+
+
+
+
+
+9.1. Logical Operators
+
+
+
+The usual logical operators are available:      
+
+boolean AND boolean → boolean
+boolean OR boolean → boolean
+NOT boolean → boolean
+
+SQL uses a three-valued logic system with true, false, and null, which represents “unknown”. Observe the following truth tables:
+
+
+
+
+
+
+
+
+
+
+a
+b
+a AND b
+a OR b
+
+
+
+
+TRUE
+TRUE
+TRUE
+TRUE
+
+
+TRUE
+FALSE
+FALSE
+TRUE
+
+
+TRUE
+NULL
+NULL
+TRUE
+
+
+FALSE
+FALSE
+FALSE
+FALSE
+
+
+FALSE
+NULL
+FALSE
+NULL
+
+
+NULL
+NULL
+NULL
+NULL
+
+
+
+
+
+
+
+
+
+
+
+
+a
+NOT a
+
+
+
+
+TRUE
+FALSE
+
+
+FALSE
+TRUE
+
+
+NULL
+NULL
+
+
+
+
+The operators AND and OR are commutative, that is, you can switch the left and right operands without affecting the result. (However, it is not guaranteed that the left operand is evaluated before the right operand. See Section 4.2.14 for more information about the order of evaluation of subexpressions.)
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Chapter 9. Functions and Operators 
+Home
+ 9.2. Comparison Functions and Operators
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

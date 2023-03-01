@@ -1,0 +1,260 @@
+
+
+
+PostgreSQL: Documentation: 15: 36.14. Embedded SQL Commands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+36.14. Embedded SQL Commands
+
+
+Prev 
+Up
+Chapter 36. ECPG — Embedded SQL in C
+Home
+ Next
+
+
+
+
+
+
+
+
+36.14. Embedded SQL Commands
+
+
+
+
+
+ALLOCATE DESCRIPTOR — allocate an SQL descriptor area
+CONNECT — establish a database connection
+DEALLOCATE DESCRIPTOR — deallocate an SQL descriptor area
+DECLARE — define a cursor
+DECLARE STATEMENT — declare SQL statement identifier
+DESCRIBE — obtain information about a prepared statement or result set
+DISCONNECT — terminate a database connection
+EXECUTE IMMEDIATE — dynamically prepare and execute a statement
+GET DESCRIPTOR — get information from an SQL descriptor area
+OPEN — open a dynamic cursor
+PREPARE — prepare a statement for execution
+SET AUTOCOMMIT — set the autocommit behavior of the current session
+SET CONNECTION — select a database connection
+SET DESCRIPTOR — set information in an SQL descriptor area
+TYPE — define a new data type
+VAR — define a variable
+WHENEVER — specify the action to be taken when an SQL statement causes a specific class condition to be raised
+
+
+This section describes all SQL commands that are specific to embedded SQL. Also refer to the SQL commands listed in SQL Commands, which can also be used in embedded SQL, unless stated otherwise.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+36.13. C++ Applications 
+Home
+ ALLOCATE DESCRIPTOR
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

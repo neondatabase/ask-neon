@@ -1,0 +1,303 @@
+
+
+
+PostgreSQL: Documentation: 15: RELEASE SAVEPOINT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RELEASE SAVEPOINT
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+RELEASE SAVEPOINT
+RELEASE SAVEPOINT — destroy a previously defined savepoint
+
+
+Synopsis
+
+RELEASE [ SAVEPOINT ] savepoint_name
+
+
+
+Description
+RELEASE SAVEPOINT destroys a savepoint previously defined in the current transaction.
+Destroying a savepoint makes it unavailable as a rollback point, but it has no other user visible behavior. It does not undo the effects of commands executed after the savepoint was established. (To do that, see ROLLBACK TO SAVEPOINT.) Destroying a savepoint when it is no longer needed allows the system to reclaim some resources earlier than transaction end.
+RELEASE SAVEPOINT also destroys all savepoints that were established after the named savepoint was established.
+
+
+Parameters
+
+
+savepoint_name
+
+The name of the savepoint to destroy.
+
+
+
+
+
+Notes
+Specifying a savepoint name that was not previously defined is an error.
+It is not possible to release a savepoint when the transaction is in an aborted state.
+If multiple savepoints have the same name, only the most recently defined unreleased one is released. Repeated commands will release progressively older savepoints.
+
+
+Examples
+To establish and later destroy a savepoint:
+
+BEGIN;
+    INSERT INTO table1 VALUES (3);
+    SAVEPOINT my_savepoint;
+    INSERT INTO table1 VALUES (4);
+    RELEASE SAVEPOINT my_savepoint;
+COMMIT;
+
+The above transaction will insert both 3 and 4.
+
+
+Compatibility
+This command conforms to the SQL standard. The standard specifies that the key word SAVEPOINT is mandatory, but PostgreSQL allows it to be omitted.
+
+
+See AlsoBEGIN, COMMIT, ROLLBACK, ROLLBACK TO SAVEPOINT, SAVEPOINT
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+REINDEX 
+Home
+ RESET
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,4674 @@
+
+
+
+PostgreSQL: Documentation: 15: Index
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Index
+
+
+Prev 
+Up
+PostgreSQL 15.2 Documentation
+Home
+ 
+
+
+
+
+
+
+
+
+Index
+
+
+
+
+Symbols | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
+
+Symbols
+
+$, Positional Parameters
+$libdir, Dynamic Loading
+$libdir/plugins, Shared Library Preloading, Description
+*, Select-List Items
+.pgpass, The Password File
+.pg_service.conf, The Connection Service File
+::, Type Casts
+_PG_archive_module_init, Initialization Functions
+_PG_init, Dynamic Loading
+_PG_output_plugin_init, Initialization Function
+
+
+
+A
+
+abbrev, Network Address Functions and Operators
+ABORT, ABORT
+abs, Mathematical Functions and Operators
+ACL, Privileges
+aclcontains, System Information Functions and Operators
+acldefault, System Information Functions and Operators
+aclexplode, System Information Functions and Operators
+aclitem, Privileges
+aclitemeq, System Information Functions and Operators
+acos, Mathematical Functions and Operators
+acosd, Mathematical Functions and Operators
+acosh, Mathematical Functions and Operators
+administration tools
+
+
+externally maintained, Administration Tools
+
+
+adminpack, adminpack
+advisory lock, Advisory Locks
+age, Date/Time Functions and Operators
+aggregate function, Aggregate Functions, Aggregate Expressions, Aggregate Functions, User-Defined Aggregates
+
+
+built-in, Aggregate Functions
+invocation, Aggregate Expressions
+moving aggregate, Moving-Aggregate Mode
+ordered set, Ordered-Set Aggregates
+partial aggregation, Partial Aggregation
+polymorphic, Polymorphic and Variadic Aggregates
+support functions for, Support Functions for Aggregates
+user-defined, User-Defined Aggregates
+variadic, Polymorphic and Variadic Aggregates
+
+
+AIX, AIX
+
+
+installation on, AIX
+IPC configuration, Shared Memory and Semaphores
+
+
+akeys, hstore Operators and Functions
+alias, Table and Column Aliases, Column Labels
+
+
+for table name in query, Joins Between Tables
+in the FROM clause, Table and Column Aliases
+in the select list, Column Labels
+
+
+ALL, GROUPING SETS, CUBE, and ROLLUP, DISTINCT, Subquery Expressions, Row and Array Comparisons
+
+
+GROUP BY ALL, GROUPING SETS, CUBE, and ROLLUP
+SELECT ALL, DISTINCT
+
+
+allow_in_place_tablespaces configuration parameter, Developer Options
+allow_system_table_mods configuration parameter, Developer Options
+ALTER AGGREGATE, ALTER AGGREGATE
+ALTER COLLATION, ALTER COLLATION
+ALTER CONVERSION, ALTER CONVERSION
+ALTER DATABASE, ALTER DATABASE
+ALTER DEFAULT PRIVILEGES, ALTER DEFAULT PRIVILEGES
+ALTER DOMAIN, ALTER DOMAIN
+ALTER EVENT TRIGGER, ALTER EVENT TRIGGER
+ALTER EXTENSION, ALTER EXTENSION
+ALTER FOREIGN DATA WRAPPER, ALTER FOREIGN DATA WRAPPER
+ALTER FOREIGN TABLE, ALTER FOREIGN TABLE
+ALTER FUNCTION, ALTER FUNCTION
+ALTER GROUP, ALTER GROUP
+ALTER INDEX, ALTER INDEX
+ALTER LANGUAGE, ALTER LANGUAGE
+ALTER LARGE OBJECT, ALTER LARGE OBJECT
+ALTER MATERIALIZED VIEW, ALTER MATERIALIZED VIEW
+ALTER OPERATOR, ALTER OPERATOR
+ALTER OPERATOR CLASS, ALTER OPERATOR CLASS
+ALTER OPERATOR FAMILY, ALTER OPERATOR FAMILY
+ALTER POLICY, ALTER POLICY
+ALTER PROCEDURE, ALTER PROCEDURE
+ALTER PUBLICATION, ALTER PUBLICATION
+ALTER ROLE, Role Attributes, ALTER ROLE
+ALTER ROUTINE, ALTER ROUTINE
+ALTER RULE, ALTER RULE
+ALTER SCHEMA, ALTER SCHEMA
+ALTER SEQUENCE, ALTER SEQUENCE
+ALTER SERVER, ALTER SERVER
+ALTER STATISTICS, ALTER STATISTICS
+ALTER SUBSCRIPTION, ALTER SUBSCRIPTION
+ALTER SYSTEM, ALTER SYSTEM
+ALTER TABLE, ALTER TABLE
+ALTER TABLESPACE, ALTER TABLESPACE
+ALTER TEXT SEARCH CONFIGURATION, ALTER TEXT SEARCH CONFIGURATION
+ALTER TEXT SEARCH DICTIONARY, ALTER TEXT SEARCH DICTIONARY
+ALTER TEXT SEARCH PARSER, ALTER TEXT SEARCH PARSER
+ALTER TEXT SEARCH TEMPLATE, ALTER TEXT SEARCH TEMPLATE
+ALTER TRIGGER, ALTER TRIGGER
+ALTER TYPE, ALTER TYPE
+ALTER USER, ALTER USER
+ALTER USER MAPPING, ALTER USER MAPPING
+ALTER VIEW, ALTER VIEW
+amcheck, amcheck
+ANALYZE, Updating Planner Statistics, ANALYZE
+AND (operator), Logical Operators
+anonymous code blocks, DO
+any, Pseudo-Types
+ANY, Aggregate Functions, Subquery Expressions, Row and Array Comparisons
+anyarray, Pseudo-Types
+anycompatible, Pseudo-Types
+anycompatiblearray, Pseudo-Types
+anycompatiblemultirange, Pseudo-Types
+anycompatiblenonarray, Pseudo-Types
+anycompatiblerange, Pseudo-Types
+anyelement, Pseudo-Types
+anyenum, Pseudo-Types
+anymultirange, Pseudo-Types
+anynonarray, Pseudo-Types
+anyrange, Pseudo-Types
+applicable role, applicable_roles
+application_name configuration parameter, What to Log
+arbitrary precision numbers, Arbitrary Precision Numbers
+Archive Modules, Archive Modules
+archive_cleanup_command configuration parameter, Archive Recovery
+archive_command configuration parameter, Archiving
+archive_library configuration parameter, Archiving
+archive_mode configuration parameter, Archiving
+archive_timeout configuration parameter, Archiving
+area, Geometric Functions and Operators
+armor, armor(), dearmor()
+array, Arrays
+
+
+accessing, Accessing Arrays
+constant, Array Value Input
+constructor, Array Constructors
+declaration, Declaration of Array Types
+I/O, Array Input and Output Syntax
+modifying, Modifying Arrays
+of user-defined type, User-Defined Types
+searching, Searching in Arrays
+
+
+ARRAY, Array Constructors, UNION, CASE, and Related Constructs
+
+
+determination of result type, UNION, CASE, and Related Constructs
+
+
+array_agg, Aggregate Functions, Functions
+array_append, Array Functions and Operators
+array_cat, Array Functions and Operators
+array_dims, Array Functions and Operators
+array_fill, Array Functions and Operators
+array_length, Array Functions and Operators
+array_lower, Array Functions and Operators
+array_ndims, Array Functions and Operators
+array_nulls configuration parameter, Previous PostgreSQL Versions
+array_position, Array Functions and Operators
+array_positions, Array Functions and Operators
+array_prepend, Array Functions and Operators
+array_remove, Array Functions and Operators
+array_replace, Array Functions and Operators
+array_to_json, Processing and Creating JSON Data
+array_to_string, Array Functions and Operators
+array_to_tsvector, Text Search Functions and Operators
+array_upper, Array Functions and Operators
+ascii, String Functions and Operators
+asin, Mathematical Functions and Operators
+asind, Mathematical Functions and Operators
+asinh, Mathematical Functions and Operators
+ASSERT
+
+
+in PL/pgSQL, Checking Assertions
+
+
+assertions
+
+
+in PL/pgSQL, Checking Assertions
+
+
+asynchronous commit, Asynchronous Commit
+AT TIME ZONE, AT TIME ZONE
+atan, Mathematical Functions and Operators
+atan2, Mathematical Functions and Operators
+atan2d, Mathematical Functions and Operators
+atand, Mathematical Functions and Operators
+atanh, Mathematical Functions and Operators
+authentication_timeout configuration parameter, Authentication
+auth_delay, auth_delay
+auth_delay.milliseconds configuration parameter, Configuration Parameters
+auto-increment (see serial)
+autocommit
+
+
+bulk-loading data, Disable Autocommit
+psql, Variables
+
+
+autosummarize storage parameter, Index Storage Parameters
+autovacuum
+
+
+configuration parameters, Automatic Vacuuming
+general information, The Autovacuum Daemon
+
+
+autovacuum configuration parameter, Automatic Vacuuming
+autovacuum_analyze_scale_factor
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_analyze_threshold
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_enabled storage parameter, Storage Parameters
+autovacuum_freeze_max_age
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_freeze_min_age storage parameter, Storage Parameters
+autovacuum_freeze_table_age storage parameter, Storage Parameters
+autovacuum_max_workers configuration parameter, Automatic Vacuuming
+autovacuum_multixact_freeze_max_age
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_multixact_freeze_min_age storage parameter, Storage Parameters
+autovacuum_multixact_freeze_table_age storage parameter, Storage Parameters
+autovacuum_naptime configuration parameter, Automatic Vacuuming
+autovacuum_vacuum_cost_delay
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_vacuum_cost_limit
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_vacuum_insert_scale_factor
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_vacuum_insert_threshold
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_vacuum_scale_factor
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_vacuum_threshold
+
+
+configuration parameter, Automatic Vacuuming
+storage parameter, Storage Parameters
+
+
+autovacuum_work_mem configuration parameter, Memory
+auto_explain, auto_explain
+auto_explain.log_analyze configuration parameter, Configuration Parameters
+auto_explain.log_buffers configuration parameter, Configuration Parameters
+auto_explain.log_format configuration parameter, Configuration Parameters
+auto_explain.log_level configuration parameter, Configuration Parameters
+auto_explain.log_min_duration configuration parameter, Configuration Parameters
+auto_explain.log_nested_statements configuration parameter, Configuration Parameters
+auto_explain.log_settings configuration parameter, Configuration Parameters
+auto_explain.log_timing configuration parameter, Configuration Parameters
+auto_explain.log_triggers configuration parameter, Configuration Parameters
+auto_explain.log_verbose configuration parameter, Configuration Parameters
+auto_explain.log_wal configuration parameter, Configuration Parameters
+auto_explain.sample_rate configuration parameter, Configuration Parameters
+avals, hstore Operators and Functions
+average, Aggregate Functions
+avg, Aggregate Functions
+
+
+
+B
+
+B-Tree (see index)
+backend_flush_after configuration parameter, Asynchronous Behavior
+Background workers, Background Worker Processes
+backslash escapes, String Constants with C-Style Escapes
+backslash_quote configuration parameter, Previous PostgreSQL Versions
+backtrace_functions configuration parameter, Developer Options
+backup, Backup Control Functions, Backup and Restore
+Backup Manifest, Backup Manifest Format
+base type, The PostgreSQL Type System
+base64 format, Binary String Functions and Operators
+basebackup_to_shell, basebackup_to_shell
+basebackup_to_shell.command configuration parameter, Configuration Parameters
+basebackup_to_shell.required_role configuration parameter, Configuration Parameters
+BASE_BACKUP, Streaming Replication Protocol
+basic_archive, basic_archive
+basic_archive.archive_directory configuration parameter, Configuration Parameters
+batch mode, Pipeline Mode
+
+
+in libpq, Pipeline Mode
+
+
+BEGIN, BEGIN
+BETWEEN, Comparison Functions and Operators
+BETWEEN SYMMETRIC, Comparison Functions and Operators
+BGWORKER_BACKEND_​DATABASE_CONNECTION, Background Worker Processes
+BGWORKER_SHMEM_ACCESS, Background Worker Processes
+bgwriter_delay configuration parameter, Background Writer
+bgwriter_flush_after configuration parameter, Background Writer
+bgwriter_lru_maxpages configuration parameter, Background Writer
+bgwriter_lru_multiplier configuration parameter, Background Writer
+bigint, Numeric Constants, Integer Types
+bigserial, Serial Types
+binary data, Binary Data Types, Binary String Functions and Operators
+
+
+functions, Binary String Functions and Operators
+
+
+binary string
+
+
+concatenation, Binary String Functions and Operators
+converting to character string, Binary String Functions and Operators
+length, Binary String Functions and Operators
+
+
+bison, Requirements
+bit string, Bit-String Constants, Bit String Types
+
+
+constant, Bit-String Constants
+data type, Bit String Types
+length, Bit String Functions and Operators
+
+
+bit strings, Bit String Functions and Operators
+
+
+functions, Bit String Functions and Operators
+
+
+bitmap scan, Combining Multiple Indexes, Planner Method Configuration
+bit_and, Aggregate Functions
+bit_count, Binary String Functions and Operators, Bit String Functions and Operators
+bit_length, String Functions and Operators, Binary String Functions and Operators, Bit String Functions and Operators
+bit_or, Aggregate Functions
+bit_xor, Aggregate Functions
+BLOB (see large object)
+block_size configuration parameter, Preset Options
+bloom, bloom
+bonjour configuration parameter, Connection Settings
+bonjour_name configuration parameter, Connection Settings
+Boolean, Boolean Type
+
+
+data type, Boolean Type
+operators (see operators, logical)
+
+
+bool_and, Aggregate Functions
+bool_or, Aggregate Functions
+booting
+
+
+starting the server during, Starting the Database Server
+
+
+bound_box, Geometric Functions and Operators
+box, Geometric Functions and Operators
+box (data type), Boxes
+BRIN (see index)
+brin_desummarize_range, Index Maintenance Functions
+brin_metapage_info, BRIN Functions
+brin_page_items, BRIN Functions
+brin_page_type, BRIN Functions
+brin_revmap_data, BRIN Functions
+brin_summarize_new_values, Index Maintenance Functions
+brin_summarize_range, Index Maintenance Functions
+broadcast, Network Address Functions and Operators
+BSD Authentication, BSD Authentication
+btree_gin, btree_gin
+btree_gist, btree_gist
+btrim, String Functions and Operators, Binary String Functions and Operators
+bt_index_check, Functions
+bt_index_parent_check, Functions
+bt_metap, B-Tree Functions
+bt_page_items, B-Tree Functions
+bt_page_stats, B-Tree Functions
+buffering storage parameter, Index Storage Parameters
+bytea, Binary Data Types
+bytea_output configuration parameter, Statement Behavior
+
+
+
+C
+
+C, libpq — C Library, ECPG — Embedded SQL in C
+C++, Using C++ for Extensibility
+CALL, CALL
+canceling, Canceling Queries in Progress
+
+
+SQL command, Canceling Queries in Progress
+
+
+cardinality, Array Functions and Operators
+CASCADE, Dependency Tracking
+
+
+with DROP, Dependency Tracking
+foreign key action, Foreign Keys
+
+
+Cascading Replication, High Availability, Load Balancing, and Replication
+CASE, Conditional Expressions, UNION, CASE, and Related Constructs
+
+
+determination of result type, UNION, CASE, and Related Constructs
+
+
+case sensitivity
+
+
+of SQL commands, Identifiers and Key Words
+
+
+cast, CREATE CAST
+
+
+I/O conversion, CREATE CAST
+
+
+cbrt, Mathematical Functions and Operators
+ceil, Mathematical Functions and Operators
+ceiling, Mathematical Functions and Operators
+center, Geometric Functions and Operators
+Certificate, Certificate Authentication
+chained transactions, Transaction Management, Parameters, Parameters
+
+
+in PL/pgSQL, Transaction Management
+
+
+char, Character Types
+character, Character Types
+character set, Locale and Formatting, Preset Options, Character Set Support
+character string, String Constants, Character Types
+
+
+concatenation, String Functions and Operators
+constant, String Constants
+converting to binary string, Binary String Functions and Operators
+data types, Character Types
+length, String Functions and Operators
+prefix test, String Functions and Operators
+
+
+character varying, Character Types
+character_length, String Functions and Operators
+char_length, String Functions and Operators
+check constraint, Check Constraints
+CHECK OPTION, CREATE VIEW
+checkpoint, WAL Configuration
+CHECKPOINT, CHECKPOINT
+checkpoint_completion_target configuration parameter, Checkpoints
+checkpoint_flush_after configuration parameter, Checkpoints
+checkpoint_timeout configuration parameter, Checkpoints
+checkpoint_warning configuration parameter, Checkpoints
+checksums, Data Checksums
+check_function_bodies configuration parameter, Statement Behavior
+chr, String Functions and Operators
+cid, Object Identifier Types
+cidr, cidr
+circle, Circles, Geometric Functions and Operators
+citext, citext
+client authentication, Client Authentication
+
+
+timeout during, Authentication
+
+
+client_connection_check_interval configuration parameter, Connection Settings
+client_encoding configuration parameter, Locale and Formatting
+client_min_messages configuration parameter, Statement Behavior
+clock_timestamp, Date/Time Functions and Operators
+CLOSE, CLOSE
+cluster
+
+
+of databases (see database cluster)
+
+
+CLUSTER, CLUSTER
+clusterdb, clusterdb
+clustering, High Availability, Load Balancing, and Replication
+cluster_name configuration parameter, Process Title
+cmax, System Columns
+cmin, System Columns
+COALESCE, COALESCE
+COLLATE, Collation Expressions
+collation, Collation Support
+
+
+in PL/pgSQL, Collation of PL/pgSQL Variables
+in SQL functions, SQL Functions with Collations
+
+
+COLLATION FOR, System Information Functions and Operators
+color, Color Support
+column, Concepts, Table Basics
+
+
+adding, Adding a Column
+removing, Removing a Column
+renaming, Renaming a Column
+system column, System Columns
+
+
+column data type
+
+
+changing, Changing a Column's Data Type
+
+
+column reference, Column References
+col_description, System Information Functions and Operators
+comment, Comments
+
+
+about database objects, System Information Functions and Operators
+in SQL, Comments
+
+
+COMMENT, COMMENT
+COMMIT, COMMIT
+COMMIT PREPARED, COMMIT PREPARED
+commit_delay configuration parameter, Settings
+commit_siblings configuration parameter, Settings
+common table expression (see WITH)
+comparison, Comparison Functions and Operators, Subquery Expressions
+
+
+composite type, Row and Array Comparisons
+operators, Comparison Functions and Operators
+row constructor, Row and Array Comparisons
+subquery result row, Subquery Expressions
+
+
+compiling, Building libpq Programs
+
+
+libpq applications, Building libpq Programs
+
+
+composite type, Composite Types, The PostgreSQL Type System
+
+
+comparison, Row and Array Comparisons
+constant, Constructing Composite Values
+constructor, Row Constructors
+
+
+computed field, Using Composite Types in Queries
+compute_query_id configuration parameter, Statistics Monitoring
+concat, String Functions and Operators
+concat_ws, String Functions and Operators
+concurrency, Concurrency Control
+conditional expression, Conditional Expressions
+configuration
+
+
+of recovery
+
+
+general settings, Recovery
+of a standby server, Archive Recovery
+
+
+of the server, Server Configuration
+of the server
+
+
+functions, Configuration Settings Functions
+
+
+
+
+configure, Installation Procedure
+configure environment variables, configure Environment Variables
+configure options, configure Options
+config_file configuration parameter, File Locations
+conjunction, Logical Operators
+connectby, Functions Provided, connectby
+connection service file, The Connection Service File
+conninfo, Connection Strings
+constant, Constants
+constraint, Constraints
+
+
+adding, Adding a Constraint
+check, Check Constraints
+exclusion, Exclusion Constraints
+foreign key, Foreign Keys
+name, Check Constraints
+NOT NULL, Not-Null Constraints
+primary key, Primary Keys
+removing, Removing a Constraint
+unique, Unique Constraints
+
+
+constraint exclusion, Partitioning and Constraint Exclusion, Other Planner Options
+constraint_exclusion configuration parameter, Other Planner Options
+container type, The PostgreSQL Type System
+CONTINUE
+
+
+in PL/pgSQL, CONTINUE
+
+
+continuous archiving, Backup and Restore
+
+
+in standby, Continuous Archiving in Standby
+
+
+control file, Extension Files
+convert, Binary String Functions and Operators
+convert_from, Binary String Functions and Operators
+convert_to, Binary String Functions and Operators
+COPY, Populating a Table With Rows, Functions Associated with the COPY Command, COPY
+
+
+with libpq, Functions Associated with the COPY Command
+
+
+corr, Aggregate Functions
+correlation, Aggregate Functions
+
+
+in the query planner, Extended Statistics
+
+
+cos, Mathematical Functions and Operators
+cosd, Mathematical Functions and Operators
+cosh, Mathematical Functions and Operators
+cot, Mathematical Functions and Operators
+cotd, Mathematical Functions and Operators
+count, Aggregate Functions
+covariance
+
+
+population, Aggregate Functions
+sample, Aggregate Functions
+
+
+covar_pop, Aggregate Functions
+covar_samp, Aggregate Functions
+covering index, Index-Only Scans and Covering Indexes
+cpu_index_tuple_cost configuration parameter, Planner Cost Constants
+cpu_operator_cost configuration parameter, Planner Cost Constants
+cpu_tuple_cost configuration parameter, Planner Cost Constants
+CREATE ACCESS METHOD, CREATE ACCESS METHOD
+CREATE AGGREGATE, CREATE AGGREGATE
+CREATE CAST, CREATE CAST
+CREATE COLLATION, CREATE COLLATION
+CREATE CONVERSION, CREATE CONVERSION
+CREATE DATABASE, Creating a Database, CREATE DATABASE
+CREATE DOMAIN, CREATE DOMAIN
+CREATE EVENT TRIGGER, CREATE EVENT TRIGGER
+CREATE EXTENSION, CREATE EXTENSION
+CREATE FOREIGN DATA WRAPPER, CREATE FOREIGN DATA WRAPPER
+CREATE FOREIGN TABLE, CREATE FOREIGN TABLE
+CREATE FUNCTION, CREATE FUNCTION
+CREATE GROUP, CREATE GROUP
+CREATE INDEX, CREATE INDEX
+CREATE LANGUAGE, CREATE LANGUAGE
+CREATE MATERIALIZED VIEW, CREATE MATERIALIZED VIEW
+CREATE OPERATOR, CREATE OPERATOR
+CREATE OPERATOR CLASS, CREATE OPERATOR CLASS
+CREATE OPERATOR FAMILY, CREATE OPERATOR FAMILY
+CREATE POLICY, CREATE POLICY
+CREATE PROCEDURE, CREATE PROCEDURE
+CREATE PUBLICATION, CREATE PUBLICATION
+CREATE ROLE, Database Roles, CREATE ROLE
+CREATE RULE, CREATE RULE
+CREATE SCHEMA, CREATE SCHEMA
+CREATE SEQUENCE, CREATE SEQUENCE
+CREATE SERVER, CREATE SERVER
+CREATE STATISTICS, CREATE STATISTICS
+CREATE SUBSCRIPTION, CREATE SUBSCRIPTION
+CREATE TABLE, Creating a New Table, CREATE TABLE
+CREATE TABLE AS, CREATE TABLE AS
+CREATE TABLESPACE, Tablespaces, CREATE TABLESPACE
+CREATE TEXT SEARCH CONFIGURATION, CREATE TEXT SEARCH CONFIGURATION
+CREATE TEXT SEARCH DICTIONARY, CREATE TEXT SEARCH DICTIONARY
+CREATE TEXT SEARCH PARSER, CREATE TEXT SEARCH PARSER
+CREATE TEXT SEARCH TEMPLATE, CREATE TEXT SEARCH TEMPLATE
+CREATE TRANSFORM, CREATE TRANSFORM
+CREATE TRIGGER, CREATE TRIGGER
+CREATE TYPE, CREATE TYPE
+CREATE USER, CREATE USER
+CREATE USER MAPPING, CREATE USER MAPPING
+CREATE VIEW, CREATE VIEW
+createdb, Creating a Database, Creating a Database, createdb
+createuser, Database Roles, createuser
+CREATE_REPLICATION_SLOT, Streaming Replication Protocol
+cross compilation, Build Process Details
+cross join, Joined Tables
+crosstab, crosstab(text), crosstabN(text), crosstab(text, text)
+crypt, crypt()
+cstring, Pseudo-Types
+CSV (Comma-Separated Values) format
+
+
+in psql, Meta-Commands
+
+
+ctid, System Columns
+CTID, View Rules in Non-SELECT Statements
+CUBE, GROUPING SETS, CUBE, and ROLLUP
+cube (extension), cube
+cume_dist, Window Functions
+
+
+hypothetical, Aggregate Functions
+
+
+current_catalog, System Information Functions and Operators
+current_database, System Information Functions and Operators
+current_date, Date/Time Functions and Operators
+current_logfiles
+
+
+and the log_destination configuration parameter, Where to Log
+and the pg_current_logfile function, System Information Functions and Operators
+
+
+current_query, System Information Functions and Operators
+current_role, System Information Functions and Operators
+current_schema, System Information Functions and Operators
+current_schemas, System Information Functions and Operators
+current_setting, Configuration Settings Functions
+current_time, Date/Time Functions and Operators
+current_timestamp, Date/Time Functions and Operators
+current_user, System Information Functions and Operators
+currval, Sequence Manipulation Functions
+cursor, Cursors, CLOSE, DECLARE, EXPLAIN, FETCH, MOVE
+
+
+CLOSE, CLOSE
+DECLARE, DECLARE
+FETCH, FETCH
+in PL/pgSQL, Cursors
+MOVE, MOVE
+showing the query plan, EXPLAIN
+
+
+cursor_tuple_fraction configuration parameter, Other Planner Options
+custom scan provider, Writing a Custom Scan Provider
+
+
+handler for, Writing a Custom Scan Provider
+
+
+Cygwin, Cygwin
+
+
+installation on, Cygwin
+
+
+
+
+
+D
+
+data area (see database cluster)
+data partitioning, High Availability, Load Balancing, and Replication
+data type, Data Types, Numeric Types, Enumerated Types, Domain Types, Type Conversion, The PostgreSQL Type System, The PostgreSQL Type System, The PostgreSQL Type System, Polymorphic Types, Base Types in C-Language Functions, User-Defined Types
+
+
+base, The PostgreSQL Type System
+category, Overview
+composite, The PostgreSQL Type System
+constant, Constants of Other Types
+container, The PostgreSQL Type System
+conversion, Type Conversion
+domain, Domain Types
+enumerated (enum), Enumerated Types
+internal organization, Base Types in C-Language Functions
+numeric, Numeric Types
+polymorphic, Polymorphic Types
+type cast, Type Casts
+user-defined, User-Defined Types
+
+
+database, Creating a Database, Managing Databases
+
+
+creating, Creating a Database
+privilege to create, Role Attributes
+
+
+database activity, Monitoring Database Activity
+
+
+monitoring, Monitoring Database Activity
+
+
+database cluster, Concepts, Creating a Database Cluster
+data_checksums configuration parameter, Preset Options
+data_directory configuration parameter, File Locations
+data_directory_mode configuration parameter, Preset Options
+data_sync_retry configuration parameter, Error Handling
+date, Date/Time Types, Dates
+
+
+constants, Special Values
+current, Current Date/Time
+output format, Date/Time Output
+
+
+(see also formatting)
+
+
+
+
+DateStyle configuration parameter, Locale and Formatting
+date_bin, date_bin
+date_part, Date/Time Functions and Operators, EXTRACT, date_part
+date_trunc, Date/Time Functions and Operators, date_trunc
+dblink, dblink, dblink
+dblink_build_sql_delete, dblink_build_sql_delete
+dblink_build_sql_insert, dblink_build_sql_insert
+dblink_build_sql_update, dblink_build_sql_update
+dblink_cancel_query, dblink_cancel_query
+dblink_close, dblink_close
+dblink_connect, dblink_connect
+dblink_connect_u, dblink_connect_u
+dblink_disconnect, dblink_disconnect
+dblink_error_message, dblink_error_message
+dblink_exec, dblink_exec
+dblink_fetch, dblink_fetch
+dblink_get_connections, dblink_get_connections
+dblink_get_notify, dblink_get_notify
+dblink_get_pkey, dblink_get_pkey
+dblink_get_result, dblink_get_result
+dblink_is_busy, dblink_is_busy
+dblink_open, dblink_open
+dblink_send_query, dblink_send_query
+db_user_namespace configuration parameter, Authentication
+deadlock, Deadlocks
+
+
+timeout during, Lock Management
+
+
+deadlock_timeout configuration parameter, Lock Management
+DEALLOCATE, DEALLOCATE
+dearmor, armor(), dearmor()
+debug_assertions configuration parameter, Preset Options
+debug_deadlocks configuration parameter, Developer Options
+debug_discard_caches configuration parameter, Developer Options
+debug_pretty_print configuration parameter, What to Log
+debug_print_parse configuration parameter, What to Log
+debug_print_plan configuration parameter, What to Log
+debug_print_rewritten configuration parameter, What to Log
+decimal (see numeric)
+DECLARE, DECLARE
+decode, Binary String Functions and Operators
+decode_bytea
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+decrypt, Raw Encryption Functions
+decrypt_iv, Raw Encryption Functions
+deduplicate_items storage parameter, Index Storage Parameters
+default value, Default Values
+
+
+changing, Changing a Column's Default Value
+
+
+default-roles, Default Roles Renamed to Predefined Roles
+default_statistics_target configuration parameter, Other Planner Options
+default_tablespace configuration parameter, Statement Behavior
+default_table_access_method configuration parameter, Statement Behavior
+default_text_search_config configuration parameter, Locale and Formatting
+default_toast_compression configuration parameter, Statement Behavior
+default_transaction_deferrable configuration parameter, Statement Behavior
+default_transaction_isolation configuration parameter, Statement Behavior
+default_transaction_read_only configuration parameter, Statement Behavior
+deferrable transaction, Statement Behavior
+
+
+setting, SET TRANSACTION
+setting default, Statement Behavior
+
+
+defined, hstore Operators and Functions
+degrees, Mathematical Functions and Operators
+delay, Delaying Execution
+DELETE, Deletions, Deleting Data, Returning Data from Modified Rows, DELETE
+
+
+RETURNING, Returning Data from Modified Rows
+
+
+delete, hstore Operators and Functions
+deleting, Deleting Data
+dense_rank, Window Functions
+
+
+hypothetical, Aggregate Functions
+
+
+diagonal, Geometric Functions and Operators
+diameter, Geometric Functions and Operators
+dict_int, dict_int
+dict_xsyn, dict_xsyn
+difference, Soundex
+digest, digest()
+dirty read, Transaction Isolation
+DISCARD, DISCARD
+disjunction, Logical Operators
+disk drive, WAL Internals
+disk space, Recovering Disk Space
+disk usage, Determining Disk Usage
+DISTINCT, Querying a Table, GROUPING SETS, CUBE, and ROLLUP, DISTINCT
+
+
+GROUP BY DISTINCT, GROUPING SETS, CUBE, and ROLLUP
+SELECT DISTINCT, DISTINCT
+
+
+div, Mathematical Functions and Operators
+dmetaphone, Double Metaphone
+dmetaphone_alt, Double Metaphone
+DO, DO
+document, What Is a Document?
+
+
+text search, What Is a Document?
+
+
+dollar quoting, Dollar-Quoted String Constants
+domain, Domain Types
+double precision, Floating-Point Types
+DROP ACCESS METHOD, DROP ACCESS METHOD
+DROP AGGREGATE, DROP AGGREGATE
+DROP CAST, DROP CAST
+DROP COLLATION, DROP COLLATION
+DROP CONVERSION, DROP CONVERSION
+DROP DATABASE, Destroying a Database, DROP DATABASE
+DROP DOMAIN, DROP DOMAIN
+DROP EVENT TRIGGER, DROP EVENT TRIGGER
+DROP EXTENSION, DROP EXTENSION
+DROP FOREIGN DATA WRAPPER, DROP FOREIGN DATA WRAPPER
+DROP FOREIGN TABLE, DROP FOREIGN TABLE
+DROP FUNCTION, DROP FUNCTION
+DROP GROUP, DROP GROUP
+DROP INDEX, DROP INDEX
+DROP LANGUAGE, DROP LANGUAGE
+DROP MATERIALIZED VIEW, DROP MATERIALIZED VIEW
+DROP OPERATOR, DROP OPERATOR
+DROP OPERATOR CLASS, DROP OPERATOR CLASS
+DROP OPERATOR FAMILY, DROP OPERATOR FAMILY
+DROP OWNED, DROP OWNED
+DROP POLICY, DROP POLICY
+DROP PROCEDURE, DROP PROCEDURE
+DROP PUBLICATION, DROP PUBLICATION
+DROP ROLE, Database Roles, DROP ROLE
+DROP ROUTINE, DROP ROUTINE
+DROP RULE, DROP RULE
+DROP SCHEMA, DROP SCHEMA
+DROP SEQUENCE, DROP SEQUENCE
+DROP SERVER, DROP SERVER
+DROP STATISTICS, DROP STATISTICS
+DROP SUBSCRIPTION, DROP SUBSCRIPTION
+DROP TABLE, Creating a New Table, DROP TABLE
+DROP TABLESPACE, DROP TABLESPACE
+DROP TEXT SEARCH CONFIGURATION, DROP TEXT SEARCH CONFIGURATION
+DROP TEXT SEARCH DICTIONARY, DROP TEXT SEARCH DICTIONARY
+DROP TEXT SEARCH PARSER, DROP TEXT SEARCH PARSER
+DROP TEXT SEARCH TEMPLATE, DROP TEXT SEARCH TEMPLATE
+DROP TRANSFORM, DROP TRANSFORM
+DROP TRIGGER, DROP TRIGGER
+DROP TYPE, DROP TYPE
+DROP USER, DROP USER
+DROP USER MAPPING, DROP USER MAPPING
+DROP VIEW, DROP VIEW
+dropdb, Destroying a Database, dropdb
+dropuser, Database Roles, dropuser
+DROP_REPLICATION_SLOT, Streaming Replication Protocol
+DTD, Creating XML Values
+DTrace, Developer Options, Dynamic Tracing
+duplicate, Querying a Table
+duplicates, DISTINCT
+dynamic loading, Other Defaults, Dynamic Loading
+dynamic_library_path, Dynamic Loading
+dynamic_library_path configuration parameter, Other Defaults
+dynamic_shared_memory_type configuration parameter, Memory
+
+
+
+E
+
+each, hstore Operators and Functions
+earth, Cube-Based Earth Distances
+earthdistance, earthdistance
+earth_box, Cube-Based Earth Distances
+earth_distance, Cube-Based Earth Distances
+ECPG, ECPG — Embedded SQL in C
+ecpg, ecpg
+effective_cache_size configuration parameter, Planner Cost Constants
+effective_io_concurrency configuration parameter, Asynchronous Behavior
+elog, Reporting Errors Within the Server
+
+
+in PL/Perl, Utility Functions in PL/Perl
+in PL/Python, Utility Functions
+in PL/Tcl, Database Access from PL/Tcl
+
+
+embedded SQL, ECPG — Embedded SQL in C
+
+
+in C, ECPG — Embedded SQL in C
+
+
+enabled role, enabled_roles
+enable_async_append configuration parameter, Planner Method Configuration
+enable_bitmapscan configuration parameter, Planner Method Configuration
+enable_gathermerge configuration parameter, Planner Method Configuration
+enable_hashagg configuration parameter, Planner Method Configuration
+enable_hashjoin configuration parameter, Planner Method Configuration
+enable_incremental_sort configuration parameter, Planner Method Configuration
+enable_indexonlyscan configuration parameter, Planner Method Configuration
+enable_indexscan configuration parameter, Planner Method Configuration
+enable_material configuration parameter, Planner Method Configuration
+enable_memoize configuration parameter, Planner Method Configuration
+enable_mergejoin configuration parameter, Planner Method Configuration
+enable_nestloop configuration parameter, Planner Method Configuration
+enable_parallel_append configuration parameter, Planner Method Configuration
+enable_parallel_hash configuration parameter, Planner Method Configuration
+enable_partitionwise_aggregate configuration parameter, Planner Method Configuration
+enable_partitionwise_join configuration parameter, Planner Method Configuration
+enable_partition_pruning configuration parameter, Planner Method Configuration
+enable_seqscan configuration parameter, Planner Method Configuration
+enable_sort configuration parameter, Planner Method Configuration
+enable_tidscan configuration parameter, Planner Method Configuration
+encode, Binary String Functions and Operators
+encode_array_constructor
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+encode_array_literal
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+encode_bytea
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+encode_typed_literal
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+encrypt, Raw Encryption Functions
+encryption, Encryption Options, pgcrypto
+
+
+for specific columns, pgcrypto
+
+
+encrypt_iv, Raw Encryption Functions
+END, END
+enumerated types, Enumerated Types
+enum_first, Enum Support Functions
+enum_last, Enum Support Functions
+enum_range, Enum Support Functions
+environment variable, Environment Variables
+ephemeral named relation
+
+
+registering with SPI, SPI_register_relation, SPI_register_trigger_data
+unregistering from SPI, SPI_unregister_relation
+
+
+ereport, Reporting Errors Within the Server
+error codes, PostgreSQL Error Codes
+
+
+libpq, Main Functions
+list of, PostgreSQL Error Codes
+
+
+error message, Connection Status Functions
+escape format, Binary String Functions and Operators
+escape string syntax, String Constants with C-Style Escapes
+escape_string_warning configuration parameter, Previous PostgreSQL Versions
+escaping strings, Escaping Strings for Inclusion in SQL Commands
+
+
+in libpq, Escaping Strings for Inclusion in SQL Commands
+
+
+event log, Registering Event Log on Windows
+
+
+event log, Registering Event Log on Windows
+
+
+event trigger, Event Triggers, Writing Event Trigger Functions in C
+
+
+in C, Writing Event Trigger Functions in C
+in PL/Tcl, Event Trigger Functions in PL/Tcl
+
+
+event_source configuration parameter, Where to Log
+event_trigger, Pseudo-Types
+every, Aggregate Functions
+EXCEPT, Combining Queries (UNION, INTERSECT, EXCEPT)
+exceptions
+
+
+in PL/pgSQL, Trapping Errors
+in PL/Tcl, Error Handling in PL/Tcl
+
+
+exclusion constraint, Exclusion Constraints
+EXECUTE, EXECUTE
+exist, hstore Operators and Functions
+EXISTS, Subquery Expressions
+EXIT
+
+
+in PL/pgSQL, EXIT
+
+
+exit_on_error configuration parameter, Error Handling
+exp, Mathematical Functions and Operators
+EXPLAIN, Using EXPLAIN, EXPLAIN
+expression, Value Expressions
+
+
+order of evaluation, Expression Evaluation Rules
+syntax, Value Expressions
+
+
+extending SQL, Extending SQL
+extension, Packaging Related Objects into an Extension
+
+
+externally maintained, Extensions
+
+
+external_pid_file configuration parameter, File Locations
+extract, Date/Time Functions and Operators, EXTRACT, date_part
+extra_float_digits configuration parameter, Locale and Formatting
+
+
+
+F
+
+factorial, Mathematical Functions and Operators
+failover, High Availability, Load Balancing, and Replication
+false, Boolean Type
+family, Network Address Functions and Operators
+fast path, The Fast-Path Interface
+fastupdate storage parameter, Index Storage Parameters
+fdw_handler, Pseudo-Types
+FETCH, FETCH
+field
+
+
+computed, Using Composite Types in Queries
+
+
+field selection, Field Selection
+file system mount points, Use of Secondary File Systems
+file_fdw, file_fdw
+fillfactor storage parameter, Index Storage Parameters, Storage Parameters
+FILTER, Aggregate Expressions
+first_value, Window Functions
+flex, Requirements
+float4 (see real)
+float8 (see double precision)
+floating point, Floating-Point Types
+floating-point
+
+
+display, Locale and Formatting
+
+
+floor, Mathematical Functions and Operators
+force_parallel_mode configuration parameter, Developer Options
+foreign data, Foreign Data
+foreign data wrapper, Writing a Foreign Data Wrapper
+
+
+handler for, Writing a Foreign Data Wrapper
+
+
+foreign key, Foreign Keys, Foreign Keys
+
+
+self-referential, Foreign Keys
+
+
+foreign table, Foreign Data
+format, String Functions and Operators, format
+
+
+use in PL/pgSQL, Executing Dynamic Commands
+
+
+formatting, Data Type Formatting Functions
+format_type, System Information Functions and Operators
+Free Space Map, Free Space Map
+FreeBSD
+
+
+IPC configuration, Shared Memory and Semaphores
+shared library, Compiling and Linking Dynamically-Loaded Functions
+start script, Starting the Database Server
+
+
+from_collapse_limit configuration parameter, Other Planner Options
+FSM (see Free Space Map)
+fsm_page_contents, General Functions
+fsync configuration parameter, Settings
+full text search, Text Search Types, Text Search Types, Full Text Search
+
+
+data types, Text Search Types
+functions and operators, Text Search Types
+
+
+full_page_writes configuration parameter, Settings
+function, Table Functions, Functions and Operators, Statistics Information Functions, Functions, Polymorphic Types, User-Defined Functions, Query Language (SQL) Functions, Internal Functions, C-Language Functions
+
+
+default values for arguments, SQL Functions with Default Values for Arguments
+in the FROM clause, Table Functions
+internal, Internal Functions
+invocation, Function Calls
+mixed notation, Using Mixed Notation
+named argument, Arguments for SQL Functions
+named notation, Using Named Notation
+output parameter, SQL Functions with Output Parameters
+polymorphic, Polymorphic Types
+positional notation, Using Positional Notation
+RETURNS TABLE, SQL Functions Returning TABLE
+statistics, Statistics Information Functions
+type resolution in an invocation, Functions
+user-defined, User-Defined Functions, Query Language (SQL) Functions, C-Language Functions
+
+
+in C, C-Language Functions
+in SQL, Query Language (SQL) Functions
+
+
+variadic, SQL Functions with Variable Numbers of Arguments
+with SETOF, SQL Functions Returning Sets
+
+
+functional dependency, The GROUP BY and HAVING Clauses
+fuzzystrmatch, fuzzystrmatch
+
+
+
+G
+
+gcd, Mathematical Functions and Operators
+gc_to_sec, Cube-Based Earth Distances
+generated column, Generated Columns, Parameters, Parameters
+
+
+in triggers, Overview of Trigger Behavior
+
+
+generate_series, Set Returning Functions
+generate_subscripts, Set Returning Functions
+genetic query optimization, Genetic Query Optimizer
+gen_random_bytes, Random-Data Functions
+gen_random_uuid, UUID Functions, Random-Data Functions
+gen_salt, gen_salt()
+GEQO (see genetic query optimization)
+geqo configuration parameter, Genetic Query Optimizer
+geqo_effort configuration parameter, Genetic Query Optimizer
+geqo_generations configuration parameter, Genetic Query Optimizer
+geqo_pool_size configuration parameter, Genetic Query Optimizer
+geqo_seed configuration parameter, Genetic Query Optimizer
+geqo_selection_bias configuration parameter, Genetic Query Optimizer
+geqo_threshold configuration parameter, Genetic Query Optimizer
+get_bit, Binary String Functions and Operators, Bit String Functions and Operators
+get_byte, Binary String Functions and Operators
+get_current_ts_config, Text Search Functions and Operators
+get_raw_page, General Functions
+GIN (see index)
+gin_clean_pending_list, Index Maintenance Functions
+gin_fuzzy_search_limit configuration parameter, Other Defaults
+gin_leafpage_items, GIN Functions
+gin_metapage_info, GIN Functions
+gin_page_opaque_info, GIN Functions
+gin_pending_list_limit
+
+
+configuration parameter, Statement Behavior
+storage parameter, Index Storage Parameters
+
+
+GiST (see index)
+gist_page_items, GiST Functions
+gist_page_items_bytea, GiST Functions
+gist_page_opaque_info, GiST Functions
+global data, Global Data in PL/Tcl
+
+
+in PL/Python, Sharing Data
+in PL/Tcl, Global Data in PL/Tcl
+
+
+GRANT, Privileges, GRANT
+GREATEST, GREATEST and LEAST, UNION, CASE, and Related Constructs
+
+
+determination of result type, UNION, CASE, and Related Constructs
+
+
+Gregorian calendar, History of Units
+GROUP BY, Aggregate Functions, The GROUP BY and HAVING Clauses
+grouping, The GROUP BY and HAVING Clauses
+GROUPING, Aggregate Functions
+GROUPING SETS, GROUPING SETS, CUBE, and ROLLUP
+gssapi, Secure TCP/IP Connections with GSSAPI Encryption
+GSSAPI, GSSAPI Authentication
+
+
+with libpq, Parameter Key Words
+
+
+GUID, UUID Type
+
+
+
+H
+
+hash (see index)
+hash_bitmap_info, Hash Functions
+hash_mem_multiplier configuration parameter, Memory
+hash_metapage_info, Hash Functions
+hash_page_items, Hash Functions
+hash_page_stats, Hash Functions
+hash_page_type, Hash Functions
+has_any_column_privilege, System Information Functions and Operators
+has_column_privilege, System Information Functions and Operators
+has_database_privilege, System Information Functions and Operators
+has_foreign_data_wrapper_privilege, System Information Functions and Operators
+has_function_privilege, System Information Functions and Operators
+has_language_privilege, System Information Functions and Operators
+has_parameter_privilege, System Information Functions and Operators
+has_schema_privilege, System Information Functions and Operators
+has_sequence_privilege, System Information Functions and Operators
+has_server_privilege, System Information Functions and Operators
+has_tablespace_privilege, System Information Functions and Operators
+has_table_privilege, System Information Functions and Operators
+has_type_privilege, System Information Functions and Operators
+HAVING, Aggregate Functions, The GROUP BY and HAVING Clauses
+hba_file configuration parameter, File Locations
+heap_page_items, Heap Functions
+heap_page_item_attrs, Heap Functions
+heap_tuple_infomask_flags, Heap Functions
+height, Geometric Functions and Operators
+hex format, Binary String Functions and Operators
+hierarchical database, Concepts
+high availability, High Availability, Load Balancing, and Replication
+history, A Brief History of PostgreSQL
+
+
+of PostgreSQL, A Brief History of PostgreSQL
+
+
+hmac, hmac()
+host, Network Address Functions and Operators
+host name, Parameter Key Words
+hostmask, Network Address Functions and Operators
+hot standby, High Availability, Load Balancing, and Replication
+hot_standby configuration parameter, Standby Servers
+hot_standby_feedback configuration parameter, Standby Servers
+HP-UX
+
+
+IPC configuration, Shared Memory and Semaphores
+shared library, Compiling and Linking Dynamically-Loaded Functions
+
+
+hstore, hstore, hstore Operators and Functions
+hstore_to_array, hstore Operators and Functions
+hstore_to_json, hstore Operators and Functions
+hstore_to_jsonb, hstore Operators and Functions
+hstore_to_jsonb_loose, hstore Operators and Functions
+hstore_to_json_loose, hstore Operators and Functions
+hstore_to_matrix, hstore Operators and Functions
+huge_pages configuration parameter, Memory
+huge_page_size configuration parameter, Memory
+hypothetical-set aggregate
+
+
+built-in, Aggregate Functions
+
+
+
+
+
+I
+
+icount, intarray Functions and Operators
+ICU, PostgreSQL Features, Locale Providers, Managing Collations, Parameters, Parameters
+ident, Ident Authentication
+identifier, Identifiers and Key Words
+
+
+length, Identifiers and Key Words
+syntax of, Identifiers and Key Words
+
+
+IDENTIFY_SYSTEM, Streaming Replication Protocol
+ident_file configuration parameter, File Locations
+idle_in_transaction_session_timeout configuration parameter, Statement Behavior
+idle_session_timeout configuration parameter, Statement Behavior
+idx, intarray Functions and Operators
+IFNULL, COALESCE
+ignore_checksum_failure configuration parameter, Developer Options
+ignore_invalid_pages configuration parameter, Developer Options
+ignore_system_indexes configuration parameter, Developer Options
+IMMUTABLE, Function Volatility Categories
+IMPORT FOREIGN SCHEMA, IMPORT FOREIGN SCHEMA
+IN, Subquery Expressions, Row and Array Comparisons
+INCLUDE
+
+
+in index definitions, Index-Only Scans and Covering Indexes
+
+
+include
+
+
+in configuration file, Managing Configuration File Contents
+
+
+include_dir
+
+
+in configuration file, Managing Configuration File Contents
+
+
+include_if_exists
+
+
+in configuration file, Managing Configuration File Contents
+
+
+index, Indexes, Multicolumn Indexes, Indexes and ORDER BY, Combining Multiple Indexes, Unique Indexes, Indexes on Expressions, Partial Indexes, Index-Only Scans and Covering Indexes, Index-Only Scans and Covering Indexes, Examining Index Usage, Preferred Index Types for Text Search, Preferred Index Types for Text Search, Locking and Indexes, Interfacing Extensions to Indexes, Building Indexes Concurrently, Rebuilding Indexes Concurrently, Operators and Functions
+
+
+and ORDER BY, Indexes and ORDER BY
+B-Tree, B-Tree, B-Tree Indexes
+BRIN, BRIN, BRIN Indexes
+building concurrently, Building Indexes Concurrently
+combining multiple indexes, Combining Multiple Indexes
+covering, Index-Only Scans and Covering Indexes
+examining usage, Examining Index Usage
+on expressions, Indexes on Expressions
+for user-defined data type, Interfacing Extensions to Indexes
+GIN, GIN, Preferred Index Types for Text Search, GIN Indexes
+
+
+text search, Preferred Index Types for Text Search
+
+
+GiST, GiST, Preferred Index Types for Text Search, GiST Indexes
+
+
+text search, Preferred Index Types for Text Search
+
+
+hash, Hash
+Hash, Hash Indexes
+index-only scans, Index-Only Scans and Covering Indexes
+locks, Locking and Indexes
+multicolumn, Multicolumn Indexes
+partial, Partial Indexes
+rebuilding concurrently, Rebuilding Indexes Concurrently
+SP-GiST, SP-GiST, SP-GiST Indexes
+unique, Unique Indexes
+
+
+Index Access Method, Index Access Method Interface Definition
+index scan, Planner Method Configuration
+index-only scan, Index-Only Scans and Covering Indexes
+indexam
+
+
+Index Access Method, Index Access Method Interface Definition
+
+
+index_am_handler, Pseudo-Types
+inet (data type), inet
+inet_client_addr, System Information Functions and Operators
+inet_client_port, System Information Functions and Operators
+inet_merge, Network Address Functions and Operators
+inet_same_family, Network Address Functions and Operators
+inet_server_addr, System Information Functions and Operators
+inet_server_port, System Information Functions and Operators
+infinity
+
+
+floating point, Floating-Point Types
+numeric (data type), Arbitrary Precision Numbers
+
+
+information schema, The Information Schema
+inheritance, Inheritance, Inheritance
+initcap, String Functions and Operators
+initdb, Creating a Database Cluster, initdb
+Initialization Fork, The Initialization Fork
+input function, User-Defined Types
+INSERT, Populating a Table With Rows, Inserting Data, Returning Data from Modified Rows, INSERT
+
+
+RETURNING, Returning Data from Modified Rows
+
+
+inserting, Inserting Data
+installation, Installation from Source Code
+
+
+binaries, Installation from Binaries
+on Windows, Installation from Source Code on Windows
+
+
+instr function, Appendix
+int2 (see smallint)
+int4 (see integer)
+int8 (see bigint)
+intagg, intagg
+intarray, intarray
+integer, Numeric Constants, Integer Types
+integer_datetimes configuration parameter, Preset Options
+interfaces
+
+
+externally maintained, Client Interfaces
+
+
+internal, Pseudo-Types
+INTERSECT, Combining Queries (UNION, INTERSECT, EXCEPT)
+interval, Date/Time Types, Interval Input
+
+
+output format, Interval Output
+
+
+(see also formatting)
+
+
+
+
+IntervalStyle configuration parameter, Locale and Formatting
+intset, intarray Functions and Operators
+int_array_aggregate, Functions
+int_array_enum, Functions
+inverse distribution, Aggregate Functions
+in_hot_standby configuration parameter, Preset Options
+in_range support functions, B-Tree Support Functions
+IS DISTINCT FROM, Comparison Functions and Operators, Row and Array Comparisons
+IS DOCUMENT, IS DOCUMENT
+IS FALSE, Comparison Functions and Operators
+IS NOT DISTINCT FROM, Comparison Functions and Operators, Row and Array Comparisons
+IS NOT DOCUMENT, IS NOT DOCUMENT
+IS NOT FALSE, Comparison Functions and Operators
+IS NOT NULL, Comparison Functions and Operators
+IS NOT TRUE, Comparison Functions and Operators
+IS NOT UNKNOWN, Comparison Functions and Operators
+IS NULL, Comparison Functions and Operators, Platform and Client Compatibility
+IS TRUE, Comparison Functions and Operators
+IS UNKNOWN, Comparison Functions and Operators
+isclosed, Geometric Functions and Operators
+isempty, Range/Multirange Functions and Operators
+isfinite, Date/Time Functions and Operators
+isn, isn
+ISNULL, Comparison Functions and Operators
+isn_weak, Functions and Operators
+isopen, Geometric Functions and Operators
+is_array_ref
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+is_valid, Functions and Operators
+
+
+
+J
+
+JIT, Just-in-Time Compilation (JIT)
+jit configuration parameter, Other Planner Options
+jit_above_cost configuration parameter, Planner Cost Constants
+jit_debugging_support configuration parameter, Developer Options
+jit_dump_bitcode configuration parameter, Developer Options
+jit_expressions configuration parameter, Developer Options
+jit_inline_above_cost configuration parameter, Planner Cost Constants
+jit_optimize_above_cost configuration parameter, Planner Cost Constants
+jit_profiling_support configuration parameter, Developer Options
+jit_provider configuration parameter, Shared Library Preloading
+jit_tuple_deforming configuration parameter, Developer Options
+join, Joins Between Tables, Joined Tables, Controlling the Planner with Explicit JOIN Clauses
+
+
+controlling the order, Controlling the Planner with Explicit JOIN Clauses
+cross, Joined Tables
+left, Joined Tables
+natural, Joined Tables
+outer, Joins Between Tables, Joined Tables
+right, Joined Tables
+self, Joins Between Tables
+
+
+join_collapse_limit configuration parameter, Other Planner Options
+JSON, JSON Types, JSON Functions and Operators
+
+
+functions and operators, JSON Functions and Operators
+
+
+JSONB, JSON Types
+jsonb
+
+
+containment, jsonb Containment and Existence
+existence, jsonb Containment and Existence
+indexes on, jsonb Indexing
+
+
+jsonb_agg, Aggregate Functions
+jsonb_array_elements, Processing and Creating JSON Data
+jsonb_array_elements_text, Processing and Creating JSON Data
+jsonb_array_length, Processing and Creating JSON Data
+jsonb_build_array, Processing and Creating JSON Data
+jsonb_build_object, Processing and Creating JSON Data
+jsonb_each, Processing and Creating JSON Data
+jsonb_each_text, Processing and Creating JSON Data
+jsonb_extract_path, Processing and Creating JSON Data
+jsonb_extract_path_text, Processing and Creating JSON Data
+jsonb_insert, Processing and Creating JSON Data
+jsonb_object, Processing and Creating JSON Data
+jsonb_object_agg, Aggregate Functions
+jsonb_object_keys, Processing and Creating JSON Data
+jsonb_path_exists, Processing and Creating JSON Data
+jsonb_path_exists_tz, Processing and Creating JSON Data
+jsonb_path_match, Processing and Creating JSON Data
+jsonb_path_match_tz, Processing and Creating JSON Data
+jsonb_path_query, Processing and Creating JSON Data
+jsonb_path_query_array, Processing and Creating JSON Data
+jsonb_path_query_array_tz, Processing and Creating JSON Data
+jsonb_path_query_first, Processing and Creating JSON Data
+jsonb_path_query_first_tz, Processing and Creating JSON Data
+jsonb_path_query_tz, Processing and Creating JSON Data
+jsonb_populate_record, Processing and Creating JSON Data
+jsonb_populate_recordset, Processing and Creating JSON Data
+jsonb_pretty, Processing and Creating JSON Data
+jsonb_set, Processing and Creating JSON Data
+jsonb_set_lax, Processing and Creating JSON Data
+jsonb_strip_nulls, Processing and Creating JSON Data
+jsonb_to_record, Processing and Creating JSON Data
+jsonb_to_recordset, Processing and Creating JSON Data
+jsonb_to_tsvector, Text Search Functions and Operators
+jsonb_typeof, Processing and Creating JSON Data
+jsonpath, jsonpath Type
+json_agg, Aggregate Functions
+json_array_elements, Processing and Creating JSON Data
+json_array_elements_text, Processing and Creating JSON Data
+json_array_length, Processing and Creating JSON Data
+json_build_array, Processing and Creating JSON Data
+json_build_object, Processing and Creating JSON Data
+json_each, Processing and Creating JSON Data
+json_each_text, Processing and Creating JSON Data
+json_extract_path, Processing and Creating JSON Data
+json_extract_path_text, Processing and Creating JSON Data
+json_object, Processing and Creating JSON Data
+json_object_agg, Aggregate Functions
+json_object_keys, Processing and Creating JSON Data
+json_populate_record, Processing and Creating JSON Data
+json_populate_recordset, Processing and Creating JSON Data
+json_strip_nulls, Processing and Creating JSON Data
+json_to_record, Processing and Creating JSON Data
+json_to_recordset, Processing and Creating JSON Data
+json_to_tsvector, Text Search Functions and Operators
+json_typeof, Processing and Creating JSON Data
+Julian date, Julian Dates
+Just-In-Time compilation (see JIT)
+justify_days, Date/Time Functions and Operators
+justify_hours, Date/Time Functions and Operators
+justify_interval, Date/Time Functions and Operators
+
+
+
+K
+
+key word, Identifiers and Key Words, SQL Key Words
+
+
+list of, SQL Key Words
+syntax of, Identifiers and Key Words
+
+
+krb_caseins_users configuration parameter, Authentication
+krb_server_keyfile configuration parameter, Authentication
+
+
+
+L
+
+label (see alias)
+lag, Window Functions
+language_handler, Pseudo-Types
+large object, Large Objects
+lastval, Sequence Manipulation Functions
+last_value, Window Functions
+LATERAL, LATERAL Subqueries
+
+
+in the FROM clause, LATERAL Subqueries
+
+
+latitude, Cube-Based Earth Distances
+lca, Operators and Functions
+lcm, Mathematical Functions and Operators
+lc_collate configuration parameter, Preset Options
+lc_ctype configuration parameter, Preset Options
+lc_messages configuration parameter, Locale and Formatting
+lc_monetary configuration parameter, Locale and Formatting
+lc_numeric configuration parameter, Locale and Formatting
+lc_time configuration parameter, Locale and Formatting
+LDAP, PostgreSQL Features, LDAP Authentication
+LDAP connection parameter lookup, LDAP Lookup of Connection Parameters
+ldconfig, Shared Libraries
+lead, Window Functions
+LEAST, GREATEST and LEAST, UNION, CASE, and Related Constructs
+
+
+determination of result type, UNION, CASE, and Related Constructs
+
+
+left, String Functions and Operators
+left join, Joined Tables
+length, String Functions and Operators, Binary String Functions and Operators, Bit String Functions and Operators, Geometric Functions and Operators, Text Search Functions and Operators
+
+
+of a binary string (see binary strings, length)
+of a character string (see character string, length)
+
+
+length(tsvector), Manipulating Documents
+levenshtein, Levenshtein
+levenshtein_less_equal, Levenshtein
+lex, Requirements
+libedit, Requirements
+
+
+in psql, Command-Line Editing
+
+
+libperl, Requirements
+libpq, libpq — C Library, Pipeline Mode, Retrieving Query Results Row-by-Row
+
+
+pipeline mode, Pipeline Mode
+single-row mode, Retrieving Query Results Row-by-Row
+
+
+libpq-fe.h, libpq — C Library, Connection Status Functions
+libpq-int.h, Connection Status Functions
+libpython, Requirements
+library initialization function, Dynamic Loading
+LIKE, LIKE
+
+
+and locales, Behavior
+
+
+LIKE_REGEX, Differences from SQL Standard and XQuery, SQL/JSON Regular Expressions
+
+
+in SQL/JSON, SQL/JSON Regular Expressions
+
+
+LIMIT, LIMIT and OFFSET
+line, Lines, Geometric Functions and Operators
+line segment, Line Segments
+linear regression, Aggregate Functions
+Linux
+
+
+IPC configuration, Shared Memory and Semaphores
+shared library, Compiling and Linking Dynamically-Loaded Functions
+start script, Starting the Database Server
+
+
+LISTEN, LISTEN
+listen_addresses configuration parameter, Connection Settings
+llvm-config, PostgreSQL Features
+ll_to_earth, Cube-Based Earth Distances
+ln, Mathematical Functions and Operators
+lo, lo
+LOAD, LOAD
+load balancing, High Availability, Load Balancing, and Replication
+locale, Creating a Database Cluster, Locale Support
+localtime, Date/Time Functions and Operators
+localtimestamp, Date/Time Functions and Operators
+local_preload_libraries configuration parameter, Shared Library Preloading
+lock, Explicit Locking, Advisory Locks, Viewing Locks
+
+
+advisory, Advisory Locks
+monitoring, Viewing Locks
+
+
+LOCK, Table-Level Locks, LOCK
+lock_timeout configuration parameter, Statement Behavior
+log, Mathematical Functions and Operators
+log shipping, High Availability, Load Balancing, and Replication
+log10, Mathematical Functions and Operators
+Logging
+
+
+current_logfiles file and the pg_current_logfile function, System Information Functions and Operators
+pg_current_logfile function, System Information Functions and Operators
+
+
+logging_collector configuration parameter, Where to Log
+Logical Decoding, Logical Decoding, Logical Decoding
+logical_decoding_work_mem configuration parameter, Memory
+login privilege, Role Attributes
+log_autovacuum_min_duration
+
+
+configuration parameter, What to Log
+storage parameter, Storage Parameters
+
+
+log_btree_build_stats configuration parameter, Developer Options
+log_checkpoints configuration parameter, What to Log
+log_connections configuration parameter, What to Log
+log_destination configuration parameter, Where to Log
+log_directory configuration parameter, Where to Log
+log_disconnections configuration parameter, What to Log
+log_duration configuration parameter, What to Log
+log_error_verbosity configuration parameter, What to Log
+log_executor_stats configuration parameter, Statistics Monitoring
+log_filename configuration parameter, Where to Log
+log_file_mode configuration parameter, Where to Log
+log_hostname configuration parameter, What to Log
+log_line_prefix configuration parameter, What to Log
+log_lock_waits configuration parameter, What to Log
+log_min_duration_sample configuration parameter, When to Log
+log_min_duration_statement configuration parameter, When to Log
+log_min_error_statement configuration parameter, When to Log
+log_min_messages configuration parameter, When to Log
+log_parameter_max_length configuration parameter, What to Log
+log_parameter_max_length_on_error configuration parameter, What to Log
+log_parser_stats configuration parameter, Statistics Monitoring
+log_planner_stats configuration parameter, Statistics Monitoring
+log_recovery_conflict_waits configuration parameter, What to Log
+log_replication_commands configuration parameter, What to Log
+log_rotation_age configuration parameter, Where to Log
+log_rotation_size configuration parameter, Where to Log
+log_startup_progress_interval configuration parameter, When to Log
+log_statement configuration parameter, What to Log
+log_statement_sample_rate configuration parameter, When to Log
+log_statement_stats configuration parameter, Statistics Monitoring
+log_temp_files configuration parameter, What to Log
+log_timezone configuration parameter, What to Log
+log_transaction_sample_rate configuration parameter, When to Log
+log_truncate_on_rotation configuration parameter, Where to Log
+longitude, Cube-Based Earth Distances
+looks_like_number
+
+
+in PL/Perl, Utility Functions in PL/Perl
+
+
+loop, Simple Loops
+
+
+in PL/pgSQL, Simple Loops
+
+
+lower, String Functions and Operators, Range/Multirange Functions and Operators
+
+
+and locales, Behavior
+
+
+lower_inc, Range/Multirange Functions and Operators
+lower_inf, Range/Multirange Functions and Operators
+lo_close, Closing a Large Object Descriptor
+lo_compat_privileges configuration parameter, Previous PostgreSQL Versions
+lo_creat, Creating a Large Object, Server-Side Functions
+lo_create, Creating a Large Object
+lo_export, Exporting a Large Object, Server-Side Functions
+lo_from_bytea, Server-Side Functions
+lo_get, Server-Side Functions
+lo_import, Importing a Large Object, Server-Side Functions
+lo_import_with_oid, Importing a Large Object
+lo_lseek, Seeking in a Large Object
+lo_lseek64, Seeking in a Large Object
+lo_open, Opening an Existing Large Object
+lo_put, Server-Side Functions
+lo_read, Reading Data from a Large Object
+lo_tell, Obtaining the Seek Position of a Large Object
+lo_tell64, Obtaining the Seek Position of a Large Object
+lo_truncate, Truncating a Large Object
+lo_truncate64, Truncating a Large Object
+lo_unlink, Removing a Large Object, Server-Side Functions
+lo_write, Writing Data to a Large Object
+lpad, String Functions and Operators
+lseg, Line Segments, Geometric Functions and Operators
+LSN, WAL Internals
+ltree, ltree
+ltree2text, Operators and Functions
+ltrim, String Functions and Operators, Binary String Functions and Operators
+
+
+
+M
+
+MAC address (see macaddr)
+MAC address (EUI-64 format) (see macaddr)
+macaddr (data type), macaddr
+macaddr8 (data type), macaddr8
+macaddr8_set7bit, Network Address Functions and Operators
+macOS, macOS
+
+
+installation on, macOS
+IPC configuration, Shared Memory and Semaphores
+shared library, Compiling and Linking Dynamically-Loaded Functions
+
+
+magic block, Dynamic Loading
+maintenance, Routine Database Maintenance Tasks
+maintenance_io_concurrency configuration parameter, Asynchronous Behavior
+maintenance_work_mem configuration parameter, Memory
+make, Requirements
+makeaclitem, System Information Functions and Operators
+make_date, Date/Time Functions and Operators
+make_interval, Date/Time Functions and Operators
+make_time, Date/Time Functions and Operators
+make_timestamp, Date/Time Functions and Operators
+make_timestamptz, Date/Time Functions and Operators
+make_valid, Functions and Operators
+MANPATH, Environment Variables
+masklen, Network Address Functions and Operators
+materialized view, Materialized Views
+
+
+implementation through rules, Materialized Views
+
+
+materialized views, pg_matviews
+max, Aggregate Functions
+max_connections configuration parameter, Connection Settings
+max_files_per_process configuration parameter, Kernel Resource Usage
+max_function_args configuration parameter, Preset Options
+max_identifier_length configuration parameter, Preset Options
+max_index_keys configuration parameter, Preset Options
+max_locks_per_transaction configuration parameter, Lock Management
+max_logical_replication_workers configuration parameter, Subscribers
+max_parallel_maintenance_workers configuration parameter, Asynchronous Behavior
+max_parallel_workers configuration parameter, Asynchronous Behavior
+max_parallel_workers_per_gather configuration parameter, Asynchronous Behavior
+max_pred_locks_per_page configuration parameter, Lock Management
+max_pred_locks_per_relation configuration parameter, Lock Management
+max_pred_locks_per_transaction configuration parameter, Lock Management
+max_prepared_transactions configuration parameter, Memory
+max_replication_slots configuration parameter, Sending Servers
+max_slot_wal_keep_size configuration parameter, Sending Servers
+max_stack_depth configuration parameter, Memory
+max_standby_archive_delay configuration parameter, Standby Servers
+max_standby_streaming_delay configuration parameter, Standby Servers
+max_sync_workers_per_subscription configuration parameter, Subscribers
+max_wal_senders configuration parameter, Sending Servers
+max_wal_size configuration parameter, Checkpoints
+max_worker_processes configuration parameter, Asynchronous Behavior
+md5, String Functions and Operators, Binary String Functions and Operators
+MD5, Password Authentication
+median, Aggregate Expressions
+
+
+(see also percentile)
+
+
+memory context
+
+
+in SPI, Memory Management
+
+
+memory overcommit, Linux Memory Overcommit
+MERGE, MERGE
+metaphone, Metaphone
+min, Aggregate Functions
+MinGW, MinGW/Native Windows
+
+
+installation on, MinGW/Native Windows
+
+
+min_dynamic_shared_memory configuration parameter, Memory
+min_parallel_index_scan_size configuration parameter, Planner Cost Constants
+min_parallel_table_scan_size configuration parameter, Planner Cost Constants
+min_scale, Mathematical Functions and Operators
+min_wal_size configuration parameter, Checkpoints
+mod, Mathematical Functions and Operators
+mode
+
+
+statistical, Aggregate Functions
+
+
+monitoring, Monitoring Database Activity
+
+
+database activity, Monitoring Database Activity
+
+
+MOVE, MOVE
+moving-aggregate mode, Moving-Aggregate Mode
+multirange (function), Range/Multirange Functions and Operators
+multirange type, Range Types
+Multiversion Concurrency Control, Introduction
+MultiXactId, Multixacts and Wraparound
+MVCC, Introduction
+
+
+
+N
+
+name, Identifiers and Key Words
+
+
+qualified, Creating a Schema
+syntax of, Identifiers and Key Words
+unqualified, The Schema Search Path
+
+
+NaN (see not a number)
+natural join, Joined Tables
+negation, Logical Operators
+NetBSD
+
+
+IPC configuration, Shared Memory and Semaphores
+shared library, Compiling and Linking Dynamically-Loaded Functions
+start script, Starting the Database Server
+
+
+netmask, Network Address Functions and Operators
+network, Network Address Types, Network Address Functions and Operators
+
+
+data types, Network Address Types
+
+
+nextval, Sequence Manipulation Functions
+NFS, NFS
+nlevel, Operators and Functions
+non-durable, Non-Durable Settings
+nonblocking connection, Database Connection Control Functions, Asynchronous Command Processing
+nonrepeatable read, Transaction Isolation
+normalize, String Functions and Operators
+normalized, String Functions and Operators
+normal_rand, normal_rand
+NOT (operator), Logical Operators
+not a number
+
+
+floating point, Floating-Point Types
+numeric (data type), Arbitrary Precision Numbers
+
+
+NOT IN, Subquery Expressions, Row and Array Comparisons
+not-null constraint, Not-Null Constraints
+notation, Calling Functions
+
+
+functions, Calling Functions
+
+
+notice processing, Notice Processing
+
+
+in libpq, Notice Processing
+
+
+notice processor, Notice Processing
+notice receiver, Notice Processing
+NOTIFY, Asynchronous Notification, NOTIFY
+
+
+in libpq, Asynchronous Notification
+
+
+NOTNULL, Comparison Functions and Operators
+now, Date/Time Functions and Operators
+npoints, Geometric Functions and Operators
+nth_value, Window Functions
+ntile, Window Functions
+null value
+
+
+with check constraints, Check Constraints
+comparing, Comparison Functions and Operators
+default value, Default Values
+in DISTINCT, DISTINCT
+in libpq, Retrieving Query Result Information
+in PL/Perl, PL/Perl Functions and Arguments
+in PL/Python, Null, None
+with unique constraints, Unique Constraints
+
+
+NULLIF, NULLIF
+number
+
+
+constant, Numeric Constants
+
+
+numeric, Numeric Constants
+numeric (data type), Arbitrary Precision Numbers
+numnode, Text Search Functions and Operators, Manipulating Queries
+num_nonnulls, Comparison Functions and Operators
+num_nulls, Comparison Functions and Operators
+NVL, COALESCE
+
+
+
+O
+
+object identifier, Object Identifier Types
+
+
+data type, Object Identifier Types
+
+
+object-oriented database, Concepts
+obj_description, System Information Functions and Operators
+OCCURRENCES_REGEX, Differences from SQL Standard and XQuery
+octet_length, String Functions and Operators, Binary String Functions and Operators, Bit String Functions and Operators
+OFFSET, LIMIT and OFFSET
+oid, Object Identifier Types
+OID
+
+
+in libpq, Retrieving Other Result Information
+
+
+oid2name, oid2name
+old_snapshot, old_snapshot
+old_snapshot_threshold configuration parameter, Asynchronous Behavior
+ON CONFLICT, INSERT
+ONLY, The FROM Clause
+OOM, Linux Memory Overcommit
+OpenBSD
+
+
+IPC configuration, Shared Memory and Semaphores
+shared library, Compiling and Linking Dynamically-Loaded Functions
+start script, Starting the Database Server
+
+
+OpenSSL, PostgreSQL Features
+
+
+(see also SSL)
+
+
+operator, Operators, Operator Precedence, Functions and Operators, Logical Operators, Operators, User-Defined Operators
+
+
+invocation, Operator Invocations
+logical, Logical Operators
+precedence, Operator Precedence
+syntax, Operators
+type resolution in an invocation, Operators
+user-defined, User-Defined Operators
+
+
+operator class, Operator Classes and Operator Families, Index Methods and Operator Classes
+operator family, Operator Classes and Operator Families, Operator Classes and Operator Families
+optimization information, Function Optimization Information, Operator Optimization Information
+
+
+for functions, Function Optimization Information
+for operators, Operator Optimization Information
+
+
+OR (operator), Logical Operators
+Oracle, Porting from Oracle PL/SQL
+
+
+porting from PL/SQL to PL/pgSQL, Porting from Oracle PL/SQL
+
+
+ORDER BY, Querying a Table, Sorting Rows (ORDER BY)
+
+
+and locales, Behavior
+
+
+ordered-set aggregate, Aggregate Expressions
+
+
+built-in, Aggregate Functions
+
+
+ordering operator, System Dependencies on Operator Classes
+ordinality, Set Returning Functions
+outer join, Joined Tables
+output function, User-Defined Types
+OVER clause, Window Function Calls
+overcommit, Linux Memory Overcommit
+OVERLAPS, Date/Time Functions and Operators
+overlay, String Functions and Operators, Binary String Functions and Operators, Bit String Functions and Operators
+overloading, Function Overloading
+
+
+functions, Function Overloading
+operators, User-Defined Operators
+
+
+owner, Privileges
+
+
+
+P
+
+pageinspect, pageinspect
+pages_per_range storage parameter, Index Storage Parameters
+page_checksum, General Functions
+page_header, General Functions
+palloc, Writing Code
+PAM, PostgreSQL Features, PAM Authentication
+parallel query, Parallel Query
+parallel_leader_participation configuration parameter, Asynchronous Behavior
+parallel_setup_cost configuration parameter, Planner Cost Constants
+parallel_tuple_cost configuration parameter, Planner Cost Constants
+parallel_workers storage parameter, Storage Parameters
+parameter
+
+
+syntax, Positional Parameters
+
+
+parenthesis, Value Expressions
+parse_ident, String Functions and Operators
+partition pruning, Partition Pruning
+partitioned table, Table Partitioning
+partitioning, Table Partitioning
+password, Role Attributes
+
+
+authentication, Password Authentication
+of the superuser, Creating a Database Cluster
+
+
+password file, The Password File
+passwordcheck, passwordcheck
+password_encryption configuration parameter, Authentication
+path, Geometric Functions and Operators
+
+
+for schemas, Statement Behavior
+
+
+PATH, Environment Variables
+path (data type), Paths
+pattern matching, Pattern Matching
+patterns
+
+
+in psql and pg_dump, Patterns
+
+
+pclose, Geometric Functions and Operators
+peer, Peer Authentication
+percentile
+
+
+continuous, Aggregate Functions
+discrete, Aggregate Functions
+
+
+percent_rank, Window Functions
+
+
+hypothetical, Aggregate Functions
+
+
+performance, Performance Tips
+perl, Requirements
+Perl, PL/Perl — Perl Procedural Language
+permission (see privilege)
+pfree, Writing Code
+PGAPPNAME, Environment Variables
+pgbench, pgbench
+PGcancel, Canceling Queries in Progress
+PGCHANNELBINDING, Environment Variables
+PGCLIENTENCODING, Environment Variables
+PGconn, Database Connection Control Functions
+PGCONNECT_TIMEOUT, Environment Variables
+pgcrypto, pgcrypto
+PGDATA, Creating a Database Cluster
+PGDATABASE, Environment Variables
+PGDATESTYLE, Environment Variables
+PGEventProc, Event Callback Procedure
+PGGEQO, Environment Variables
+PGGSSENCMODE, Environment Variables
+PGGSSLIB, Environment Variables
+PGHOST, Environment Variables
+PGHOSTADDR, Environment Variables
+PGKRBSRVNAME, Environment Variables
+PGLOCALEDIR, Environment Variables
+PGOPTIONS, Environment Variables
+PGPASSFILE, Environment Variables
+PGPASSWORD, Environment Variables
+PGPORT, Environment Variables
+pgp_armor_headers, pgp_armor_headers
+pgp_key_id, pgp_key_id()
+pgp_pub_decrypt, pgp_pub_decrypt()
+pgp_pub_decrypt_bytea, pgp_pub_decrypt()
+pgp_pub_encrypt, pgp_pub_encrypt()
+pgp_pub_encrypt_bytea, pgp_pub_encrypt()
+pgp_sym_decrypt, pgp_sym_decrypt()
+pgp_sym_decrypt_bytea, pgp_sym_decrypt()
+pgp_sym_encrypt, pgp_sym_encrypt()
+pgp_sym_encrypt_bytea, pgp_sym_encrypt()
+PGREQUIREPEER, Environment Variables
+PGREQUIRESSL, Environment Variables
+PGresult, Main Functions
+pgrowlocks, pgrowlocks, Overview
+PGSERVICE, Environment Variables
+PGSERVICEFILE, Environment Variables
+PGSSLCERT, Environment Variables
+PGSSLCOMPRESSION, Environment Variables
+PGSSLCRL, Environment Variables
+PGSSLCRLDIR, Environment Variables
+PGSSLKEY, Environment Variables
+PGSSLMAXPROTOCOLVERSION, Environment Variables
+PGSSLMINPROTOCOLVERSION, Environment Variables
+PGSSLMODE, Environment Variables
+PGSSLROOTCERT, Environment Variables
+PGSSLSNI, Environment Variables
+pgstatginindex, Functions
+pgstathashindex, Functions
+pgstatindex, Functions
+pgstattuple, pgstattuple, Functions
+pgstattuple_approx, Functions
+PGSYSCONFDIR, Environment Variables
+PGTARGETSESSIONATTRS, Environment Variables
+PGTZ, Environment Variables
+PGUSER, Environment Variables
+pgxs, Extension Building Infrastructure
+pg_advisory_lock, Advisory Lock Functions
+pg_advisory_lock_shared, Advisory Lock Functions
+pg_advisory_unlock, Advisory Lock Functions
+pg_advisory_unlock_all, Advisory Lock Functions
+pg_advisory_unlock_shared, Advisory Lock Functions
+pg_advisory_xact_lock, Advisory Lock Functions
+pg_advisory_xact_lock_shared, Advisory Lock Functions
+pg_aggregate, pg_aggregate
+pg_am, pg_am
+pg_amcheck, pg_amcheck
+pg_amop, pg_amop
+pg_amproc, pg_amproc
+pg_archivecleanup, pg_archivecleanup
+pg_attrdef, pg_attrdef
+pg_attribute, pg_attribute
+pg_authid, pg_authid
+pg_auth_members, pg_auth_members
+pg_available_extensions, pg_available_extensions
+pg_available_extension_versions, pg_available_extension_versions
+pg_backend_memory_contexts, pg_backend_memory_contexts
+pg_backend_pid, System Information Functions and Operators
+pg_backup_start, Backup Control Functions
+pg_backup_stop, Backup Control Functions
+pg_basebackup, pg_basebackup
+pg_blocking_pids, System Information Functions and Operators
+pg_buffercache, pg_buffercache
+pg_buffercache_pages, pg_buffercache
+pg_cancel_backend, Server Signaling Functions
+pg_cast, pg_cast
+pg_char_to_encoding, System Information Functions and Operators
+pg_checksums, pg_checksums
+pg_class, pg_class
+pg_client_encoding, String Functions and Operators
+pg_collation, pg_collation
+pg_collation_actual_version, Database Object Management Functions
+pg_collation_is_visible, System Information Functions and Operators
+PG_COLOR, When Color is Used
+PG_COLORS, Configuring the Colors
+pg_column_compression, Database Object Management Functions
+pg_column_size, Database Object Management Functions
+pg_config, pg_config, pg_config
+
+
+with ecpg, Processing Embedded SQL Programs
+with libpq, Building libpq Programs
+with user-defined C functions, Writing Code
+
+
+pg_conf_load_time, System Information Functions and Operators
+pg_constraint, pg_constraint
+pg_controldata, pg_controldata
+pg_control_checkpoint, System Information Functions and Operators
+pg_control_init, System Information Functions and Operators
+pg_control_recovery, System Information Functions and Operators
+pg_control_system, System Information Functions and Operators
+pg_conversion, pg_conversion
+pg_conversion_is_visible, System Information Functions and Operators
+pg_copy_logical_replication_slot, Replication Management Functions
+pg_copy_physical_replication_slot, Replication Management Functions
+pg_create_logical_replication_slot, Replication Management Functions
+pg_create_physical_replication_slot, Replication Management Functions
+pg_create_restore_point, Backup Control Functions
+pg_ctl, Creating a Database Cluster, Starting the Database Server, pg_ctl
+pg_current_logfile, System Information Functions and Operators
+pg_current_snapshot, System Information Functions and Operators
+pg_current_wal_flush_lsn, Backup Control Functions
+pg_current_wal_insert_lsn, Backup Control Functions
+pg_current_wal_lsn, Backup Control Functions
+pg_current_xact_id, System Information Functions and Operators
+pg_current_xact_id_if_assigned, System Information Functions and Operators
+pg_cursors, pg_cursors
+pg_database, Template Databases, pg_database
+pg_database_collation_actual_version, Database Object Management Functions
+pg_database_size, Database Object Management Functions
+pg_db_role_setting, pg_db_role_setting
+pg_ddl_command, Pseudo-Types
+pg_default_acl, pg_default_acl
+pg_depend, pg_depend
+pg_describe_object, System Information Functions and Operators
+pg_description, pg_description
+pg_drop_replication_slot, Replication Management Functions
+pg_dump, pg_dump
+pg_dumpall, pg_dumpall
+
+
+use during upgrade, Upgrading Data via pg_dumpall
+
+
+pg_encoding_to_char, System Information Functions and Operators
+pg_enum, pg_enum
+pg_event_trigger, pg_event_trigger
+pg_event_trigger_ddl_commands, Capturing Changes at Command End
+pg_event_trigger_dropped_objects, Processing Objects Dropped by a DDL Command
+pg_event_trigger_table_rewrite_oid, Handling a Table Rewrite Event
+pg_event_trigger_table_rewrite_reason, Handling a Table Rewrite Event
+pg_export_snapshot, Snapshot Synchronization Functions
+pg_extension, pg_extension
+pg_extension_config_dump, Extension Configuration Tables
+pg_filenode_relation, Database Object Management Functions
+pg_file_rename, adminpack
+pg_file_settings, pg_file_settings
+pg_file_sync, adminpack
+pg_file_unlink, adminpack
+pg_file_write, adminpack
+pg_foreign_data_wrapper, pg_foreign_data_wrapper
+pg_foreign_server, pg_foreign_server
+pg_foreign_table, pg_foreign_table
+pg_freespace, Functions
+pg_freespacemap, pg_freespacemap
+pg_function_is_visible, System Information Functions and Operators
+pg_get_catalog_foreign_keys, System Information Functions and Operators
+pg_get_constraintdef, System Information Functions and Operators
+pg_get_expr, System Information Functions and Operators
+pg_get_functiondef, System Information Functions and Operators
+pg_get_function_arguments, System Information Functions and Operators
+pg_get_function_identity_arguments, System Information Functions and Operators
+pg_get_function_result, System Information Functions and Operators
+pg_get_indexdef, System Information Functions and Operators
+pg_get_keywords, System Information Functions and Operators
+pg_get_object_address, System Information Functions and Operators
+pg_get_ruledef, System Information Functions and Operators
+pg_get_serial_sequence, System Information Functions and Operators
+pg_get_statisticsobjdef, System Information Functions and Operators
+pg_get_triggerdef, System Information Functions and Operators
+pg_get_userbyid, System Information Functions and Operators
+pg_get_viewdef, System Information Functions and Operators
+pg_get_wal_replay_pause_state, Recovery Control Functions
+pg_get_wal_resource_managers, Recovery Control Functions
+pg_group, pg_group
+pg_has_role, System Information Functions and Operators
+pg_hba.conf, The pg_hba.conf File
+pg_hba_file_rules, pg_hba_file_rules
+pg_ident.conf, User Name Maps
+pg_identify_object, System Information Functions and Operators
+pg_identify_object_as_address, System Information Functions and Operators
+pg_ident_file_mappings, pg_ident_file_mappings
+pg_import_system_collations, Database Object Management Functions
+pg_index, pg_index
+pg_indexam_has_property, System Information Functions and Operators
+pg_indexes, pg_indexes
+pg_indexes_size, Database Object Management Functions
+pg_index_column_has_property, System Information Functions and Operators
+pg_index_has_property, System Information Functions and Operators
+pg_inherits, pg_inherits
+pg_init_privs, pg_init_privs
+pg_isready, pg_isready
+pg_is_in_recovery, Recovery Control Functions
+pg_is_other_temp_schema, System Information Functions and Operators
+pg_is_wal_replay_paused, Recovery Control Functions
+pg_jit_available, System Information Functions and Operators
+pg_language, pg_language
+pg_largeobject, pg_largeobject
+pg_largeobject_metadata, pg_largeobject_metadata
+pg_last_committed_xact, System Information Functions and Operators
+pg_last_wal_receive_lsn, Recovery Control Functions
+pg_last_wal_replay_lsn, Recovery Control Functions
+pg_last_xact_replay_timestamp, Recovery Control Functions
+pg_listening_channels, System Information Functions and Operators
+pg_locks, pg_locks
+pg_logdir_ls, adminpack
+pg_logical_emit_message, Replication Management Functions
+pg_logical_slot_get_binary_changes, Replication Management Functions
+pg_logical_slot_get_changes, Replication Management Functions
+pg_logical_slot_peek_binary_changes, Replication Management Functions
+pg_logical_slot_peek_changes, Replication Management Functions
+pg_log_backend_memory_contexts, Server Signaling Functions
+pg_lsn, pg_lsn Type
+pg_ls_archive_statusdir, Generic File Access Functions
+pg_ls_dir, Generic File Access Functions
+pg_ls_logdir, Generic File Access Functions
+pg_ls_logicalmapdir, Generic File Access Functions
+pg_ls_logicalsnapdir, Generic File Access Functions
+pg_ls_replslotdir, Generic File Access Functions
+pg_ls_tmpdir, Generic File Access Functions
+pg_ls_waldir, Generic File Access Functions
+pg_matviews, pg_matviews
+pg_mcv_list_items, Inspecting MCV Lists
+pg_my_temp_schema, System Information Functions and Operators
+pg_namespace, pg_namespace
+pg_notification_queue_usage, System Information Functions and Operators
+pg_notify, pg_notify
+pg_opclass, pg_opclass
+pg_opclass_is_visible, System Information Functions and Operators
+pg_operator, pg_operator
+pg_operator_is_visible, System Information Functions and Operators
+pg_opfamily, pg_opfamily
+pg_opfamily_is_visible, System Information Functions and Operators
+pg_options_to_table, System Information Functions and Operators
+pg_parameter_acl, pg_parameter_acl
+pg_partitioned_table, pg_partitioned_table
+pg_partition_ancestors, Database Object Management Functions
+pg_partition_root, Database Object Management Functions
+pg_partition_tree, Database Object Management Functions
+pg_policies, pg_policies
+pg_policy, pg_policy
+pg_postmaster_start_time, System Information Functions and Operators
+pg_prepared_statements, pg_prepared_statements
+pg_prepared_xacts, pg_prepared_xacts
+pg_prewarm, pg_prewarm
+pg_prewarm.autoprewarm configuration parameter, Configuration Parameters
+pg_prewarm.autoprewarm_interval configuration parameter, Configuration Parameters
+pg_proc, pg_proc
+pg_promote, Recovery Control Functions
+pg_publication, pg_publication
+pg_publication_namespace, pg_publication_namespace
+pg_publication_rel, pg_publication_rel
+pg_publication_tables, pg_publication_tables
+pg_range, pg_range
+pg_read_binary_file, Generic File Access Functions
+pg_read_file, Generic File Access Functions
+pg_receivewal, pg_receivewal
+pg_receivexlog, pg_receivexlog renamed to pg_receivewal (see pg_receivewal)
+pg_recvlogical, pg_recvlogical
+pg_relation_filenode, Database Object Management Functions
+pg_relation_filepath, Database Object Management Functions
+pg_relation_size, Database Object Management Functions
+pg_reload_conf, Server Signaling Functions
+pg_relpages, Functions
+pg_replication_origin, pg_replication_origin
+pg_replication_origin_advance, Replication Management Functions
+pg_replication_origin_create, Replication Management Functions
+pg_replication_origin_drop, Replication Management Functions
+pg_replication_origin_oid, Replication Management Functions
+pg_replication_origin_progress, Replication Management Functions
+pg_replication_origin_session_is_setup, Replication Management Functions
+pg_replication_origin_session_progress, Replication Management Functions
+pg_replication_origin_session_reset, Replication Management Functions
+pg_replication_origin_session_setup, Replication Management Functions
+pg_replication_origin_status, pg_replication_origin_status
+pg_replication_origin_xact_reset, Replication Management Functions
+pg_replication_origin_xact_setup, Replication Management Functions
+pg_replication_slots, pg_replication_slots
+pg_replication_slot_advance, Replication Management Functions
+pg_resetwal, pg_resetwal
+pg_resetxlog, pg_resetxlog renamed to pg_resetwal (see pg_resetwal)
+pg_restore, pg_restore
+pg_rewind, pg_rewind
+pg_rewrite, pg_rewrite
+pg_roles, pg_roles
+pg_rotate_logfile, Server Signaling Functions
+pg_rules, pg_rules
+pg_safe_snapshot_blocking_pids, System Information Functions and Operators
+pg_seclabel, pg_seclabel
+pg_seclabels, pg_seclabels
+pg_sequence, pg_sequence
+pg_sequences, pg_sequences
+pg_service.conf, The Connection Service File
+pg_settings, pg_settings
+pg_settings_get_flags, System Information Functions and Operators
+pg_shadow, pg_shadow
+pg_shdepend, pg_shdepend
+pg_shdescription, pg_shdescription
+pg_shmem_allocations, pg_shmem_allocations
+pg_shseclabel, pg_shseclabel
+pg_size_bytes, Database Object Management Functions
+pg_size_pretty, Database Object Management Functions
+pg_sleep, Delaying Execution
+pg_sleep_for, Delaying Execution
+pg_sleep_until, Delaying Execution
+pg_snapshot_xip, System Information Functions and Operators
+pg_snapshot_xmax, System Information Functions and Operators
+pg_snapshot_xmin, System Information Functions and Operators
+pg_statio_all_indexes, Viewing Statistics, pg_statio_all_indexes
+pg_statio_all_sequences, Viewing Statistics, pg_statio_all_sequences
+pg_statio_all_tables, Viewing Statistics, pg_statio_all_tables
+pg_statio_sys_indexes, Viewing Statistics
+pg_statio_sys_sequences, Viewing Statistics
+pg_statio_sys_tables, Viewing Statistics
+pg_statio_user_indexes, Viewing Statistics
+pg_statio_user_sequences, Viewing Statistics
+pg_statio_user_tables, Viewing Statistics
+pg_statistic, Single-Column Statistics, pg_statistic
+pg_statistics_obj_is_visible, System Information Functions and Operators
+pg_statistic_ext, Extended Statistics, pg_statistic_ext
+pg_statistic_ext_data, Extended Statistics, pg_statistic_ext
+pg_stats, Single-Column Statistics, pg_stats
+pg_stats_ext, pg_stats_ext
+pg_stats_ext_exprs, pg_stats_ext_exprs
+pg_stat_activity, Viewing Statistics, pg_stat_activity
+pg_stat_all_indexes, Viewing Statistics, pg_stat_all_indexes
+pg_stat_all_tables, Viewing Statistics, pg_stat_all_tables
+pg_stat_archiver, Viewing Statistics, pg_stat_archiver
+pg_stat_bgwriter, Viewing Statistics, pg_stat_bgwriter
+pg_stat_clear_snapshot, Statistics Functions
+pg_stat_database, Viewing Statistics, pg_stat_database
+pg_stat_database_conflicts, Viewing Statistics, pg_stat_database_conflicts
+pg_stat_file, Generic File Access Functions
+pg_stat_get_activity, Statistics Functions
+pg_stat_get_backend_activity, Statistics Functions
+pg_stat_get_backend_activity_start, Statistics Functions
+pg_stat_get_backend_client_addr, Statistics Functions
+pg_stat_get_backend_client_port, Statistics Functions
+pg_stat_get_backend_dbid, Statistics Functions
+pg_stat_get_backend_idset, Statistics Functions
+pg_stat_get_backend_pid, Statistics Functions
+pg_stat_get_backend_start, Statistics Functions
+pg_stat_get_backend_userid, Statistics Functions
+pg_stat_get_backend_wait_event, Statistics Functions
+pg_stat_get_backend_wait_event_type, Statistics Functions
+pg_stat_get_backend_xact_start, Statistics Functions
+pg_stat_get_snapshot_timestamp, Statistics Functions
+pg_stat_gssapi, Viewing Statistics, pg_stat_gssapi
+pg_stat_progress_analyze, Viewing Statistics, ANALYZE Progress Reporting
+pg_stat_progress_basebackup, Viewing Statistics, Base Backup Progress Reporting
+pg_stat_progress_cluster, Viewing Statistics, CLUSTER Progress Reporting
+pg_stat_progress_copy, Viewing Statistics, COPY Progress Reporting
+pg_stat_progress_create_index, Viewing Statistics, CREATE INDEX Progress Reporting
+pg_stat_progress_vacuum, Viewing Statistics, VACUUM Progress Reporting
+pg_stat_recovery_prefetch, Viewing Statistics, pg_stat_recovery_prefetch
+pg_stat_replication, Viewing Statistics, pg_stat_replication
+pg_stat_replication_slots, Viewing Statistics, pg_stat_replication_slots
+pg_stat_reset, Statistics Functions
+pg_stat_reset_replication_slot, Statistics Functions
+pg_stat_reset_shared, Statistics Functions
+pg_stat_reset_single_function_counters, Statistics Functions
+pg_stat_reset_single_table_counters, Statistics Functions
+pg_stat_reset_slru, Statistics Functions
+pg_stat_reset_subscription_stats, Statistics Functions
+pg_stat_slru, Viewing Statistics, pg_stat_slru
+pg_stat_ssl, Viewing Statistics, pg_stat_ssl
+pg_stat_statements, pg_stat_statements
+
+
+function, Functions
+
+
+pg_stat_statements.max configuration parameter, Configuration Parameters
+pg_stat_statements.save configuration parameter, Configuration Parameters
+pg_stat_statements.track configuration parameter, Configuration Parameters
+pg_stat_statements.track_planning configuration parameter, Configuration Parameters
+pg_stat_statements.track_utility configuration parameter, Configuration Parameters
+pg_stat_statements_info, The pg_stat_statements_info View
+pg_stat_statements_reset, Functions
+pg_stat_subscription, Viewing Statistics, pg_stat_subscription
+pg_stat_subscription_stats, Viewing Statistics, pg_stat_subscription_stats
+pg_stat_sys_indexes, Viewing Statistics
+pg_stat_sys_tables, Viewing Statistics
+pg_stat_user_functions, Viewing Statistics, pg_stat_user_functions
+pg_stat_user_indexes, Viewing Statistics
+pg_stat_user_tables, Viewing Statistics
+pg_stat_wal, Viewing Statistics, pg_stat_wal
+pg_stat_wal_receiver, Viewing Statistics, pg_stat_wal_receiver
+pg_stat_xact_all_tables, Viewing Statistics
+pg_stat_xact_sys_tables, Viewing Statistics
+pg_stat_xact_user_functions, Viewing Statistics
+pg_stat_xact_user_tables, Viewing Statistics
+pg_subscription, pg_subscription
+pg_subscription_rel, pg_subscription_rel
+pg_surgery, pg_surgery
+pg_switch_wal, Backup Control Functions
+pg_tables, pg_tables
+pg_tablespace, pg_tablespace
+pg_tablespace_databases, System Information Functions and Operators
+pg_tablespace_location, System Information Functions and Operators
+pg_tablespace_size, Database Object Management Functions
+pg_table_is_visible, System Information Functions and Operators
+pg_table_size, Database Object Management Functions
+pg_temp, Statement Behavior
+
+
+securing functions, Writing SECURITY DEFINER Functions Safely
+
+
+pg_terminate_backend, Server Signaling Functions
+pg_test_fsync, pg_test_fsync
+pg_test_timing, pg_test_timing
+pg_timezone_abbrevs, pg_timezone_abbrevs
+pg_timezone_names, pg_timezone_names
+pg_total_relation_size, Database Object Management Functions
+pg_transform, pg_transform
+pg_trgm, pg_trgm
+pg_trgm.similarity_threshold configuration parameter, GUC Parameters
+pg_trgm.strict_word_similarity_threshold configuration parameter, GUC Parameters
+pg_trgm.word_similarity_threshold configuration parameter, GUC Parameters
+pg_trigger, pg_trigger
+pg_trigger_depth, System Information Functions and Operators
+pg_try_advisory_lock, Advisory Lock Functions
+pg_try_advisory_lock_shared, Advisory Lock Functions
+pg_try_advisory_xact_lock, Advisory Lock Functions
+pg_try_advisory_xact_lock_shared, Advisory Lock Functions
+pg_ts_config, pg_ts_config
+pg_ts_config_is_visible, System Information Functions and Operators
+pg_ts_config_map, pg_ts_config_map
+pg_ts_dict, pg_ts_dict
+pg_ts_dict_is_visible, System Information Functions and Operators
+pg_ts_parser, pg_ts_parser
+pg_ts_parser_is_visible, System Information Functions and Operators
+pg_ts_template, pg_ts_template
+pg_ts_template_is_visible, System Information Functions and Operators
+pg_type, pg_type
+pg_typeof, System Information Functions and Operators
+pg_type_is_visible, System Information Functions and Operators
+pg_upgrade, pg_upgrade
+pg_user, pg_user
+pg_user_mapping, pg_user_mapping
+pg_user_mappings, pg_user_mappings
+pg_verifybackup, pg_verifybackup
+pg_views, pg_views
+pg_visibility, pg_visibility
+pg_visible_in_snapshot, System Information Functions and Operators
+pg_waldump, pg_waldump
+pg_walfile_name, Backup Control Functions
+pg_walfile_name_offset, Backup Control Functions
+pg_walinspect, pg_walinspect
+pg_wal_lsn_diff, Backup Control Functions
+pg_wal_replay_pause, Recovery Control Functions
+pg_wal_replay_resume, Recovery Control Functions
+pg_xact_commit_timestamp, System Information Functions and Operators
+pg_xact_commit_timestamp_origin, System Information Functions and Operators
+pg_xact_status, System Information Functions and Operators
+pg_xlogdump, pg_xlogdump renamed to pg_waldump (see pg_waldump)
+phantom read, Transaction Isolation
+phraseto_tsquery, Text Search Functions and Operators, Parsing Queries
+pi, Mathematical Functions and Operators
+PIC, Compiling and Linking Dynamically-Loaded Functions
+PID
+
+
+determining PID of server process
+
+
+in libpq, Connection Status Functions
+
+
+
+
+pipelining, Pipeline Mode, Pipelining
+
+
+in libpq, Pipeline Mode
+protocol specification, Pipelining
+
+
+PITR, Backup and Restore
+PITR standby, High Availability, Load Balancing, and Replication
+pkg-config, PostgreSQL Features
+
+
+with ecpg, Processing Embedded SQL Programs
+with libpq, Building libpq Programs
+
+
+PL/Perl, PL/Perl — Perl Procedural Language
+PL/PerlU, Trusted and Untrusted PL/Perl
+PL/pgSQL, PL/pgSQL — SQL Procedural Language
+PL/Python, PL/Python — Python Procedural Language
+PL/SQL (Oracle), Porting from Oracle PL/SQL
+
+
+porting to PL/pgSQL, Porting from Oracle PL/SQL
+
+
+PL/Tcl, PL/Tcl — Tcl Procedural Language
+plainto_tsquery, Text Search Functions and Operators, Parsing Queries
+plan_cache_mode configuration parameter, Other Planner Options
+plperl.on_init configuration parameter, Configuration
+plperl.on_plperlu_init configuration parameter, Configuration
+plperl.on_plperl_init configuration parameter, Configuration
+plperl.use_strict configuration parameter, Configuration
+plpgsql.check_asserts configuration parameter, Checking Assertions
+plpgsql.variable_conflict configuration parameter, Variable Substitution
+pltcl.start_proc configuration parameter, PL/Tcl Configuration
+pltclu.start_proc configuration parameter, PL/Tcl Configuration
+point, Points, Geometric Functions and Operators
+point-in-time recovery, Backup and Restore
+policy, Row Security Policies
+polygon, Polygons, Geometric Functions and Operators
+polymorphic function, Polymorphic Types
+polymorphic type, Polymorphic Types
+popcount (see bit_count)
+popen, Geometric Functions and Operators
+populate_record, hstore Operators and Functions
+port, Parameter Key Words
+port configuration parameter, Connection Settings
+position, String Functions and Operators, Binary String Functions and Operators, Bit String Functions and Operators
+POSITION_REGEX, Differences from SQL Standard and XQuery
+POSTGRES, The Berkeley POSTGRES Project
+postgres, Architectural Fundamentals, Starting the Database Server, Creating a Database, postgres
+postgres user, The PostgreSQL User Account
+Postgres95, Postgres95
+postgresql.auto.conf, Parameter Interaction via the Configuration File
+postgresql.conf, Parameter Interaction via the Configuration File
+postgres_fdw, postgres_fdw
+postgres_fdw.application_name configuration parameter, Configuration Parameters
+postmaster, postmaster
+post_auth_delay configuration parameter, Developer Options
+power, Mathematical Functions and Operators
+PQbackendPID, Connection Status Functions
+PQbinaryTuples, Retrieving Query Result Information
+
+
+with COPY, Functions Associated with the COPY Command
+
+
+PQcancel, Canceling Queries in Progress
+PQclear, Main Functions
+PQclientEncoding, Control Functions
+PQcmdStatus, Retrieving Other Result Information
+PQcmdTuples, Retrieving Other Result Information
+PQconndefaults, Database Connection Control Functions
+PQconnectdb, Database Connection Control Functions
+PQconnectdbParams, Database Connection Control Functions
+PQconnectionNeedsPassword, Connection Status Functions
+PQconnectionUsedPassword, Connection Status Functions
+PQconnectPoll, Database Connection Control Functions
+PQconnectStart, Database Connection Control Functions
+PQconnectStartParams, Database Connection Control Functions
+PQconninfo, Database Connection Control Functions
+PQconninfoFree, Miscellaneous Functions
+PQconninfoParse, Database Connection Control Functions
+PQconsumeInput, Asynchronous Command Processing
+PQcopyResult, Miscellaneous Functions
+PQdb, Connection Status Functions
+PQdescribePortal, Main Functions
+PQdescribePrepared, Main Functions
+PQencryptPassword, Miscellaneous Functions
+PQencryptPasswordConn, Miscellaneous Functions
+PQendcopy, Obsolete Functions for COPY
+PQenterPipelineMode, Functions Associated with Pipeline Mode
+PQerrorMessage, Connection Status Functions
+PQescapeBytea, Escaping Strings for Inclusion in SQL Commands
+PQescapeByteaConn, Escaping Strings for Inclusion in SQL Commands
+PQescapeIdentifier, Escaping Strings for Inclusion in SQL Commands
+PQescapeLiteral, Escaping Strings for Inclusion in SQL Commands
+PQescapeString, Escaping Strings for Inclusion in SQL Commands
+PQescapeStringConn, Escaping Strings for Inclusion in SQL Commands
+PQexec, Main Functions
+PQexecParams, Main Functions
+PQexecPrepared, Main Functions
+PQexitPipelineMode, Functions Associated with Pipeline Mode
+PQfformat, Retrieving Query Result Information
+
+
+with COPY, Functions Associated with the COPY Command
+
+
+PQfinish, Database Connection Control Functions
+PQfireResultCreateEvents, Miscellaneous Functions
+PQflush, Asynchronous Command Processing
+PQfmod, Retrieving Query Result Information
+PQfn, The Fast-Path Interface
+PQfname, Retrieving Query Result Information
+PQfnumber, Retrieving Query Result Information
+PQfreeCancel, Canceling Queries in Progress
+PQfreemem, Miscellaneous Functions
+PQfsize, Retrieving Query Result Information
+PQftable, Retrieving Query Result Information
+PQftablecol, Retrieving Query Result Information
+PQftype, Retrieving Query Result Information
+PQgetCancel, Canceling Queries in Progress
+PQgetCopyData, Functions for Receiving COPY Data
+PQgetisnull, Retrieving Query Result Information
+PQgetlength, Retrieving Query Result Information
+PQgetline, Obsolete Functions for COPY
+PQgetlineAsync, Obsolete Functions for COPY
+PQgetResult, Asynchronous Command Processing
+PQgetssl, Connection Status Functions
+PQgetSSLKeyPassHook_OpenSSL, Database Connection Control Functions
+PQgetvalue, Retrieving Query Result Information
+PQhost, Connection Status Functions
+PQhostaddr, Connection Status Functions
+PQinitOpenSSL, SSL Library Initialization
+PQinitSSL, SSL Library Initialization
+PQinstanceData, Event Support Functions
+PQisBusy, Asynchronous Command Processing
+PQisnonblocking, Asynchronous Command Processing
+PQisthreadsafe, Behavior in Threaded Programs
+PQlibVersion, Miscellaneous Functions
+
+
+(see also PQserverVersion)
+
+
+PQmakeEmptyPGresult, Miscellaneous Functions
+PQnfields, Retrieving Query Result Information
+
+
+with COPY, Functions Associated with the COPY Command
+
+
+PQnotifies, Asynchronous Notification
+PQnparams, Retrieving Query Result Information
+PQntuples, Retrieving Query Result Information
+PQoidStatus, Retrieving Other Result Information
+PQoidValue, Retrieving Other Result Information
+PQoptions, Connection Status Functions
+PQparameterStatus, Connection Status Functions
+PQparamtype, Retrieving Query Result Information
+PQpass, Connection Status Functions
+PQping, Database Connection Control Functions
+PQpingParams, Database Connection Control Functions
+PQpipelineStatus, Functions Associated with Pipeline Mode
+PQpipelineSync, Functions Associated with Pipeline Mode
+PQport, Connection Status Functions
+PQprepare, Main Functions
+PQprint, Retrieving Query Result Information
+PQprotocolVersion, Connection Status Functions
+PQputCopyData, Functions for Sending COPY Data
+PQputCopyEnd, Functions for Sending COPY Data
+PQputline, Obsolete Functions for COPY
+PQputnbytes, Obsolete Functions for COPY
+PQregisterEventProc, Event Support Functions
+PQrequestCancel, Canceling Queries in Progress
+PQreset, Database Connection Control Functions
+PQresetPoll, Database Connection Control Functions
+PQresetStart, Database Connection Control Functions
+PQresStatus, Main Functions
+PQresultAlloc, Miscellaneous Functions
+PQresultErrorField, Main Functions
+PQresultErrorMessage, Main Functions
+PQresultInstanceData, Event Support Functions
+PQresultMemorySize, Miscellaneous Functions
+PQresultSetInstanceData, Event Support Functions
+PQresultStatus, Main Functions
+PQresultVerboseErrorMessage, Main Functions
+PQsendDescribePortal, Asynchronous Command Processing
+PQsendDescribePrepared, Asynchronous Command Processing
+PQsendFlushRequest, Functions Associated with Pipeline Mode
+PQsendPrepare, Asynchronous Command Processing
+PQsendQuery, Asynchronous Command Processing
+PQsendQueryParams, Asynchronous Command Processing
+PQsendQueryPrepared, Asynchronous Command Processing
+PQserverVersion, Connection Status Functions
+PQsetClientEncoding, Control Functions
+PQsetdb, Database Connection Control Functions
+PQsetdbLogin, Database Connection Control Functions
+PQsetErrorContextVisibility, Control Functions
+PQsetErrorVerbosity, Control Functions
+PQsetInstanceData, Event Support Functions
+PQsetnonblocking, Asynchronous Command Processing
+PQsetNoticeProcessor, Notice Processing
+PQsetNoticeReceiver, Notice Processing
+PQsetResultAttrs, Miscellaneous Functions
+PQsetSingleRowMode, Retrieving Query Results Row-by-Row
+PQsetSSLKeyPassHook_OpenSSL, Database Connection Control Functions
+PQsetTraceFlags, Control Functions
+PQsetvalue, Miscellaneous Functions
+PQsocket, Connection Status Functions
+PQsslAttribute, Connection Status Functions
+PQsslAttributeNames, Connection Status Functions
+PQsslInUse, Connection Status Functions
+PQsslStruct, Connection Status Functions
+PQstatus, Connection Status Functions
+PQtrace, Control Functions
+PQtransactionStatus, Connection Status Functions
+PQtty, Connection Status Functions
+PQunescapeBytea, Escaping Strings for Inclusion in SQL Commands
+PQuntrace, Control Functions
+PQuser, Connection Status Functions
+predicate locking, Serializable Isolation Level
+PREPARE, PREPARE
+PREPARE TRANSACTION, PREPARE TRANSACTION
+prepared statements, DEALLOCATE, EXECUTE, EXPLAIN, PREPARE
+
+
+creating, PREPARE
+executing, EXECUTE
+removing, DEALLOCATE
+showing the query plan, EXPLAIN
+
+
+preparing a query
+
+
+in PL/pgSQL, Plan Caching
+in PL/Python, Database Access Functions
+in PL/Tcl, Database Access from PL/Tcl
+
+
+pre_auth_delay configuration parameter, Developer Options
+primary key, Primary Keys
+primary_conninfo configuration parameter, Standby Servers
+primary_slot_name configuration parameter, Standby Servers
+privilege, Privileges, Schemas and Privileges, Rules and Privileges, Rules and Privileges
+
+
+querying, System Information Functions and Operators
+with rules, Rules and Privileges
+for schemas, Schemas and Privileges
+with views, Rules and Privileges
+
+
+procedural language, Procedural Languages, Writing a Procedural Language Handler
+
+
+externally maintained, Procedural Languages
+handler for, Writing a Procedural Language Handler
+
+
+procedure, User-Defined Procedures
+
+
+user-defined, User-Defined Procedures
+
+
+procedures
+
+
+output parameter, SQL Procedures with Output Parameters
+
+
+promote_trigger_file configuration parameter, Standby Servers
+protocol, Frontend/Backend Protocol
+
+
+frontend-backend, Frontend/Backend Protocol
+
+
+ps, Standard Unix Tools
+
+
+to monitor activity, Standard Unix Tools
+
+
+psql, Accessing a Database, psql
+Python, PL/Python — Python Procedural Language
+
+
+
+Q
+
+qualified name, Creating a Schema
+query, Querying a Table, Queries
+query plan, Using EXPLAIN
+query tree, The Query Tree
+querytree, Text Search Functions and Operators, Manipulating Queries
+quotation marks
+
+
+and identifiers, Identifiers and Key Words
+escaping, String Constants
+
+
+quote_all_identifiers configuration parameter, Previous PostgreSQL Versions
+quote_ident, String Functions and Operators
+
+
+in PL/Perl, Utility Functions in PL/Perl
+use in PL/pgSQL, Executing Dynamic Commands
+
+
+quote_literal, String Functions and Operators
+
+
+in PL/Perl, Utility Functions in PL/Perl
+use in PL/pgSQL, Executing Dynamic Commands
+
+
+quote_nullable, String Functions and Operators
+
+
+in PL/Perl, Utility Functions in PL/Perl
+use in PL/pgSQL, Executing Dynamic Commands
+
+
+
+
+
+R
+
+radians, Mathematical Functions and Operators
+radius, Geometric Functions and Operators
+RADIUS, RADIUS Authentication
+RAISE
+
+
+in PL/pgSQL, Reporting Errors and Messages
+
+
+random, Mathematical Functions and Operators
+random_page_cost configuration parameter, Planner Cost Constants
+range table, The Query Tree
+range type, Range Types
+
+
+exclude, Constraints on Ranges
+indexes on, Indexing
+
+
+range_agg, Aggregate Functions
+range_intersect_agg, Aggregate Functions
+range_merge, Range/Multirange Functions and Operators
+rank, Window Functions
+
+
+hypothetical, Aggregate Functions
+
+
+read committed, Read Committed Isolation Level
+read-only transaction, Statement Behavior
+
+
+setting, SET TRANSACTION
+setting default, Statement Behavior
+
+
+readline, Requirements
+Readline
+
+
+in psql, Command-Line Editing
+
+
+READ_REPLICATION_SLOT, Streaming Replication Protocol
+real, Floating-Point Types
+REASSIGN OWNED, REASSIGN OWNED
+record, Pseudo-Types
+recovery.conf, recovery.conf file merged into postgresql.conf
+recovery.signal, Archive Recovery
+recovery_end_command configuration parameter, Archive Recovery
+recovery_init_sync_method configuration parameter, Error Handling
+recovery_min_apply_delay configuration parameter, Standby Servers
+recovery_prefetch configuration parameter, Recovery
+recovery_target configuration parameter, Recovery Target
+recovery_target_action configuration parameter, Recovery Target
+recovery_target_inclusive configuration parameter, Recovery Target
+recovery_target_lsn configuration parameter, Recovery Target
+recovery_target_name configuration parameter, Recovery Target
+recovery_target_time configuration parameter, Recovery Target
+recovery_target_timeline configuration parameter, Recovery Target
+recovery_target_xid configuration parameter, Recovery Target
+rectangle, Boxes
+RECURSIVE, CREATE VIEW
+
+
+in common table expressions, Recursive Queries
+in views, CREATE VIEW
+
+
+recursive_worktable_factor configuration parameter, Other Planner Options
+referential integrity, Foreign Keys, Foreign Keys
+REFRESH MATERIALIZED VIEW, REFRESH MATERIALIZED VIEW
+regclass, Object Identifier Types
+regcollation, Object Identifier Types
+regconfig, Object Identifier Types
+regdictionary, Object Identifier Types
+regexp_count, String Functions and Operators, POSIX Regular Expressions
+regexp_instr, String Functions and Operators, POSIX Regular Expressions
+regexp_like, String Functions and Operators, POSIX Regular Expressions
+regexp_match, String Functions and Operators, POSIX Regular Expressions
+regexp_matches, String Functions and Operators, POSIX Regular Expressions
+regexp_replace, String Functions and Operators, POSIX Regular Expressions
+regexp_split_to_array, String Functions and Operators, POSIX Regular Expressions
+regexp_split_to_table, String Functions and Operators, POSIX Regular Expressions
+regexp_substr, String Functions and Operators, POSIX Regular Expressions
+regnamespace, Object Identifier Types
+regoper, Object Identifier Types
+regoperator, Object Identifier Types
+regproc, Object Identifier Types
+regprocedure, Object Identifier Types
+regression intercept, Aggregate Functions
+regression slope, Aggregate Functions
+regression test, Installation Procedure
+regression tests, Regression Tests
+regrole, Object Identifier Types
+regr_avgx, Aggregate Functions
+regr_avgy, Aggregate Functions
+regr_count, Aggregate Functions
+regr_intercept, Aggregate Functions
+regr_r2, Aggregate Functions
+regr_slope, Aggregate Functions
+regr_sxx, Aggregate Functions
+regr_sxy, Aggregate Functions
+regr_syy, Aggregate Functions
+regtype, Object Identifier Types
+regular expression, SIMILAR TO Regular Expressions, POSIX Regular Expressions
+
+
+(see also pattern matching)
+
+
+regular expressions
+
+
+and locales, Behavior
+
+
+reindex, Routine Reindexing
+REINDEX, REINDEX
+reindexdb, reindexdb
+relation, Concepts
+relational database, Concepts
+RELEASE SAVEPOINT, RELEASE SAVEPOINT
+remove_temp_files_after_crash configuration parameter, Developer Options
+repeat, String Functions and Operators
+repeatable read, Repeatable Read Isolation Level
+replace, String Functions and Operators
+replication, High Availability, Load Balancing, and Replication
+Replication Origins, Replication Progress Tracking
+Replication Progress Tracking, Replication Progress Tracking
+replication slot
+
+
+logical replication, Replication Slots
+streaming replication, Replication Slots
+
+
+reporting errors
+
+
+in PL/pgSQL, Reporting Errors and Messages
+
+
+RESET, RESET
+restartpoint, WAL Configuration
+restart_after_crash configuration parameter, Error Handling
+restore_command configuration parameter, Archive Recovery
+RESTRICT, Dependency Tracking
+
+
+with DROP, Dependency Tracking
+foreign key action, Foreign Keys
+
+
+retryable error, Serialization Failure Handling
+RETURN NEXT
+
+
+in PL/pgSQL, RETURN NEXT and RETURN QUERY
+
+
+RETURN QUERY
+
+
+in PL/pgSQL, RETURN NEXT and RETURN QUERY
+
+
+RETURNING, Returning Data from Modified Rows
+RETURNING INTO, Executing a Command with a Single-Row Result
+
+
+in PL/pgSQL, Executing a Command with a Single-Row Result
+
+
+reverse, String Functions and Operators
+REVOKE, Privileges, REVOKE
+right, String Functions and Operators
+right join, Joined Tables
+role, Database Roles, Role Membership, Predefined Roles
+
+
+applicable, applicable_roles
+enabled, enabled_roles
+membership in, Role Membership
+privilege to bypass, Role Attributes
+privilege to create, Role Attributes
+privilege to inherit, Role Attributes
+privilege to initiate replication, Role Attributes
+privilege to limit connection, Role Attributes
+
+
+ROLLBACK, ROLLBACK
+rollback
+
+
+psql, Variables
+
+
+ROLLBACK PREPARED, ROLLBACK PREPARED
+ROLLBACK TO SAVEPOINT, ROLLBACK TO SAVEPOINT
+ROLLUP, GROUPING SETS, CUBE, and ROLLUP
+round, Mathematical Functions and Operators
+routine, User-Defined Procedures
+routine maintenance, Routine Database Maintenance Tasks
+row, Concepts, Table Basics
+ROW, Row Constructors
+row estimation, Row Estimation Examples
+
+
+multivariate, Multivariate Statistics Examples
+planner, Row Estimation Examples
+
+
+row type, Composite Types
+
+
+constructor, Row Constructors
+
+
+row-level security, Row Security Policies
+row-wise comparison, Row and Array Comparisons
+row_number, Window Functions
+row_security configuration parameter, Statement Behavior
+row_security_active, System Information Functions and Operators
+row_to_json, Processing and Creating JSON Data
+rpad, String Functions and Operators
+rtrim, String Functions and Operators, Binary String Functions and Operators
+rule, The Rule System, Views and the Rule System, How SELECT Rules Work, Materialized Views, Rules on INSERT, UPDATE, and DELETE, Rules on INSERT, UPDATE, and DELETE, Rules on INSERT, UPDATE, and DELETE, Rules Versus Triggers
+
+
+and materialized views, Materialized Views
+and views, Views and the Rule System
+for DELETE, Rules on INSERT, UPDATE, and DELETE
+for INSERT, Rules on INSERT, UPDATE, and DELETE
+for SELECT, How SELECT Rules Work
+compared with triggers, Rules Versus Triggers
+for UPDATE, Rules on INSERT, UPDATE, and DELETE
+
+
+
+
+
+S
+
+SAVEPOINT, SAVEPOINT
+savepoints, RELEASE SAVEPOINT, ROLLBACK TO SAVEPOINT, SAVEPOINT
+
+
+defining, SAVEPOINT
+releasing, RELEASE SAVEPOINT
+rolling back, ROLLBACK TO SAVEPOINT
+
+
+scalar (see expression)
+scale, Mathematical Functions and Operators
+schema, Schemas, Creating a Schema, The Public Schema, Overview
+
+
+creating, Creating a Schema
+current, The Schema Search Path, System Information Functions and Operators
+public, The Public Schema
+removing, Creating a Schema
+
+
+SCRAM, Password Authentication
+search path, The Schema Search Path
+
+
+current, System Information Functions and Operators
+object visibility, System Information Functions and Operators
+
+
+search_path configuration parameter, The Schema Search Path, Statement Behavior
+
+
+use in securing functions, Writing SECURITY DEFINER Functions Safely
+
+
+SECURITY LABEL, SECURITY LABEL
+sec_to_gc, Cube-Based Earth Distances
+seg, seg
+segment_size configuration parameter, Preset Options
+SELECT, Querying a Table, Queries, SELECT Output Columns, SELECT
+
+
+determination of result type, SELECT Output Columns
+select list, Select Lists
+
+
+SELECT INTO, Executing a Command with a Single-Row Result, SELECT INTO
+
+
+in PL/pgSQL, Executing a Command with a Single-Row Result
+
+
+semaphores, Shared Memory and Semaphores
+sepgsql, sepgsql
+sepgsql.debug_audit configuration parameter, GUC Parameters
+sepgsql.permissive configuration parameter, GUC Parameters
+sequence, Sequence Manipulation Functions
+
+
+and serial type, Serial Types
+
+
+sequential scan, Planner Method Configuration
+seq_page_cost configuration parameter, Planner Cost Constants
+serial, Serial Types
+serial2, Serial Types
+serial4, Serial Types
+serial8, Serial Types
+serializable, Serializable Isolation Level
+Serializable Snapshot Isolation, Introduction
+serialization anomaly, Transaction Isolation, Serializable Isolation Level
+serialization failure, Serialization Failure Handling
+server log, Error Reporting and Logging, Log File Maintenance
+
+
+log file maintenance, Log File Maintenance
+
+
+Server Name Indication, Parameter Key Words
+server spoofing, Preventing Server Spoofing
+server_encoding configuration parameter, Preset Options
+server_version configuration parameter, Preset Options
+server_version_num configuration parameter, Preset Options
+session_preload_libraries configuration parameter, Shared Library Preloading
+session_replication_role configuration parameter, Statement Behavior
+session_user, System Information Functions and Operators
+SET, Configuration Settings Functions, SET
+SET CONSTRAINTS, SET CONSTRAINTS
+set difference, Combining Queries (UNION, INTERSECT, EXCEPT)
+set intersection, Combining Queries (UNION, INTERSECT, EXCEPT)
+set operation, Combining Queries (UNION, INTERSECT, EXCEPT)
+set returning functions, Set Returning Functions
+
+
+functions, Set Returning Functions
+
+
+SET ROLE, SET ROLE
+SET SESSION AUTHORIZATION, SET SESSION AUTHORIZATION
+SET TRANSACTION, SET TRANSACTION
+set union, Combining Queries (UNION, INTERSECT, EXCEPT)
+SET XML OPTION, Statement Behavior
+setseed, Mathematical Functions and Operators
+setval, Sequence Manipulation Functions
+setweight, Text Search Functions and Operators, Manipulating Documents
+
+
+setweight for specific lexeme(s), Text Search Functions and Operators
+
+
+set_bit, Binary String Functions and Operators, Bit String Functions and Operators
+set_byte, Binary String Functions and Operators
+set_config, Configuration Settings Functions
+set_limit, Functions and Operators
+set_masklen, Network Address Functions and Operators
+sha224, Binary String Functions and Operators
+sha256, Binary String Functions and Operators
+sha384, Binary String Functions and Operators
+sha512, Binary String Functions and Operators
+shared library, Shared Libraries, Compiling and Linking Dynamically-Loaded Functions
+shared memory, Shared Memory and Semaphores
+shared_buffers configuration parameter, Memory
+shared_memory_size configuration parameter, Preset Options
+shared_memory_size_in_huge_pages configuration parameter, Preset Options
+shared_memory_type configuration parameter, Memory
+shared_preload_libraries, Shared Memory and LWLocks
+shared_preload_libraries configuration parameter, Shared Library Preloading
+shobj_description, System Information Functions and Operators
+SHOW, Configuration Settings Functions, SHOW, Streaming Replication Protocol
+show_limit, Functions and Operators
+show_trgm, Functions and Operators
+shutdown, Shutting Down the Server
+SIGHUP, Parameter Interaction via the Configuration File, The pg_hba.conf File, User Name Maps
+SIGINT, Shutting Down the Server
+sign, Mathematical Functions and Operators
+signal
+
+
+backend processes, Server Signaling Functions
+
+
+significant digits, Locale and Formatting
+SIGQUIT, Shutting Down the Server
+SIGTERM, Shutting Down the Server
+SIMILAR TO, SIMILAR TO Regular Expressions
+similarity, Functions and Operators
+sin, Mathematical Functions and Operators
+sind, Mathematical Functions and Operators
+single-user mode, Options for Single-User Mode
+sinh, Mathematical Functions and Operators
+skeys, hstore Operators and Functions
+sleep, Delaying Execution
+slice, hstore Operators and Functions
+sliced bread (see TOAST)
+slope, Geometric Functions and Operators
+SLRU, pg_stat_slru
+smallint, Integer Types
+smallserial, Serial Types
+Solaris, Solaris
+
+
+installation on, Solaris
+shared library, Compiling and Linking Dynamically-Loaded Functions
+start script, Starting the Database Server
+
+
+SOME, Aggregate Functions, Subquery Expressions, Row and Array Comparisons
+sort, intarray Functions and Operators
+sorting, Sorting Rows (ORDER BY)
+sort_asc, intarray Functions and Operators
+sort_desc, intarray Functions and Operators
+soundex, Soundex
+SP-GiST (see index)
+SPI, Server Programming Interface, spi
+
+
+examples, spi
+
+
+spi_commit
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_commit, SPI_commit
+SPI_commit_and_chain, SPI_commit
+SPI_connect, SPI_connect
+SPI_connect_ext, SPI_connect
+SPI_copytuple, SPI_copytuple
+spi_cursor_close
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_cursor_close, SPI_cursor_close
+SPI_cursor_fetch, SPI_cursor_fetch
+SPI_cursor_find, SPI_cursor_find
+SPI_cursor_move, SPI_cursor_move
+SPI_cursor_open, SPI_cursor_open
+SPI_cursor_open_with_args, SPI_cursor_open_with_args
+SPI_cursor_open_with_paramlist, SPI_cursor_open_with_paramlist
+SPI_cursor_parse_open, SPI_cursor_parse_open
+SPI_exec, SPI_exec
+SPI_execp, SPI_execp
+SPI_execute, SPI_execute
+SPI_execute_extended, SPI_execute_extended
+SPI_execute_plan, SPI_execute_plan
+SPI_execute_plan_extended, SPI_execute_plan_extended
+SPI_execute_plan_with_paramlist, SPI_execute_plan_with_paramlist
+SPI_execute_with_args, SPI_execute_with_args
+spi_exec_prepared
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+spi_exec_query
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+spi_fetchrow
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_finish, SPI_finish
+SPI_fname, SPI_fname
+SPI_fnumber, SPI_fnumber
+spi_freeplan
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_freeplan, SPI_freeplan
+SPI_freetuple, SPI_freetuple
+SPI_freetuptable, SPI_freetuptable
+SPI_getargcount, SPI_getargcount
+SPI_getargtypeid, SPI_getargtypeid
+SPI_getbinval, SPI_getbinval
+SPI_getnspname, SPI_getnspname
+SPI_getrelname, SPI_getrelname
+SPI_gettype, SPI_gettype
+SPI_gettypeid, SPI_gettypeid
+SPI_getvalue, SPI_getvalue
+SPI_is_cursor_plan, SPI_is_cursor_plan
+SPI_keepplan, SPI_keepplan
+SPI_modifytuple, SPI_modifytuple
+SPI_palloc, SPI_palloc
+SPI_pfree, SPI_pfree
+spi_prepare
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_prepare, SPI_prepare
+SPI_prepare_cursor, SPI_prepare_cursor
+SPI_prepare_extended, SPI_prepare_extended
+SPI_prepare_params, SPI_prepare_params
+spi_query
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+spi_query_prepared
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_register_relation, SPI_register_relation
+SPI_register_trigger_data, SPI_register_trigger_data
+SPI_repalloc, SPI_repalloc
+SPI_result_code_string, SPI_result_code_string
+SPI_returntuple, SPI_returntuple
+spi_rollback
+
+
+in PL/Perl, Database Access from PL/Perl
+
+
+SPI_rollback, SPI_rollback
+SPI_rollback_and_chain, SPI_rollback
+SPI_saveplan, SPI_saveplan
+SPI_scroll_cursor_fetch, SPI_scroll_cursor_fetch
+SPI_scroll_cursor_move, SPI_scroll_cursor_move
+SPI_start_transaction, SPI_start_transaction
+SPI_unregister_relation, SPI_unregister_relation
+split_part, String Functions and Operators
+SQL/CLI, SQL Conformance
+SQL/Foundation, SQL Conformance
+SQL/Framework, SQL Conformance
+SQL/JRT, SQL Conformance
+SQL/JSON path language, The SQL/JSON Path Language
+SQL/MDA, SQL Conformance
+SQL/MED, SQL Conformance
+SQL/OLB, SQL Conformance
+SQL/PSM, SQL Conformance
+SQL/Schemata, SQL Conformance
+SQL/XML, SQL Conformance
+
+
+limits and conformance, XML Limits and Conformance to SQL/XML
+
+
+sqrt, Mathematical Functions and Operators
+ssh, Secure TCP/IP Connections with SSH Tunnels
+SSI, Introduction
+SSL, Secure TCP/IP Connections with SSL, SSL Support
+
+
+in libpq, Connection Status Functions
+with libpq, Parameter Key Words
+TLS, Secure TCP/IP Connections with SSL, SSL Support
+
+
+ssl configuration parameter, SSL
+sslinfo, sslinfo
+ssl_ca_file configuration parameter, SSL
+ssl_cert_file configuration parameter, SSL
+ssl_cipher, Functions Provided
+ssl_ciphers configuration parameter, SSL
+ssl_client_cert_present, Functions Provided
+ssl_client_dn, Functions Provided
+ssl_client_dn_field, Functions Provided
+ssl_client_serial, Functions Provided
+ssl_crl_dir configuration parameter, SSL
+ssl_crl_file configuration parameter, SSL
+ssl_dh_params_file configuration parameter, SSL
+ssl_ecdh_curve configuration parameter, SSL
+ssl_extension_info, Functions Provided
+ssl_issuer_dn, Functions Provided
+ssl_issuer_field, Functions Provided
+ssl_is_used, Functions Provided
+ssl_key_file configuration parameter, SSL
+ssl_library configuration parameter, Preset Options
+ssl_max_protocol_version configuration parameter, SSL
+ssl_min_protocol_version configuration parameter, SSL
+ssl_passphrase_command configuration parameter, SSL
+ssl_passphrase_command_supports_reload configuration parameter, SSL
+ssl_prefer_server_ciphers configuration parameter, SSL
+ssl_version, Functions Provided
+SSPI, SSPI Authentication
+STABLE, Function Volatility Categories
+standard deviation, Aggregate Functions
+
+
+population, Aggregate Functions
+sample, Aggregate Functions
+
+
+standard_conforming_strings configuration parameter, Previous PostgreSQL Versions
+standby server, High Availability, Load Balancing, and Replication
+standby.signal, Archive Recovery, Standby Server Operation, Setting Up a Standby Server
+
+
+for hot standby, Administrator's Overview
+pg_basebackup --write-recovery-conf, Options
+
+
+standby_mode (see standby.signal)
+START TRANSACTION, START TRANSACTION
+starts_with, String Functions and Operators
+START_REPLICATION, Streaming Replication Protocol
+statement_timeout configuration parameter, Statement Behavior
+statement_timestamp, Date/Time Functions and Operators
+statistics, Aggregate Functions, Statistics Used by the Planner, Extended Statistics, Updating Planner Statistics, The Cumulative Statistics System
+
+
+of the planner, Statistics Used by the Planner, Extended Statistics, Updating Planner Statistics
+
+
+stats_fetch_consistency configuration parameter, Cumulative Query and Index Statistics
+stddev, Aggregate Functions
+stddev_pop, Aggregate Functions
+stddev_samp, Aggregate Functions
+STONITH, High Availability, Load Balancing, and Replication
+storage parameters, Storage Parameters
+Streaming Replication, High Availability, Load Balancing, and Replication
+strict_word_similarity, Functions and Operators
+string (see character string)
+strings
+
+
+backslash quotes, Previous PostgreSQL Versions
+escape warning, Previous PostgreSQL Versions
+standard conforming, Previous PostgreSQL Versions
+
+
+string_agg, Aggregate Functions
+string_to_array, String Functions and Operators
+string_to_table, String Functions and Operators
+strip, Text Search Functions and Operators, Manipulating Documents
+strpos, String Functions and Operators
+subarray, intarray Functions and Operators
+subltree, Operators and Functions
+subpath, Operators and Functions
+subquery, Aggregate Functions, Scalar Subqueries, Subqueries, Subquery Expressions
+subscript, Subscripts
+substr, String Functions and Operators, Binary String Functions and Operators
+substring, String Functions and Operators, Binary String Functions and Operators, Bit String Functions and Operators, SIMILAR TO Regular Expressions, POSIX Regular Expressions
+SUBSTRING_REGEX, Differences from SQL Standard and XQuery
+subtransactions
+
+
+in PL/Tcl, Explicit Subtransactions in PL/Tcl
+
+
+sum, Aggregate Functions
+superuser, Accessing a Database, Role Attributes
+superuser_reserved_connections configuration parameter, Connection Settings
+support functions
+
+
+in_range, B-Tree Support Functions
+
+
+suppress_redundant_updates_trigger, Trigger Functions
+svals, hstore Operators and Functions
+synchronize_seqscans configuration parameter, Previous PostgreSQL Versions
+synchronous commit, Asynchronous Commit
+Synchronous Replication, High Availability, Load Balancing, and Replication
+synchronous_commit configuration parameter, Settings
+synchronous_standby_names configuration parameter, Primary Server
+syntax, SQL Syntax
+
+
+SQL, SQL Syntax
+
+
+syslog_facility configuration parameter, Where to Log
+syslog_ident configuration parameter, Where to Log
+syslog_sequence_numbers configuration parameter, Where to Log
+syslog_split_messages configuration parameter, Where to Log
+system catalog, The System Catalog Schema
+
+
+schema, The System Catalog Schema
+
+
+systemd, PostgreSQL Features, Starting the Database Server
+
+
+RemoveIPC, systemd RemoveIPC
+
+
+
+
+
+T
+
+table, Concepts, Table Basics, Modifying Tables
+
+
+creating, Table Basics
+inheritance, Inheritance
+modifying, Modifying Tables
+partitioning, Table Partitioning
+removing, Table Basics
+renaming, Renaming a Table
+
+
+Table Access Method, Table Access Method Interface Definition
+TABLE command, SELECT
+table expression, Table Expressions
+table function, Table Functions, xmltable
+
+
+XMLTABLE, xmltable
+
+
+table sampling method, Writing a Table Sampling Method
+tableam
+
+
+Table Access Method, Table Access Method Interface Definition
+
+
+tablefunc, tablefunc
+tableoid, System Columns
+TABLESAMPLE method, Writing a Table Sampling Method
+tablespace, Tablespaces
+
+
+default, Statement Behavior
+temporary, Statement Behavior
+
+
+table_am_handler, Pseudo-Types
+tan, Mathematical Functions and Operators
+tand, Mathematical Functions and Operators
+tanh, Mathematical Functions and Operators
+target list, The Query Tree
+Tcl, PL/Tcl — Tcl Procedural Language
+tcn, tcn
+tcp_keepalives_count configuration parameter, Connection Settings
+tcp_keepalives_idle configuration parameter, Connection Settings
+tcp_keepalives_interval configuration parameter, Connection Settings
+tcp_user_timeout configuration parameter, Connection Settings
+template0, Creating a Database, Template Databases
+template1, Creating a Database, Template Databases
+temp_buffers configuration parameter, Memory
+temp_file_limit configuration parameter, Disk
+temp_tablespaces configuration parameter, Statement Behavior
+test, Regression Tests
+test_decoding, test_decoding
+text, Character Types, Network Address Functions and Operators
+text search, Text Search Types, Text Search Types, Full Text Search, Preferred Index Types for Text Search
+
+
+data types, Text Search Types
+functions and operators, Text Search Types
+indexes, Preferred Index Types for Text Search
+
+
+text2ltree, Operators and Functions
+threads, Behavior in Threaded Programs
+
+
+with libpq, Behavior in Threaded Programs
+
+
+tid, Object Identifier Types
+time, Date/Time Types, Times
+
+
+constants, Special Values
+current, Current Date/Time
+output format, Date/Time Output
+
+
+(see also formatting)
+
+
+
+
+time span, Date/Time Types
+time with time zone, Date/Time Types, Times
+time without time zone, Date/Time Types, Times
+time zone, Time Zones, Locale and Formatting, POSIX Time Zone Specifications
+
+
+conversion, AT TIME ZONE
+input abbreviations, Date/Time Configuration Files
+POSIX-style specification, POSIX Time Zone Specifications
+
+
+time zone data, Build Process Details
+time zone names, Locale and Formatting
+timelines, Backup and Restore
+TIMELINE_HISTORY, Streaming Replication Protocol
+timeofday, Date/Time Functions and Operators
+timeout
+
+
+client authentication, Authentication
+deadlock, Lock Management
+
+
+timestamp, Date/Time Types, Time Stamps
+timestamp with time zone, Date/Time Types, Time Stamps
+timestamp without time zone, Date/Time Types, Time Stamps
+timestamptz, Date/Time Types
+TimeZone configuration parameter, Locale and Formatting
+timezone_abbreviations configuration parameter, Locale and Formatting
+TOAST, TOAST
+
+
+and user-defined types, TOAST Considerations
+per-column storage settings, Description
+per-type storage settings, Description
+versus large objects, Introduction
+
+
+toast_tuple_target storage parameter, Storage Parameters
+token, Lexical Structure
+to_ascii, String Functions and Operators
+to_char, Data Type Formatting Functions
+
+
+and locales, Behavior
+
+
+to_date, Data Type Formatting Functions
+to_hex, String Functions and Operators
+to_json, Processing and Creating JSON Data
+to_jsonb, Processing and Creating JSON Data
+to_number, Data Type Formatting Functions
+to_regclass, System Information Functions and Operators
+to_regcollation, System Information Functions and Operators
+to_regnamespace, System Information Functions and Operators
+to_regoper, System Information Functions and Operators
+to_regoperator, System Information Functions and Operators
+to_regproc, System Information Functions and Operators
+to_regprocedure, System Information Functions and Operators
+to_regrole, System Information Functions and Operators
+to_regtype, System Information Functions and Operators
+to_timestamp, Data Type Formatting Functions, Date/Time Functions and Operators
+to_tsquery, Text Search Functions and Operators, Parsing Queries
+to_tsvector, Text Search Functions and Operators, Parsing Documents
+trace_locks configuration parameter, Developer Options
+trace_lock_oidmin configuration parameter, Developer Options
+trace_lock_table configuration parameter, Developer Options
+trace_lwlocks configuration parameter, Developer Options
+trace_notify configuration parameter, Developer Options
+trace_recovery_messages configuration parameter, Developer Options
+trace_sort configuration parameter, Developer Options
+trace_userlocks configuration parameter, Developer Options
+track_activities configuration parameter, Cumulative Query and Index Statistics
+track_activity_query_size configuration parameter, Cumulative Query and Index Statistics
+track_commit_timestamp configuration parameter, Sending Servers
+track_counts configuration parameter, Cumulative Query and Index Statistics
+track_functions configuration parameter, Cumulative Query and Index Statistics
+track_io_timing configuration parameter, Cumulative Query and Index Statistics
+track_wal_io_timing configuration parameter, Cumulative Query and Index Statistics
+transaction, Transactions
+transaction ID, Preventing Transaction ID Wraparound Failures
+
+
+wraparound, Preventing Transaction ID Wraparound Failures
+
+
+transaction isolation, Transaction Isolation
+transaction isolation level, Transaction Isolation, Statement Behavior
+
+
+read committed, Read Committed Isolation Level
+repeatable read, Repeatable Read Isolation Level
+serializable, Serializable Isolation Level
+setting, SET TRANSACTION
+setting default, Statement Behavior
+
+
+transaction log (see WAL)
+transaction_deferrable configuration parameter, Statement Behavior
+transaction_isolation configuration parameter, Statement Behavior
+transaction_read_only configuration parameter, Statement Behavior
+transaction_timestamp, Date/Time Functions and Operators
+transform_null_equals configuration parameter, Platform and Client Compatibility
+transition tables, CREATE TRIGGER
+
+
+(see also ephemeral named relation)
+implementation in PLs, SPI_register_trigger_data
+referencing from C trigger, Writing Trigger Functions in C
+
+
+translate, String Functions and Operators
+TRANSLATE_REGEX, Differences from SQL Standard and XQuery
+transparent huge pages, Memory
+trigger, Pseudo-Types, Triggers, Writing Trigger Functions in C, Rules Versus Triggers, Trigger Functions, Trigger Functions
+
+
+arguments for trigger functions, Overview of Trigger Behavior
+constraint trigger, Description
+for updating a derived tsvector column, Triggers for Automatic Updates
+in C, Writing Trigger Functions in C
+in PL/pgSQL, Trigger Functions
+in PL/Python, Trigger Functions
+in PL/Tcl, Trigger Functions in PL/Tcl
+compared with rules, Rules Versus Triggers
+
+
+triggered_change_notification, tcn
+trigger_file (see promote_trigger_file)
+trim, String Functions and Operators, Binary String Functions and Operators
+trim_array, Array Functions and Operators
+trim_scale, Mathematical Functions and Operators
+true, Boolean Type
+trunc, Mathematical Functions and Operators, Network Address Functions and Operators
+TRUNCATE, TRUNCATE
+trusted, Trusted and Untrusted PL/Perl
+
+
+PL/Perl, Trusted and Untrusted PL/Perl
+
+
+tsm_handler, Pseudo-Types
+tsm_system_rows, tsm_system_rows
+tsm_system_time, tsm_system_time
+tsquery (data type), tsquery
+tsquery_phrase, Text Search Functions and Operators, Manipulating Queries
+tsvector (data type), tsvector
+tsvector concatenation, Manipulating Documents
+tsvector_to_array, Text Search Functions and Operators
+tsvector_update_trigger, Trigger Functions
+tsvector_update_trigger_column, Trigger Functions
+ts_debug, Text Search Functions and Operators, Configuration Testing
+ts_delete, Text Search Functions and Operators
+ts_filter, Text Search Functions and Operators
+ts_headline, Text Search Functions and Operators, Highlighting Results
+ts_lexize, Text Search Functions and Operators, Dictionary Testing
+ts_parse, Text Search Functions and Operators, Parser Testing
+ts_rank, Text Search Functions and Operators, Ranking Search Results
+ts_rank_cd, Text Search Functions and Operators, Ranking Search Results
+ts_rewrite, Text Search Functions and Operators, Query Rewriting
+ts_stat, Text Search Functions and Operators, Gathering Document Statistics
+ts_token_type, Text Search Functions and Operators, Parser Testing
+tuple_data_split, Heap Functions
+txid_current, System Information Functions and Operators
+txid_current_if_assigned, System Information Functions and Operators
+txid_current_snapshot, System Information Functions and Operators
+txid_snapshot_xip, System Information Functions and Operators
+txid_snapshot_xmax, System Information Functions and Operators
+txid_snapshot_xmin, System Information Functions and Operators
+txid_status, System Information Functions and Operators
+txid_visible_in_snapshot, System Information Functions and Operators
+type (see data type)
+type cast, Numeric Constants, Type Casts
+
+
+
+U
+
+UESCAPE, Identifiers and Key Words, String Constants with Unicode Escapes
+unaccent, unaccent, Functions
+Unicode escape, String Constants with Unicode Escapes
+
+
+in identifiers, Identifiers and Key Words
+in string constants, String Constants with Unicode Escapes
+
+
+Unicode normalization, String Functions and Operators
+UNION, Combining Queries (UNION, INTERSECT, EXCEPT), UNION, CASE, and Related Constructs
+
+
+determination of result type, UNION, CASE, and Related Constructs
+
+
+uniq, intarray Functions and Operators
+unique constraint, Unique Constraints
+unistr, String Functions and Operators
+Unix domain socket, Parameter Key Words
+unix_socket_directories configuration parameter, Connection Settings
+unix_socket_group configuration parameter, Connection Settings
+unix_socket_permissions configuration parameter, Connection Settings
+unknown, Pseudo-Types
+UNLISTEN, UNLISTEN
+unnest, Array Functions and Operators
+
+
+for multirange, Range/Multirange Functions and Operators
+for tsvector, Text Search Functions and Operators
+
+
+unqualified name, The Schema Search Path
+updatable views, Updatable Views
+UPDATE, Updates, Updating Data, Returning Data from Modified Rows, UPDATE
+
+
+RETURNING, Returning Data from Modified Rows
+
+
+update_process_title configuration parameter, Process Title
+updating, Updating Data
+upgrading, Upgrading a PostgreSQL Cluster
+upper, String Functions and Operators, Range/Multirange Functions and Operators
+
+
+and locales, Behavior
+
+
+upper_inc, Range/Multirange Functions and Operators
+upper_inf, Range/Multirange Functions and Operators
+UPSERT, INSERT
+URI, Connection Strings
+user, System Information Functions and Operators, Database Roles
+
+
+current, System Information Functions and Operators
+
+
+user mapping, Foreign Data
+User name maps, User Name Maps
+user_catalog_table storage parameter, Storage Parameters
+UUID, UUID Type, UUID Type, PostgreSQL Features
+
+
+generating, UUID Type
+
+
+uuid-ossp, uuid-ossp
+uuid_generate_v1, uuid-ossp Functions
+uuid_generate_v1mc, uuid-ossp Functions
+uuid_generate_v3, uuid-ossp Functions
+
+
+
+V
+
+vacuum, Routine Vacuuming
+VACUUM, VACUUM
+vacuumdb, vacuumdb
+vacuumlo, vacuumlo
+vacuum_cost_delay configuration parameter, Cost-based Vacuum Delay
+vacuum_cost_limit configuration parameter, Cost-based Vacuum Delay
+vacuum_cost_page_dirty configuration parameter, Cost-based Vacuum Delay
+vacuum_cost_page_hit configuration parameter, Cost-based Vacuum Delay
+vacuum_cost_page_miss configuration parameter, Cost-based Vacuum Delay
+vacuum_defer_cleanup_age configuration parameter, Primary Server
+vacuum_failsafe_age configuration parameter, Statement Behavior
+vacuum_freeze_min_age configuration parameter, Statement Behavior
+vacuum_freeze_table_age configuration parameter, Statement Behavior
+vacuum_index_cleanup storage parameter, Storage Parameters
+vacuum_multixact_failsafe_age configuration parameter, Statement Behavior
+vacuum_multixact_freeze_min_age configuration parameter, Statement Behavior
+vacuum_multixact_freeze_table_age configuration parameter, Statement Behavior
+vacuum_truncate storage parameter, Storage Parameters
+value expression, Value Expressions
+VALUES, VALUES Lists, UNION, CASE, and Related Constructs, VALUES
+
+
+determination of result type, UNION, CASE, and Related Constructs
+
+
+varchar, Character Types
+variadic function, SQL Functions with Variable Numbers of Arguments
+variance, Aggregate Functions
+
+
+population, Aggregate Functions
+sample, Aggregate Functions
+
+
+var_pop, Aggregate Functions
+var_samp, Aggregate Functions
+version, Accessing a Database, System Information Functions and Operators, Upgrading a PostgreSQL Cluster
+
+
+compatibility, Upgrading a PostgreSQL Cluster
+
+
+view, Views, Views and the Rule System, Materialized Views, Cooperation with Views
+
+
+implementation through rules, Views and the Rule System
+materialized, Materialized Views
+updating, Cooperation with Views
+
+
+Visibility Map, Visibility Map
+VM (see Visibility Map)
+void, Pseudo-Types
+VOLATILE, Function Volatility Categories
+volatility, Function Volatility Categories
+
+
+functions, Function Volatility Categories
+
+
+VPATH, Installation Procedure, Extension Building Infrastructure
+
+
+
+W
+
+WAL, Reliability and the Write-Ahead Log
+wal_block_size configuration parameter, Preset Options
+wal_buffers configuration parameter, Settings
+wal_compression configuration parameter, Settings
+wal_consistency_checking configuration parameter, Developer Options
+wal_debug configuration parameter, Developer Options
+wal_decode_buffer_size configuration parameter, Recovery
+wal_init_zero configuration parameter, Settings
+wal_keep_size configuration parameter, Sending Servers
+wal_level configuration parameter, Settings
+wal_log_hints configuration parameter, Settings
+wal_receiver_create_temp_slot configuration parameter, Standby Servers
+wal_receiver_status_interval configuration parameter, Standby Servers
+wal_receiver_timeout configuration parameter, Standby Servers
+wal_recycle configuration parameter, Settings
+wal_retrieve_retry_interval configuration parameter, Standby Servers
+wal_segment_size configuration parameter, Preset Options
+wal_sender_timeout configuration parameter, Sending Servers
+wal_skip_threshold configuration parameter, Settings
+wal_sync_method configuration parameter, Settings
+wal_writer_delay configuration parameter, Settings
+wal_writer_flush_after configuration parameter, Settings
+warm standby, High Availability, Load Balancing, and Replication
+websearch_to_tsquery, Text Search Functions and Operators
+WHERE, The WHERE Clause
+where to log, Where to Log
+WHILE
+
+
+in PL/pgSQL, WHILE
+
+
+width, Geometric Functions and Operators
+width_bucket, Mathematical Functions and Operators
+window function, Window Functions, Window Function Calls, Window Function Processing, Window Functions
+
+
+built-in, Window Functions
+invocation, Window Function Calls
+order of execution, Window Function Processing
+
+
+WITH, WITH Queries (Common Table Expressions), SELECT
+
+
+in SELECT, WITH Queries (Common Table Expressions), SELECT
+
+
+WITH CHECK OPTION, CREATE VIEW
+WITHIN GROUP, Aggregate Expressions
+witness server, High Availability, Load Balancing, and Replication
+word_similarity, Functions and Operators
+work_mem configuration parameter, Memory
+wraparound
+
+
+of multixact IDs, Multixacts and Wraparound
+of transaction IDs, Preventing Transaction ID Wraparound Failures
+
+
+
+
+
+X
+
+xid, Object Identifier Types
+xid8, Object Identifier Types
+xmax, System Columns
+xmin, System Columns
+XML, XML Type
+XML export, Mapping Tables to XML
+XML Functions, XML Functions
+XML option, Creating XML Values, Statement Behavior
+xml2, xml2
+xmlagg, xmlagg, Aggregate Functions
+xmlbinary configuration parameter, Statement Behavior
+xmlcomment, xmlcomment
+xmlconcat, xmlconcat
+xmlelement, xmlelement
+XMLEXISTS, XMLEXISTS
+xmlforest, xmlforest
+xmloption configuration parameter, Statement Behavior
+xmlparse, Creating XML Values
+xmlpi, xmlpi
+xmlroot, xmlroot
+xmlserialize, Creating XML Values
+xmltable, xmltable
+xml_is_well_formed, xml_is_well_formed
+xml_is_well_formed_content, xml_is_well_formed
+xml_is_well_formed_document, xml_is_well_formed
+XPath, xpath
+xpath_exists, xpath_exists
+xpath_table, xpath_table
+XQuery regular expressions, Differences from SQL Standard and XQuery
+xslt_process, xslt_process
+
+
+
+Y
+
+yacc, Requirements
+
+
+
+Z
+
+zero_damaged_pages configuration parameter, Developer Options
+zlib, Requirements, Anti-Features
+
+
+
+
+
+
+
+
+Prev 
+Up
+ 
+
+
+Bibliography 
+Home
+ 
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

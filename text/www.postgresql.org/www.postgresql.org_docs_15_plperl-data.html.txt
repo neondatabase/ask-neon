@@ -1,0 +1,264 @@
+
+
+
+PostgreSQL: Documentation: 15: 45.2. Data Values in PL/Perl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+45.2. Data Values in PL/Perl
+
+
+Prev 
+Up
+Chapter 45. PL/Perl — Perl Procedural Language
+Home
+ Next
+
+
+
+
+
+
+
+
+45.2. Data Values in PL/Perl
+
+
+
+The argument values supplied to a PL/Perl function's code are simply the input arguments converted to text form (just as if they had been displayed by a SELECT statement). Conversely, the return and return_next commands will accept any string that is acceptable input format for the function's declared return type.
+If this behavior is inconvenient for a particular case, it can be improved by using a transform, as already illustrated for bool values. Several examples of transform modules are included in the PostgreSQL distribution.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+45.1. PL/Perl Functions and Arguments 
+Home
+ 45.3. Built-in Functions
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

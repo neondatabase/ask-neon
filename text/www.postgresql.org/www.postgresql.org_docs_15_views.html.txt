@@ -1,0 +1,237 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 54. System Views
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                  
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 54. System Views
+
+
+Prev 
+Up
+Part VII. Internals
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 54. System Views
+
+
+
+
+Table of Contents
+
+54.1. Overview
+54.2. pg_available_extensions
+54.3. pg_available_extension_versions
+54.4. pg_backend_memory_contexts
+54.5. pg_config
+54.6. pg_cursors
+54.7. pg_file_settings
+54.8. pg_group
+54.9. pg_hba_file_rules
+54.10. pg_ident_file_mappings
+54.11. pg_indexes
+54.12. pg_locks
+54.13. pg_matviews
+54.14. pg_policies
+54.15. pg_prepared_statements
+54.16. pg_prepared_xacts
+54.17. pg_publication_tables
+54.18. pg_replication_origin_status
+54.19. pg_replication_slots
+54.20. pg_roles
+54.21. pg_rules
+54.22. pg_seclabels
+54.23. pg_sequences
+54.24. pg_settings
+54.25. pg_shadow
+54.26. pg_shmem_allocations
+54.27. pg_stats
+54.28. pg_stats_ext
+54.29. pg_stats_ext_exprs
+54.30. pg_tables
+54.31. pg_timezone_abbrevs
+54.32. pg_timezone_names
+54.33. pg_user
+54.34. pg_user_mappings
+54.35. pg_views
+
+
+In addition to the system catalogs, PostgreSQL provides a number of built-in views. Some system views provide convenient access to some commonly used queries on the system catalogs. Other views provide access to internal server state.
+The information schema (Chapter 37) provides an alternative set of views which overlap the functionality of the system views. Since the information schema is SQL-standard whereas the views described here are PostgreSQL-specific, it's usually better to use the information schema if it provides all the information you need.
+Table 54.1 lists the system views described here. More detailed documentation of each view follows below. There are some additional views that provide access to accumulated statistics; they are described in Table 28.2.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.65. pg_user_mapping 
+Home
+ 54.1. Overview
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

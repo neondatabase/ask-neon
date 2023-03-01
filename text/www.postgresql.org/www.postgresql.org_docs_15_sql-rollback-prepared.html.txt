@@ -1,0 +1,292 @@
+
+
+
+PostgreSQL: Documentation: 15: ROLLBACK PREPARED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ROLLBACK PREPARED
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+ROLLBACK PREPARED
+ROLLBACK PREPARED — cancel a transaction that was earlier prepared for two-phase commit
+
+
+Synopsis
+
+ROLLBACK PREPARED transaction_id
+
+
+
+Description
+ROLLBACK PREPARED rolls back a transaction that is in prepared state.
+
+
+Parameters
+
+
+transaction_id
+
+The transaction identifier of the transaction that is to be rolled back.
+
+
+
+
+
+Notes
+To roll back a prepared transaction, you must be either the same user that executed the transaction originally, or a superuser. But you do not have to be in the same session that executed the transaction.
+This command cannot be executed inside a transaction block. The prepared transaction is rolled back immediately.
+All currently available prepared transactions are listed in the pg_prepared_xacts system view.
+
+
+Examples
+Roll back the transaction identified by the transaction identifier foobar:
+
+ROLLBACK PREPARED 'foobar';
+
+
+
+Compatibility
+ROLLBACK PREPARED is a PostgreSQL extension. It is intended for use by external transaction management systems, some of which are covered by standards (such as X/Open XA), but the SQL side of those systems is not standardized.
+
+
+See AlsoPREPARE TRANSACTION, COMMIT PREPARED
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+ROLLBACK 
+Home
+ ROLLBACK TO SAVEPOINT
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

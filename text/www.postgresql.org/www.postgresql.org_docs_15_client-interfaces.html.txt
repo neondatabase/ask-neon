@@ -1,0 +1,397 @@
+
+
+
+PostgreSQL: Documentation: 15: Part IV. Client Interfaces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Part IV. Client Interfaces
+
+
+Prev 
+Up
+PostgreSQL 15.2 Documentation
+Home
+ Next
+
+
+
+
+
+
+
+
+Part IV. Client Interfaces
+
+
+
+
+This part describes the client programming interfaces distributed with PostgreSQL. Each of these chapters can be read independently. Note that there are many other programming interfaces for client programs that are distributed separately and contain their own documentation (Appendix H lists some of the more popular ones). Readers of this part should be familiar with using SQL commands to manipulate and query the database (see Part II) and of course with the programming language that the interface uses.
+
+Table of Contents
+
+34. libpq — C Library
+
+
+34.1. Database Connection Control Functions
+34.2. Connection Status Functions
+34.3. Command Execution Functions
+34.4. Asynchronous Command Processing
+34.5. Pipeline Mode
+34.6. Retrieving Query Results Row-by-Row
+34.7. Canceling Queries in Progress
+34.8. The Fast-Path Interface
+34.9. Asynchronous Notification
+34.10. Functions Associated with the COPY Command
+34.11. Control Functions
+34.12. Miscellaneous Functions
+34.13. Notice Processing
+34.14. Event System
+34.15. Environment Variables
+34.16. The Password File
+34.17. The Connection Service File
+34.18. LDAP Lookup of Connection Parameters
+34.19. SSL Support
+34.20. Behavior in Threaded Programs
+34.21. Building libpq Programs
+34.22. Example Programs
+
+
+35. Large Objects
+
+
+35.1. Introduction
+35.2. Implementation Features
+35.3. Client Interfaces
+35.4. Server-Side Functions
+35.5. Example Program
+
+
+36. ECPG — Embedded SQL in C
+
+
+36.1. The Concept
+36.2. Managing Database Connections
+36.3. Running SQL Commands
+36.4. Using Host Variables
+36.5. Dynamic SQL
+36.6. pgtypes Library
+36.7. Using Descriptor Areas
+36.8. Error Handling
+36.9. Preprocessor Directives
+36.10. Processing Embedded SQL Programs
+36.11. Library Functions
+36.12. Large Objects
+36.13. C++ Applications
+36.14. Embedded SQL Commands
+36.15. Informix Compatibility Mode
+36.16. Oracle Compatibility Mode
+36.17. Internals
+
+
+37. The Information Schema
+
+
+37.1. The Schema
+37.2. Data Types
+37.3. information_schema_catalog_name
+37.4. administrable_role_​authorizations
+37.5. applicable_roles
+37.6. attributes
+37.7. character_sets
+37.8. check_constraint_routine_usage
+37.9. check_constraints
+37.10. collations
+37.11. collation_character_set_​applicability
+37.12. column_column_usage
+37.13. column_domain_usage
+37.14. column_options
+37.15. column_privileges
+37.16. column_udt_usage
+37.17. columns
+37.18. constraint_column_usage
+37.19. constraint_table_usage
+37.20. data_type_privileges
+37.21. domain_constraints
+37.22. domain_udt_usage
+37.23. domains
+37.24. element_types
+37.25. enabled_roles
+37.26. foreign_data_wrapper_options
+37.27. foreign_data_wrappers
+37.28. foreign_server_options
+37.29. foreign_servers
+37.30. foreign_table_options
+37.31. foreign_tables
+37.32. key_column_usage
+37.33. parameters
+37.34. referential_constraints
+37.35. role_column_grants
+37.36. role_routine_grants
+37.37. role_table_grants
+37.38. role_udt_grants
+37.39. role_usage_grants
+37.40. routine_column_usage
+37.41. routine_privileges
+37.42. routine_routine_usage
+37.43. routine_sequence_usage
+37.44. routine_table_usage
+37.45. routines
+37.46. schemata
+37.47. sequences
+37.48. sql_features
+37.49. sql_implementation_info
+37.50. sql_parts
+37.51. sql_sizing
+37.52. table_constraints
+37.53. table_privileges
+37.54. tables
+37.55. transforms
+37.56. triggered_update_columns
+37.57. triggers
+37.58. udt_privileges
+37.59. usage_privileges
+37.60. user_defined_types
+37.61. user_mapping_options
+37.62. user_mappings
+37.63. view_column_usage
+37.64. view_routine_usage
+37.65. view_table_usage
+37.66. views
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+33.5. Test Coverage Examination 
+Home
+ Chapter 34. libpq — C Library
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

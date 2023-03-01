@@ -1,0 +1,392 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 36. ECPG — Embedded SQL in C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 36. ECPG — Embedded SQL in C
+
+
+Prev 
+Up
+Part IV. Client Interfaces
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 36. ECPG — Embedded SQL in C
+
+
+
+
+Table of Contents
+
+36.1. The Concept
+36.2. Managing Database Connections
+
+
+36.2.1. Connecting to the Database Server
+36.2.2. Choosing a Connection
+36.2.3. Closing a Connection
+
+
+36.3. Running SQL Commands
+
+
+36.3.1. Executing SQL Statements
+36.3.2. Using Cursors
+36.3.3. Managing Transactions
+36.3.4. Prepared Statements
+
+
+36.4. Using Host Variables
+
+
+36.4.1. Overview
+36.4.2. Declare Sections
+36.4.3. Retrieving Query Results
+36.4.4. Type Mapping
+36.4.5. Handling Nonprimitive SQL Data Types
+36.4.6. Indicators
+
+
+36.5. Dynamic SQL
+
+
+36.5.1. Executing Statements without a Result Set
+36.5.2. Executing a Statement with Input Parameters
+36.5.3. Executing a Statement with a Result Set
+
+
+36.6. pgtypes Library
+
+
+36.6.1. Character Strings
+36.6.2. The numeric Type
+36.6.3. The date Type
+36.6.4. The timestamp Type
+36.6.5. The interval Type
+36.6.6. The decimal Type
+36.6.7. errno Values of pgtypeslib
+36.6.8. Special Constants of pgtypeslib
+
+
+36.7. Using Descriptor Areas
+
+
+36.7.1. Named SQL Descriptor Areas
+36.7.2. SQLDA Descriptor Areas
+
+
+36.8. Error Handling
+
+
+36.8.1. Setting Callbacks
+36.8.2. sqlca
+36.8.3. SQLSTATE vs. SQLCODE
+
+
+36.9. Preprocessor Directives
+
+
+36.9.1. Including Files
+36.9.2. The define and undef Directives
+36.9.3. ifdef, ifndef, elif, else, and endif Directives
+
+
+36.10. Processing Embedded SQL Programs
+36.11. Library Functions
+36.12. Large Objects
+36.13. C++ Applications
+
+
+36.13.1. Scope for Host Variables
+36.13.2. C++ Application Development with External C Module
+
+
+36.14. Embedded SQL Commands
+
+
+ALLOCATE DESCRIPTOR — allocate an SQL descriptor area
+CONNECT — establish a database connection
+DEALLOCATE DESCRIPTOR — deallocate an SQL descriptor area
+DECLARE — define a cursor
+DECLARE STATEMENT — declare SQL statement identifier
+DESCRIBE — obtain information about a prepared statement or result set
+DISCONNECT — terminate a database connection
+EXECUTE IMMEDIATE — dynamically prepare and execute a statement
+GET DESCRIPTOR — get information from an SQL descriptor area
+OPEN — open a dynamic cursor
+PREPARE — prepare a statement for execution
+SET AUTOCOMMIT — set the autocommit behavior of the current session
+SET CONNECTION — select a database connection
+SET DESCRIPTOR — set information in an SQL descriptor area
+TYPE — define a new data type
+VAR — define a variable
+WHENEVER — specify the action to be taken when an SQL statement causes a specific class condition to be raised
+
+
+36.15. Informix Compatibility Mode
+
+
+36.15.1. Additional Types
+36.15.2. Additional/Missing Embedded SQL Statements
+36.15.3. Informix-compatible SQLDA Descriptor Areas
+36.15.4. Additional Functions
+36.15.5. Additional Constants
+
+
+36.16. Oracle Compatibility Mode
+36.17. Internals
+
+
+This chapter describes the embedded SQL package for PostgreSQL. It was written by Linus Tolke (<linus@epact.se>) and Michael Meskes (<meskes@postgresql.org>). Originally it was written to work with C. It also works with C++, but it does not recognize all C++ constructs yet.
+This documentation is quite incomplete. But since this interface is standardized, additional information can be found in many resources about SQL.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+35.5. Example Program 
+Home
+ 36.1. The Concept
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

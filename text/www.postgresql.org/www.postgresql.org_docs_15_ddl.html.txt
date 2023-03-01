@@ -1,0 +1,330 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 5. Data Definition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 5. Data Definition
+
+
+Prev 
+Up
+Part II. The SQL Language
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 5. Data Definition
+
+
+
+
+Table of Contents
+
+5.1. Table Basics
+5.2. Default Values
+5.3. Generated Columns
+5.4. Constraints
+
+
+5.4.1. Check Constraints
+5.4.2. Not-Null Constraints
+5.4.3. Unique Constraints
+5.4.4. Primary Keys
+5.4.5. Foreign Keys
+5.4.6. Exclusion Constraints
+
+
+5.5. System Columns
+5.6. Modifying Tables
+
+
+5.6.1. Adding a Column
+5.6.2. Removing a Column
+5.6.3. Adding a Constraint
+5.6.4. Removing a Constraint
+5.6.5. Changing a Column's Default Value
+5.6.6. Changing a Column's Data Type
+5.6.7. Renaming a Column
+5.6.8. Renaming a Table
+
+
+5.7. Privileges
+5.8. Row Security Policies
+5.9. Schemas
+
+
+5.9.1. Creating a Schema
+5.9.2. The Public Schema
+5.9.3. The Schema Search Path
+5.9.4. Schemas and Privileges
+5.9.5. The System Catalog Schema
+5.9.6. Usage Patterns
+5.9.7. Portability
+
+
+5.10. Inheritance
+
+
+5.10.1. Caveats
+
+
+5.11. Table Partitioning
+
+
+5.11.1. Overview
+5.11.2. Declarative Partitioning
+5.11.3. Partitioning Using Inheritance
+5.11.4. Partition Pruning
+5.11.5. Partitioning and Constraint Exclusion
+5.11.6. Best Practices for Declarative Partitioning
+
+
+5.12. Foreign Data
+5.13. Other Database Objects
+5.14. Dependency Tracking
+
+
+This chapter covers how one creates the database structures that will hold one's data. In a relational database, the raw data is stored in tables, so the majority of this chapter is devoted to explaining how tables are created and modified and what features are available to control what data is stored in the tables. Subsequently, we discuss how tables can be organized into schemas, and how privileges can be assigned to tables. Finally, we will briefly look at other features that affect the data storage, such as inheritance, table partitioning, views, functions, and triggers.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+4.3. Calling Functions 
+Home
+ 5.1. Table Basics
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

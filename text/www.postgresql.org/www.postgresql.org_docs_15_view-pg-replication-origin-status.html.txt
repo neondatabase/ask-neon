@@ -1,0 +1,271 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.18. pg_replication_origin_status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.18. pg_replication_origin_status
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.18. pg_replication_origin_status
+
+
+
+The pg_replication_origin_status view contains information about how far replay for a certain origin has progressed. For more on replication origins see Chapter 50.
+
+Table 54.18. pg_replication_origin_status Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+local_id oid (references pg_replication_origin.roident)
+internal node identifier
+
+
+
+
+external_id text (references pg_replication_origin.roname)
+external node identifier
+
+
+
+
+remote_lsn pg_lsn
+The origin node's LSN up to which data has been replicated.
+
+
+
+
+local_lsn pg_lsn
+This node's LSN at which remote_lsn has been replicated. Used to flush commit records before persisting data to disk when using asynchronous commits.
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.17. pg_publication_tables 
+Home
+ 54.19. pg_replication_slots
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

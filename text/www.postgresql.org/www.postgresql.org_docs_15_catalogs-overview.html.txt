@@ -1,0 +1,527 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.1. Overview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.1. Overview
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.1. Overview
+
+
+
+Table 53.1 lists the system catalogs. More detailed documentation of each catalog follows below.
+Most system catalogs are copied from the template database during database creation and are thereafter database-specific. A few catalogs are physically shared across all databases in a cluster; these are noted in the descriptions of the individual catalogs.
+
+Table 53.1. System Catalogs
+
+
+
+
+
+
+
+
+Catalog Name
+Purpose
+
+
+
+
+pg_aggregate
+aggregate functions
+
+
+pg_am
+relation access methods
+
+
+pg_amop
+access method operators
+
+
+pg_amproc
+access method support functions
+
+
+pg_attrdef
+column default values
+
+
+pg_attribute
+table columns (“attributes”)
+
+
+pg_authid
+authorization identifiers (roles)
+
+
+pg_auth_members
+authorization identifier membership relationships
+
+
+pg_cast
+casts (data type conversions)
+
+
+pg_class
+tables, indexes, sequences, views (“relations”)
+
+
+pg_collation
+collations (locale information)
+
+
+pg_constraint
+check constraints, unique constraints, primary key constraints, foreign key constraints
+
+
+pg_conversion
+encoding conversion information
+
+
+pg_database
+databases within this database cluster
+
+
+pg_db_role_setting
+per-role and per-database settings
+
+
+pg_default_acl
+default privileges for object types
+
+
+pg_depend
+dependencies between database objects
+
+
+pg_description
+descriptions or comments on database objects
+
+
+pg_enum
+enum label and value definitions
+
+
+pg_event_trigger
+event triggers
+
+
+pg_extension
+installed extensions
+
+
+pg_foreign_data_wrapper
+foreign-data wrapper definitions
+
+
+pg_foreign_server
+foreign server definitions
+
+
+pg_foreign_table
+additional foreign table information
+
+
+pg_index
+additional index information
+
+
+pg_inherits
+table inheritance hierarchy
+
+
+pg_init_privs
+object initial privileges
+
+
+pg_language
+languages for writing functions
+
+
+pg_largeobject
+data pages for large objects
+
+
+pg_largeobject_metadata
+metadata for large objects
+
+
+pg_namespace
+schemas
+
+
+pg_opclass
+access method operator classes
+
+
+pg_operator
+operators
+
+
+pg_opfamily
+access method operator families
+
+
+pg_parameter_acl
+configuration parameters for which privileges have been granted
+
+
+pg_partitioned_table
+information about partition key of tables
+
+
+pg_policy
+row-security policies
+
+
+pg_proc
+functions and procedures
+
+
+pg_publication
+publications for logical replication
+
+
+pg_publication_namespace
+schema to publication mapping
+
+
+pg_publication_rel
+relation to publication mapping
+
+
+pg_range
+information about range types
+
+
+pg_replication_origin
+registered replication origins
+
+
+pg_rewrite
+query rewrite rules
+
+
+pg_seclabel
+security labels on database objects
+
+
+pg_sequence
+information about sequences
+
+
+pg_shdepend
+dependencies on shared objects
+
+
+pg_shdescription
+comments on shared objects
+
+
+pg_shseclabel
+security labels on shared database objects
+
+
+pg_statistic
+planner statistics
+
+
+pg_statistic_ext
+extended planner statistics (definition)
+
+
+pg_statistic_ext_data
+extended planner statistics (built statistics)
+
+
+pg_subscription
+logical replication subscriptions
+
+
+pg_subscription_rel
+relation state for subscriptions
+
+
+pg_tablespace
+tablespaces within this database cluster
+
+
+pg_transform
+transforms (data type to procedural language conversions)
+
+
+pg_trigger
+triggers
+
+
+pg_ts_config
+text search configurations
+
+
+pg_ts_config_map
+text search configurations' token mappings
+
+
+pg_ts_dict
+text search dictionaries
+
+
+pg_ts_parser
+text search parsers
+
+
+pg_ts_template
+text search templates
+
+
+pg_type
+data types
+
+
+pg_user_mapping
+mappings of users to foreign servers
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Chapter 53. System Catalogs 
+Home
+ 53.2. pg_aggregate
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

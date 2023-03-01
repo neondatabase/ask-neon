@@ -1,0 +1,299 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.9. pg_hba_file_rules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.9. pg_hba_file_rules
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.9. pg_hba_file_rules
+
+
+
+The view pg_hba_file_rules provides a summary of the contents of the client authentication configuration file, pg_hba.conf. A row appears in this view for each non-empty, non-comment line in the file, with annotations indicating whether the rule could be applied successfully.
+This view can be helpful for checking whether planned changes in the authentication configuration file will work, or for diagnosing a previous failure. Note that this view reports on the current contents of the file, not on what was last loaded by the server.
+By default, the pg_hba_file_rules view can be read only by superusers.
+
+Table 54.9. pg_hba_file_rules Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+line_number int4
+Line number of this rule in pg_hba.conf
+
+
+
+
+type text
+Type of connection
+
+
+
+
+database text[]
+List of database name(s) to which this rule applies
+
+
+
+
+user_name text[]
+List of user and group name(s) to which this rule applies
+
+
+
+
+address text
+Host name or IP address, or one of all, samehost, or samenet, or null for local connections
+
+
+
+
+netmask text
+IP address mask, or null if not applicable
+
+
+
+
+auth_method text
+Authentication method
+
+
+
+
+options text[]
+Options specified for authentication method, if any
+
+
+
+
+error text
+If not null, an error message indicating why this line could not be processed
+
+
+
+
+
+
+Usually, a row reflecting an incorrect entry will have values for only the line_number and error fields.
+See Chapter 21 for more information about client authentication configuration.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.8. pg_group 
+Home
+ 54.10. pg_ident_file_mappings
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

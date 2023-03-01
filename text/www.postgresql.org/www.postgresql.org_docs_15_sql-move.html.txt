@@ -1,0 +1,331 @@
+
+
+
+PostgreSQL: Documentation: 15: MOVE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MOVE
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+MOVE
+MOVE — position a cursor
+
+
+Synopsis
+
+MOVE [ direction ] [ FROM | IN ] cursor_name
+
+where direction can be one of:
+
+    NEXT
+    PRIOR
+    FIRST
+    LAST
+    ABSOLUTE count
+    RELATIVE count
+    count
+    ALL
+    FORWARD
+    FORWARD count
+    FORWARD ALL
+    BACKWARD
+    BACKWARD count
+    BACKWARD ALL
+
+
+
+Description
+MOVE repositions a cursor without retrieving any data. MOVE works exactly like the FETCH command, except it only positions the cursor and does not return rows.
+The parameters for the MOVE command are identical to those of the FETCH command; refer to FETCH for details on syntax and usage.
+
+
+Outputs
+On successful completion, a MOVE command returns a command tag of the form
+
+MOVE count
+
+The count is the number of rows that a FETCH command with the same parameters would have returned (possibly zero).
+
+
+Examples
+
+BEGIN WORK;
+DECLARE liahona CURSOR FOR SELECT * FROM films;
+
+-- Skip the first 5 rows:
+MOVE FORWARD 5 IN liahona;
+MOVE 5
+
+-- Fetch the 6th row from the cursor liahona:
+FETCH 1 FROM liahona;
+ code  | title  | did | date_prod  |  kind  |  len
+-------+--------+-----+------------+--------+-------
+ P_303 | 48 Hrs | 103 | 1982-10-22 | Action | 01:37
+(1 row)
+
+-- Close the cursor liahona and end the transaction:
+CLOSE liahona;
+COMMIT WORK;
+
+
+
+Compatibility
+There is no MOVE statement in the SQL standard.
+
+
+See AlsoCLOSE, DECLARE, FETCH
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+MERGE 
+Home
+ NOTIFY
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

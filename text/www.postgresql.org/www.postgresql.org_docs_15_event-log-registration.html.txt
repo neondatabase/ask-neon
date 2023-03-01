@@ -1,0 +1,252 @@
+
+
+
+PostgreSQL: Documentation: 15: 19.12. Registering Event Log on Windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19.12. Registering Event Log on Windows
+
+
+Prev 
+Up
+Chapter 19. Server Setup and Operation
+Home
+ Next
+
+
+
+
+
+
+
+
+19.12. Registering Event Log on Windows
+
+
+
+To register a Windows event log library with the operating system, issue this command:
+
+regsvr32 pgsql_library_directory/pgevent.dll
+
+This creates registry entries used by the event viewer, under the default event source named PostgreSQL.
+To specify a different event source name (see event_source), use the /n and /i options:
+
+regsvr32 /n /i:event_source_name pgsql_library_directory/pgevent.dll
+
+To unregister the event log library from the operating system, issue this command:
+
+regsvr32 /u [/i:event_source_name] pgsql_library_directory/pgevent.dll
+
+
+Note
+To enable event logging in the database server, modify log_destination to include eventlog in postgresql.conf.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+19.11. Secure TCP/IP Connections with SSH Tunnels 
+Home
+ Chapter 20. Server Configuration
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

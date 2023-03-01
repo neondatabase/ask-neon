@@ -1,0 +1,247 @@
+
+
+
+PostgreSQL: Documentation: 15: F.6. basic_archive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                  
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F.6. basic_archive
+
+
+Prev 
+Up
+Appendix F. Additional Supplied Modules
+Home
+ Next
+
+
+
+
+
+
+
+
+F.6. basic_archive
+
+
+
+
+
+F.6.1. Configuration Parameters
+F.6.2. Notes
+F.6.3. Author
+
+
+basic_archive is an example of an archive module. This module copies completed WAL segment files to the specified directory. This may not be especially useful, but it can serve as a starting point for developing your own archive module. For more information about archive modules, see Chapter 51.
+In order to function, this module must be loaded via archive_library, and archive_mode must be enabled.
+
+
+
+
+F.6.1. Configuration Parameters
+
+
+
+
+
+basic_archive.archive_directory (string) 
+
+The directory where the server should copy WAL segment files. This directory must already exist. The default is an empty string, which effectively halts WAL archiving, but if archive_mode is enabled, the server will accumulate WAL segment files in the expectation that a value will soon be provided.
+
+
+
+These parameters must be set in postgresql.conf. Typical usage might be:
+
+# postgresql.conf
+archive_mode = 'on'
+archive_library = 'basic_archive'
+basic_archive.archive_directory = '/path/to/archive/directory'
+
+
+
+
+
+
+F.6.2. Notes
+
+
+
+Server crashes may leave temporary files with the prefix archtemp in the archive directory. It is recommended to delete such files before restarting the server after a crash. It is safe to remove such files while the server is running as long as they are unrelated to any archiving still in progress, but users should use extra caution when doing so.
+
+
+
+
+
+F.6.3. Author
+
+
+
+Nathan Bossart
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+F.5. basebackup_to_shell 
+Home
+ F.7. bloom
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

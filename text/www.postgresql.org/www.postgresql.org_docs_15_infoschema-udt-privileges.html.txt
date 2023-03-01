@@ -1,0 +1,298 @@
+
+
+
+PostgreSQL: Documentation: 15: 37.58. udt_privileges
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37.58. udt_privileges
+
+
+Prev 
+Up
+Chapter 37. The Information Schema
+Home
+ Next
+
+
+
+
+
+
+
+
+37.58. udt_privileges
+
+
+
+The view udt_privileges identifies USAGE privileges granted on user-defined types to a currently enabled role or by a currently enabled role. There is one row for each combination of type, grantor, and grantee. This view shows only composite types (see under Section 37.60 for why); see Section 37.59 for domain privileges.
+
+Table 37.56. udt_privileges Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+grantor sql_identifier
+Name of the role that granted the privilege
+
+
+
+
+grantee sql_identifier
+Name of the role that the privilege was granted to
+
+
+
+
+udt_catalog sql_identifier
+Name of the database containing the type (always the current database)
+
+
+
+
+udt_schema sql_identifier
+Name of the schema containing the type
+
+
+
+
+udt_name sql_identifier
+Name of the type
+
+
+
+
+privilege_type character_data
+Always TYPE USAGE
+
+
+
+
+is_grantable yes_or_no
+YES if the privilege is grantable, NO if not
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.57. triggers 
+Home
+ 37.59. usage_privileges
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

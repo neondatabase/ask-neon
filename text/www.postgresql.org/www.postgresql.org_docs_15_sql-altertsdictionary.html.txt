@@ -1,0 +1,316 @@
+
+
+
+PostgreSQL: Documentation: 15: ALTER TEXT SEARCH DICTIONARY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALTER TEXT SEARCH DICTIONARY
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+ALTER TEXT SEARCH DICTIONARY
+ALTER TEXT SEARCH DICTIONARY — change the definition of a text search dictionary
+
+
+Synopsis
+
+ALTER TEXT SEARCH DICTIONARY name (
+    option [ = value ] [, ... ]
+)
+ALTER TEXT SEARCH DICTIONARY name RENAME TO new_name
+ALTER TEXT SEARCH DICTIONARY name OWNER TO { new_owner | CURRENT_ROLE | CURRENT_USER | SESSION_USER }
+ALTER TEXT SEARCH DICTIONARY name SET SCHEMA new_schema
+
+
+
+Description
+ALTER TEXT SEARCH DICTIONARY changes the definition of a text search dictionary. You can change the dictionary's template-specific options, or change the dictionary's name or owner.
+You must be the owner of the dictionary to use ALTER TEXT SEARCH DICTIONARY.
+
+
+Parameters
+
+
+name
+
+The name (optionally schema-qualified) of an existing text search dictionary.
+
+option
+
+The name of a template-specific option to be set for this dictionary.
+
+value
+
+The new value to use for a template-specific option. If the equal sign and value are omitted, then any previous setting for the option is removed from the dictionary, allowing the default to be used.
+
+new_name
+
+The new name of the text search dictionary.
+
+new_owner
+
+The new owner of the text search dictionary.
+
+new_schema
+
+The new schema for the text search dictionary.
+
+
+
+Template-specific options can appear in any order.
+
+
+Examples
+The following example command changes the stopword list for a Snowball-based dictionary. Other parameters remain unchanged.
+
+ALTER TEXT SEARCH DICTIONARY my_dict ( StopWords = newrussian );
+
+The following example command changes the language option to dutch, and removes the stopword option entirely.
+
+ALTER TEXT SEARCH DICTIONARY my_dict ( language = dutch, StopWords );
+
+The following example command “updates” the dictionary's definition without actually changing anything.
+
+ALTER TEXT SEARCH DICTIONARY my_dict ( dummy );
+
+(The reason this works is that the option removal code doesn't complain if there is no such option.) This trick is useful when changing configuration files for the dictionary: the ALTER will force existing database sessions to re-read the configuration files, which otherwise they would never do if they had read them earlier.
+
+
+Compatibility
+There is no ALTER TEXT SEARCH DICTIONARY statement in the SQL standard.
+
+
+See AlsoCREATE TEXT SEARCH DICTIONARY, DROP TEXT SEARCH DICTIONARY
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+ALTER TEXT SEARCH CONFIGURATION 
+Home
+ ALTER TEXT SEARCH PARSER
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,313 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.24. pg_foreign_server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.24. pg_foreign_server
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.24. pg_foreign_server
+
+
+
+The catalog pg_foreign_server stores foreign server definitions. A foreign server describes a source of external data, such as a remote server. Foreign servers are accessed via foreign-data wrappers.
+
+Table 53.24. pg_foreign_server Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+oid oid
+Row identifier
+
+
+
+
+srvname name
+Name of the foreign server
+
+
+
+
+srvowner oid (references pg_authid.oid)
+Owner of the foreign server
+
+
+
+
+srvfdw oid (references pg_foreign_data_wrapper.oid)
+OID of the foreign-data wrapper of this foreign server
+
+
+
+
+srvtype text
+Type of the server (optional)
+
+
+
+
+srvversion text
+Version of the server (optional)
+
+
+
+
+srvacl aclitem[]
+Access privileges; see Section 5.7 for details
+
+
+
+
+srvoptions text[]
+Foreign server specific options, as “keyword=value” strings
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.23. pg_foreign_data_wrapper 
+Home
+ 53.25. pg_foreign_table
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,374 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 20. Server Configuration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 20. Server Configuration
+
+
+Prev 
+Up
+Part III. Server Administration
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 20. Server Configuration
+
+
+
+
+Table of Contents
+
+20.1. Setting Parameters
+
+
+20.1.1. Parameter Names and Values
+20.1.2. Parameter Interaction via the Configuration File
+20.1.3. Parameter Interaction via SQL
+20.1.4. Parameter Interaction via the Shell
+20.1.5. Managing Configuration File Contents
+
+
+20.2. File Locations
+20.3. Connections and Authentication
+
+
+20.3.1. Connection Settings
+20.3.2. Authentication
+20.3.3. SSL
+
+
+20.4. Resource Consumption
+
+
+20.4.1. Memory
+20.4.2. Disk
+20.4.3. Kernel Resource Usage
+20.4.4. Cost-based Vacuum Delay
+20.4.5. Background Writer
+20.4.6. Asynchronous Behavior
+
+
+20.5. Write Ahead Log
+
+
+20.5.1. Settings
+20.5.2. Checkpoints
+20.5.3. Archiving
+20.5.4. Recovery
+20.5.5. Archive Recovery
+20.5.6. Recovery Target
+
+
+20.6. Replication
+
+
+20.6.1. Sending Servers
+20.6.2. Primary Server
+20.6.3. Standby Servers
+20.6.4. Subscribers
+
+
+20.7. Query Planning
+
+
+20.7.1. Planner Method Configuration
+20.7.2. Planner Cost Constants
+20.7.3. Genetic Query Optimizer
+20.7.4. Other Planner Options
+
+
+20.8. Error Reporting and Logging
+
+
+20.8.1. Where to Log
+20.8.2. When to Log
+20.8.3. What to Log
+20.8.4. Using CSV-Format Log Output
+20.8.5. Using JSON-Format Log Output
+20.8.6. Process Title
+
+
+20.9. Run-time Statistics
+
+
+20.9.1. Cumulative Query and Index Statistics
+20.9.2. Statistics Monitoring
+
+
+20.10. Automatic Vacuuming
+20.11. Client Connection Defaults
+
+
+20.11.1. Statement Behavior
+20.11.2. Locale and Formatting
+20.11.3. Shared Library Preloading
+20.11.4. Other Defaults
+
+
+20.12. Lock Management
+20.13. Version and Platform Compatibility
+
+
+20.13.1. Previous PostgreSQL Versions
+20.13.2. Platform and Client Compatibility
+
+
+20.14. Error Handling
+20.15. Preset Options
+20.16. Customized Options
+20.17. Developer Options
+20.18. Short Options
+
+
+There are many configuration parameters that affect the behavior of the database system. In the first section of this chapter we describe how to interact with configuration parameters. The subsequent sections discuss each parameter in detail.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+19.12. Registering Event Log on Windows 
+Home
+ 20.1. Setting Parameters
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,283 @@
+
+
+
+PostgreSQL: Documentation: 15: 7.7. VALUES Lists
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.7. VALUES Lists
+
+
+Prev 
+Up
+Chapter 7. Queries
+Home
+ Next
+
+
+
+
+
+
+
+
+7.7. VALUES Lists
+
+
+
+VALUES provides a way to generate a “constant table” that can be used in a query without having to actually create and populate a table on-disk. The syntax is
+
+VALUES ( expression [, ...] ) [, ...]
+
+Each parenthesized list of expressions generates a row in the table. The lists must all have the same number of elements (i.e., the number of columns in the table), and corresponding entries in each list must have compatible data types. The actual data type assigned to each column of the result is determined using the same rules as for UNION (see Section 10.5).
+As an example:
+
+VALUES (1, 'one'), (2, 'two'), (3, 'three');
+
+will return a table of two columns and three rows. It's effectively equivalent to:
+
+SELECT 1 AS column1, 'one' AS column2
+UNION ALL
+SELECT 2, 'two'
+UNION ALL
+SELECT 3, 'three';
+
+By default, PostgreSQL assigns the names column1, column2, etc. to the columns of a VALUES table. The column names are not specified by the SQL standard and different database systems do it differently, so it's usually better to override the default names with a table alias list, like this:
+
+=> SELECT * FROM (VALUES (1, 'one'), (2, 'two'), (3, 'three')) AS t (num,letter);
+ num | letter
+-----+--------
+   1 | one
+   2 | two
+   3 | three
+(3 rows)
+
+Syntactically, VALUES followed by expression lists is treated as equivalent to:
+
+SELECT select_list FROM table_expression
+
+and can appear anywhere a SELECT can. For example, you can use it as part of a UNION, or attach a sort_specification (ORDER BY, LIMIT, and/or OFFSET) to it. VALUES is most commonly used as the data source in an INSERT command, and next most commonly as a subquery.
+For more information see VALUES.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+7.6. LIMIT and OFFSET 
+Home
+ 7.8. WITH Queries (Common Table Expressions)
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

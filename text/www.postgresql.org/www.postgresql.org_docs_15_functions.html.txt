@@ -1,0 +1,403 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 9. Functions and Operators
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 9. Functions and Operators
+
+
+Prev 
+Up
+Part II. The SQL Language
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 9. Functions and Operators
+
+
+
+
+Table of Contents
+
+9.1. Logical Operators
+9.2. Comparison Functions and Operators
+9.3. Mathematical Functions and Operators
+9.4. String Functions and Operators
+
+
+9.4.1. format
+
+
+9.5. Binary String Functions and Operators
+9.6. Bit String Functions and Operators
+9.7. Pattern Matching
+
+
+9.7.1. LIKE
+9.7.2. SIMILAR TO Regular Expressions
+9.7.3. POSIX Regular Expressions
+
+
+9.8. Data Type Formatting Functions
+9.9. Date/Time Functions and Operators
+
+
+9.9.1. EXTRACT, date_part
+9.9.2. date_trunc
+9.9.3. date_bin
+9.9.4. AT TIME ZONE
+9.9.5. Current Date/Time
+9.9.6. Delaying Execution
+
+
+9.10. Enum Support Functions
+9.11. Geometric Functions and Operators
+9.12. Network Address Functions and Operators
+9.13. Text Search Functions and Operators
+9.14. UUID Functions
+9.15. XML Functions
+
+
+9.15.1. Producing XML Content
+9.15.2. XML Predicates
+9.15.3. Processing XML
+9.15.4. Mapping Tables to XML
+
+
+9.16. JSON Functions and Operators
+
+
+9.16.1. Processing and Creating JSON Data
+9.16.2. The SQL/JSON Path Language
+
+
+9.17. Sequence Manipulation Functions
+9.18. Conditional Expressions
+
+
+9.18.1. CASE
+9.18.2. COALESCE
+9.18.3. NULLIF
+9.18.4. GREATEST and LEAST
+
+
+9.19. Array Functions and Operators
+9.20. Range/Multirange Functions and Operators
+9.21. Aggregate Functions
+9.22. Window Functions
+9.23. Subquery Expressions
+
+
+9.23.1. EXISTS
+9.23.2. IN
+9.23.3. NOT IN
+9.23.4. ANY/SOME
+9.23.5. ALL
+9.23.6. Single-Row Comparison
+
+
+9.24. Row and Array Comparisons
+
+
+9.24.1. IN
+9.24.2. NOT IN
+9.24.3. ANY/SOME (array)
+9.24.4. ALL (array)
+9.24.5. Row Constructor Comparison
+9.24.6. Composite Type Comparison
+
+
+9.25. Set Returning Functions
+9.26. System Information Functions and Operators
+9.27. System Administration Functions
+
+
+9.27.1. Configuration Settings Functions
+9.27.2. Server Signaling Functions
+9.27.3. Backup Control Functions
+9.27.4. Recovery Control Functions
+9.27.5. Snapshot Synchronization Functions
+9.27.6. Replication Management Functions
+9.27.7. Database Object Management Functions
+9.27.8. Index Maintenance Functions
+9.27.9. Generic File Access Functions
+9.27.10. Advisory Lock Functions
+
+
+9.28. Trigger Functions
+9.29. Event Trigger Functions
+
+
+9.29.1. Capturing Changes at Command End
+9.29.2. Processing Objects Dropped by a DDL Command
+9.29.3. Handling a Table Rewrite Event
+
+
+9.30. Statistics Information Functions
+
+
+9.30.1. Inspecting MCV Lists
+
+
+
+
+PostgreSQL provides a large number of functions and operators for the built-in data types. This chapter describes most of them, although additional special-purpose functions appear in relevant sections of the manual. Users can also define their own functions and operators, as described in Part V. The psql commands \df and \do can be used to list all available functions and operators, respectively.
+The notation used throughout this chapter to describe the argument and result data types of a function or operator is like this:
+
+repeat ( text, integer ) → text
+
+which says that the function repeat takes one text and one integer argument and returns a result of type text. The right arrow is also used to indicate the result of an example, thus:
+
+repeat('Pg', 4) → PgPgPgPg
+
+If you are concerned about portability then note that most of the functions and operators described in this chapter, with the exception of the most trivial arithmetic and comparison operators and some explicitly marked functions, are not specified by the SQL standard. Some of this extended functionality is present in other SQL database management systems, and in many cases this functionality is compatible and consistent between the various implementations.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+8.21. Pseudo-Types 
+Home
+ 9.1. Logical Operators
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

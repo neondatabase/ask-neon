@@ -1,0 +1,294 @@
+
+
+
+PostgreSQL: Documentation: 15: 74.5. Structure of the Bootstrap BKI File
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+74.5. Structure of the Bootstrap BKI File
+
+
+Prev 
+Up
+Chapter 74. System Catalog Declarations and Initial Contents
+Home
+ Next
+
+
+
+
+
+
+
+
+74.5. Structure of the Bootstrap BKI File
+
+
+
+The open command cannot be used until the tables it uses exist and have entries for the table that is to be opened. (These minimum tables are pg_class, pg_attribute, pg_proc, and pg_type.) To allow those tables themselves to be filled, create with the bootstrap option implicitly opens the created table for data insertion.
+Also, the declare index and declare toast commands cannot be used until the system catalogs they need have been created and filled in.
+Thus, the structure of the postgres.bki file has to be:
+
+
+
+create bootstrap one of the critical tables
+
+
+insert data describing at least the critical tables
+
+
+close
+
+
+Repeat for the other critical tables.
+
+
+create (without bootstrap) a noncritical table
+
+
+open
+
+
+insert desired data
+
+
+close
+
+
+Repeat for the other noncritical tables.
+
+
+Define indexes and toast tables.
+
+
+build indices
+
+
+
+There are doubtless other, undocumented ordering dependencies.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+74.4. BKI Commands 
+Home
+ 74.6. BKI Example
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

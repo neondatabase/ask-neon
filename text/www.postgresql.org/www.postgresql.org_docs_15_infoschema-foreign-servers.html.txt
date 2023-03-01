@@ -1,0 +1,307 @@
+
+
+
+PostgreSQL: Documentation: 15: 37.29. foreign_servers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37.29. foreign_servers
+
+
+Prev 
+Up
+Chapter 37. The Information Schema
+Home
+ Next
+
+
+
+
+
+
+
+
+37.29. foreign_servers
+
+
+
+The view foreign_servers contains all foreign servers defined in the current database. Only those foreign servers are shown that the current user has access to (by way of being the owner or having some privilege).
+
+Table 37.27. foreign_servers Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+foreign_server_catalog sql_identifier
+Name of the database that the foreign server is defined in (always the current database)
+
+
+
+
+foreign_server_name sql_identifier
+Name of the foreign server
+
+
+
+
+foreign_data_wrapper_catalog sql_identifier
+Name of the database that contains the foreign-data wrapper used by the foreign server (always the current database)
+
+
+
+
+foreign_data_wrapper_name sql_identifier
+Name of the foreign-data wrapper used by the foreign server
+
+
+
+
+foreign_server_type character_data
+Foreign server type information, if specified upon creation
+
+
+
+
+foreign_server_version character_data
+Foreign server version information, if specified upon creation
+
+
+
+
+authorization_identifier sql_identifier
+Name of the owner of the foreign server
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.28. foreign_server_options 
+Home
+ 37.30. foreign_table_options
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

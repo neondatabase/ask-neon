@@ -1,0 +1,244 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 40. Event Triggers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 40. Event Triggers
+
+
+Prev 
+Up
+Part V. Server Programming
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 40. Event Triggers
+
+
+
+
+Table of Contents
+
+40.1. Overview of Event Trigger Behavior
+40.2. Event Trigger Firing Matrix
+40.3. Writing Event Trigger Functions in C
+40.4. A Complete Event Trigger Example
+40.5. A Table Rewrite Event Trigger Example
+
+
+To supplement the trigger mechanism discussed in Chapter 39, PostgreSQL also provides event triggers. Unlike regular triggers, which are attached to a single table and capture only DML events, event triggers are global to a particular database and are capable of capturing DDL events.
+Like regular triggers, event triggers can be written in any procedural language that includes event trigger support, or in C, but not in plain SQL.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+39.4. A Complete Trigger Example 
+Home
+ 40.1. Overview of Event Trigger Behavior
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

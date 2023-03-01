@@ -1,0 +1,329 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 19. Server Setup and Operation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 19. Server Setup and Operation
+
+
+Prev 
+Up
+Part III. Server Administration
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 19. Server Setup and Operation
+
+
+
+
+Table of Contents
+
+19.1. The PostgreSQL User Account
+19.2. Creating a Database Cluster
+
+
+19.2.1. Use of Secondary File Systems
+19.2.2. File Systems
+
+
+19.3. Starting the Database Server
+
+
+19.3.1. Server Start-up Failures
+19.3.2. Client Connection Problems
+
+
+19.4. Managing Kernel Resources
+
+
+19.4.1. Shared Memory and Semaphores
+19.4.2. systemd RemoveIPC
+19.4.3. Resource Limits
+19.4.4. Linux Memory Overcommit
+19.4.5. Linux Huge Pages
+
+
+19.5. Shutting Down the Server
+19.6. Upgrading a PostgreSQL Cluster
+
+
+19.6.1. Upgrading Data via pg_dumpall
+19.6.2. Upgrading Data via pg_upgrade
+19.6.3. Upgrading Data via Replication
+
+
+19.7. Preventing Server Spoofing
+19.8. Encryption Options
+19.9. Secure TCP/IP Connections with SSL
+
+
+19.9.1. Basic Setup
+19.9.2. OpenSSL Configuration
+19.9.3. Using Client Certificates
+19.9.4. SSL Server File Usage
+19.9.5. Creating Certificates
+
+
+19.10. Secure TCP/IP Connections with GSSAPI Encryption
+
+
+19.10.1. Basic Setup
+
+
+19.11. Secure TCP/IP Connections with SSH Tunnels
+19.12. Registering Event Log on Windows
+
+
+This chapter discusses how to set up and run the database server, and its interactions with the operating system.
+The directions in this chapter assume that you are working with plain PostgreSQL without any additional infrastructure, for example a copy that you built from source according to the directions in the preceding chapters. If you are working with a pre-packaged or vendor-supplied version of PostgreSQL, it is likely that the packager has made special provisions for installing and starting the database server according to your system's conventions. Consult the package-level documentation for details.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+18.1. Building with Visual C++ or the Microsoft Windows SDK 
+Home
+ 19.1. The PostgreSQL User Account
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

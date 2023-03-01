@@ -1,0 +1,319 @@
+
+
+
+PostgreSQL: Documentation: 15: ALTER TRIGGER
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALTER TRIGGER
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+ALTER TRIGGER
+ALTER TRIGGER — change the definition of a trigger
+
+
+Synopsis
+
+ALTER TRIGGER name ON table_name RENAME TO new_name
+ALTER TRIGGER name ON table_name [ NO ] DEPENDS ON EXTENSION extension_name
+
+
+
+Description
+ALTER TRIGGER changes properties of an existing trigger.
+The RENAME clause changes the name of the given trigger without otherwise changing the trigger definition. If the table that the trigger is on is a partitioned table, then corresponding clone triggers in the partitions are renamed too.
+The DEPENDS ON EXTENSION clause marks the trigger as dependent on an extension, such that if the extension is dropped, the trigger will automatically be dropped as well.
+You must own the table on which the trigger acts to be allowed to change its properties.
+
+
+Parameters
+
+
+name
+
+The name of an existing trigger to alter.
+
+table_name
+
+The name of the table on which this trigger acts.
+
+new_name
+
+The new name for the trigger.
+
+extension_name
+
+The name of the extension that the trigger is to depend on (or no longer dependent on, if NO is specified). A trigger that's marked as dependent on an extension is automatically dropped when the extension is dropped.
+
+
+
+
+
+Notes
+The ability to temporarily enable or disable a trigger is provided by ALTER TABLE, not by ALTER TRIGGER, because ALTER TRIGGER has no convenient way to express the option of enabling or disabling all of a table's triggers at once.
+
+
+Examples
+To rename an existing trigger:
+
+ALTER TRIGGER emp_stamp ON emp RENAME TO emp_track_chgs;
+
+To mark a trigger as being dependent on an extension:
+
+ALTER TRIGGER emp_stamp ON emp DEPENDS ON EXTENSION emplib;
+
+
+
+Compatibility
+ALTER TRIGGER is a PostgreSQL extension of the SQL standard.
+
+
+See AlsoALTER TABLE
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+ALTER TEXT SEARCH TEMPLATE 
+Home
+ ALTER TYPE
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,349 @@
+
+
+
+PostgreSQL: Documentation: 15: F.14. dict_xsyn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F.14. dict_xsyn
+
+
+Prev 
+Up
+Appendix F. Additional Supplied Modules
+Home
+ Next
+
+
+
+
+
+
+
+
+F.14. dict_xsyn
+
+
+
+
+
+F.14.1. Configuration
+F.14.2. Usage
+
+
+dict_xsyn (Extended Synonym Dictionary) is an example of an add-on dictionary template for full-text search. This dictionary type replaces words with groups of their synonyms, and so makes it possible to search for a word using any of its synonyms.
+
+
+
+
+F.14.1. Configuration
+
+
+
+A dict_xsyn dictionary accepts the following options:
+
+
+
+matchorig controls whether the original word is accepted by the dictionary. Default is true.
+
+
+matchsynonyms controls whether the synonyms are accepted by the dictionary. Default is false.
+
+
+keeporig controls whether the original word is included in the dictionary's output. Default is true.
+
+
+keepsynonyms controls whether the synonyms are included in the dictionary's output. Default is true.
+
+
+rules is the base name of the file containing the list of synonyms. This file must be stored in $SHAREDIR/tsearch_data/ (where $SHAREDIR means the PostgreSQL installation's shared-data directory). Its name must end in .rules (which is not to be included in the rules parameter).
+
+
+
+The rules file has the following format:
+
+
+
+Each line represents a group of synonyms for a single word, which is given first on the line. Synonyms are separated by whitespace, thus:
+
+word syn1 syn2 syn3
+
+
+
+The sharp (#) sign is a comment delimiter. It may appear at any position in a line. The rest of the line will be skipped.
+
+
+
+Look at xsyn_sample.rules, which is installed in $SHAREDIR/tsearch_data/, for an example.
+
+
+
+
+
+F.14.2. Usage
+
+
+
+Installing the dict_xsyn extension creates a text search template xsyn_template and a dictionary xsyn based on it, with default parameters. You can alter the parameters, for example
+
+mydb# ALTER TEXT SEARCH DICTIONARY xsyn (RULES='my_rules', KEEPORIG=false);
+ALTER TEXT SEARCH DICTIONARY
+
+or create new dictionaries based on the template.
+To test the dictionary, you can try
+
+mydb=# SELECT ts_lexize('xsyn', 'word');
+      ts_lexize
+-----------------------
+ {syn1,syn2,syn3}
+
+mydb# ALTER TEXT SEARCH DICTIONARY xsyn (RULES='my_rules', KEEPORIG=true);
+ALTER TEXT SEARCH DICTIONARY
+
+mydb=# SELECT ts_lexize('xsyn', 'word');
+      ts_lexize
+-----------------------
+ {word,syn1,syn2,syn3}
+
+mydb# ALTER TEXT SEARCH DICTIONARY xsyn (RULES='my_rules', KEEPORIG=false, MATCHSYNONYMS=true);
+ALTER TEXT SEARCH DICTIONARY
+
+mydb=# SELECT ts_lexize('xsyn', 'syn1');
+      ts_lexize
+-----------------------
+ {syn1,syn2,syn3}
+
+mydb# ALTER TEXT SEARCH DICTIONARY xsyn (RULES='my_rules', KEEPORIG=true, MATCHORIG=false, KEEPSYNONYMS=false);
+ALTER TEXT SEARCH DICTIONARY
+
+mydb=# SELECT ts_lexize('xsyn', 'syn1');
+      ts_lexize
+-----------------------
+ {word}
+
+Real-world usage will involve including it in a text search configuration as described in Chapter 12. That might look like this:
+
+ALTER TEXT SEARCH CONFIGURATION english
+    ALTER MAPPING FOR word, asciiword WITH xsyn, english_stem;
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+F.13. dict_int 
+Home
+ F.15. earthdistance
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

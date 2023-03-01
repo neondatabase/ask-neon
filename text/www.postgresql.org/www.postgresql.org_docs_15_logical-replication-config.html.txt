@@ -1,0 +1,223 @@
+
+
+
+PostgreSQL: Documentation: 15: 31.10. Configuration Settings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+31.10. Configuration Settings
+
+
+Prev 
+Up
+Chapter 31. Logical Replication
+Home
+ Next
+
+
+
+
+
+
+
+
+31.10. Configuration Settings
+
+
+
+Logical replication requires several configuration options to be set.
+On the publisher side, wal_level must be set to logical, and max_replication_slots must be set to at least the number of subscriptions expected to connect, plus some reserve for table synchronization. And max_wal_senders should be set to at least the same as max_replication_slots plus the number of physical replicas that are connected at the same time.
+max_replication_slots must also be set on the subscriber. It should be set to at least the number of subscriptions that will be added to the subscriber, plus some reserve for table synchronization. max_logical_replication_workers must be set to at least the number of subscriptions, again plus some reserve for the table synchronization. Additionally the max_worker_processes may need to be adjusted to accommodate for replication workers, at least (max_logical_replication_workers + 1). Note that some extensions and parallel queries also take worker slots from max_worker_processes.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+31.9. Security 
+Home
+ 31.11. Quick Setup
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

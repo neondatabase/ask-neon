@@ -1,0 +1,230 @@
+
+
+
+PostgreSQL: Documentation: 15: 49.7. Logical Decoding Output Writers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+49.7. Logical Decoding Output Writers
+
+
+Prev 
+Up
+Chapter 49. Logical Decoding
+Home
+ Next
+
+
+
+
+
+
+
+
+49.7. Logical Decoding Output Writers
+
+
+
+It is possible to add more output methods for logical decoding. For details, see src/backend/replication/logical/logicalfuncs.c. Essentially, three functions need to be provided: one to read WAL, one to prepare writing output, and one to write the output (see Section 49.6.5).
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+49.6. Logical Decoding Output Plugins 
+Home
+ 49.8. Synchronous Replication Support for Logical Decoding
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

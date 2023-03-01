@@ -1,0 +1,210 @@
+
+
+
+PostgreSQL: Documentation: 15: Appendix N. Color Support
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix N. Color Support
+
+
+Prev 
+Up
+Part VIII. Appendixes
+Home
+ Next
+
+
+
+
+
+
+
+
+Appendix N. Color Support
+
+
+
+
+Table of Contents
+
+N.1. When Color is Used
+N.2. Configuring the Colors
+
+
+Most programs in the PostgreSQL package can produce colorized console output. This appendix describes how that is configured.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Appendix M. Glossary 
+Home
+ N.1. When Color is Used
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

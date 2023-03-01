@@ -1,0 +1,262 @@
+
+
+
+PostgreSQL: Documentation: 15: DROP PUBLICATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP PUBLICATION
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DROP PUBLICATION
+DROP PUBLICATION — remove a publication
+
+
+Synopsis
+
+DROP PUBLICATION [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
+
+
+
+Description
+DROP PUBLICATION removes an existing publication from the database.
+A publication can only be dropped by its owner or a superuser.
+
+
+Parameters
+
+
+IF EXISTS
+
+Do not throw an error if the publication does not exist. A notice is issued in this case.
+
+name
+
+The name of an existing publication.
+
+CASCADERESTRICT
+
+These key words do not have any effect, since there are no dependencies on publications.
+
+
+
+
+
+Examples
+Drop a publication:
+
+DROP PUBLICATION mypublication;
+
+
+
+Compatibility
+DROP PUBLICATION is a PostgreSQL extension.
+
+
+See AlsoCREATE PUBLICATION, ALTER PUBLICATION
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+DROP PROCEDURE 
+Home
+ DROP ROLE
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

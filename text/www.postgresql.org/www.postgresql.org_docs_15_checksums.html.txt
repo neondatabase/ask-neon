@@ -1,0 +1,216 @@
+
+
+
+PostgreSQL: Documentation: 15: 30.2. Data Checksums
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+30.2. Data Checksums
+
+
+Prev 
+Up
+Chapter 30. Reliability and the Write-Ahead Log
+Home
+ Next
+
+
+
+
+
+
+
+
+30.2. Data Checksums
+
+
+
+
+
+30.2.1. Off-line Enabling of Checksums
+
+
+By default, data pages are not protected by checksums, but this can optionally be enabled for a cluster. When enabled, each data page includes a checksum that is updated when the page is written and verified each time the page is read. Only data pages are protected by checksums; internal data structures and temporary files are not.
+Checksums are normally enabled when the cluster is initialized using initdb. They can also be enabled or disabled at a later time as an offline operation. Data checksums are enabled or disabled at the full cluster level, and cannot be specified individually for databases or tables.
+The current state of checksums in the cluster can be verified by viewing the value of the read-only configuration variable data_checksums by issuing the command SHOW data_checksums.
+When attempting to recover from page corruptions, it may be necessary to bypass the checksum protection. To do this, temporarily set the configuration parameter ignore_checksum_failure.
+
+
+
+
+30.2.1. Off-line Enabling of Checksums
+
+
+
+The pg_checksums application can be used to enable or disable data checksums, as well as verify checksums, on an offline cluster.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+30.1. Reliability 
+Home
+ 30.3. Write-Ahead Logging (WAL)
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

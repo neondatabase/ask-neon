@@ -1,0 +1,402 @@
+
+
+
+PostgreSQL: Documentation: 15: Part VIII. Appendixes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Part VIII. Appendixes
+
+
+Prev 
+Up
+PostgreSQL 15.2 Documentation
+Home
+ Next
+
+
+
+
+
+
+
+
+Part VIII. Appendixes
+
+
+
+
+Table of Contents
+
+A. PostgreSQL Error Codes
+B. Date/Time Support
+
+
+B.1. Date/Time Input Interpretation
+B.2. Handling of Invalid or Ambiguous Timestamps
+B.3. Date/Time Key Words
+B.4. Date/Time Configuration Files
+B.5. POSIX Time Zone Specifications
+B.6. History of Units
+B.7. Julian Dates
+
+
+C. SQL Key Words
+D. SQL Conformance
+
+
+D.1. Supported Features
+D.2. Unsupported Features
+D.3. XML Limits and Conformance to SQL/XML
+
+
+E. Release Notes
+
+
+E.1. Release 15.2
+E.2. Release 15.1
+E.3. Release 15
+E.4. Prior Releases
+
+
+F. Additional Supplied Modules
+
+
+F.1. adminpack
+F.2. amcheck
+F.3. auth_delay
+F.4. auto_explain
+F.5. basebackup_to_shell
+F.6. basic_archive
+F.7. bloom
+F.8. btree_gin
+F.9. btree_gist
+F.10. citext
+F.11. cube
+F.12. dblink
+F.13. dict_int
+F.14. dict_xsyn
+F.15. earthdistance
+F.16. file_fdw
+F.17. fuzzystrmatch
+F.18. hstore
+F.19. intagg
+F.20. intarray
+F.21. isn
+F.22. lo
+F.23. ltree
+F.24. old_snapshot
+F.25. pageinspect
+F.26. passwordcheck
+F.27. pg_buffercache
+F.28. pgcrypto
+F.29. pg_freespacemap
+F.30. pg_prewarm
+F.31. pgrowlocks
+F.32. pg_stat_statements
+F.33. pgstattuple
+F.34. pg_surgery
+F.35. pg_trgm
+F.36. pg_visibility
+F.37. pg_walinspect
+F.38. postgres_fdw
+F.39. seg
+F.40. sepgsql
+F.41. spi
+F.42. sslinfo
+F.43. tablefunc
+F.44. tcn
+F.45. test_decoding
+F.46. tsm_system_rows
+F.47. tsm_system_time
+F.48. unaccent
+F.49. uuid-ossp
+F.50. xml2
+
+
+G. Additional Supplied Programs
+
+
+G.1. Client Applications
+G.2. Server Applications
+
+
+H. External Projects
+
+
+H.1. Client Interfaces
+H.2. Administration Tools
+H.3. Procedural Languages
+H.4. Extensions
+
+
+I. The Source Code Repository
+
+
+I.1. Getting the Source via Git
+
+
+J. Documentation
+
+
+J.1. DocBook
+J.2. Tool Sets
+J.3. Building the Documentation
+J.4. Documentation Authoring
+J.5. Style Guide
+
+
+K. PostgreSQL Limits
+L. Acronyms
+M. Glossary
+N. Color Support
+
+
+N.1. When Color is Used
+N.2. Configuring the Colors
+
+
+O. Obsolete or Renamed Features
+
+
+O.1. recovery.conf file merged into postgresql.conf
+O.2. Default Roles Renamed to Predefined Roles
+O.3. pg_xlogdump renamed to pg_waldump
+O.4. pg_resetxlog renamed to pg_resetwal
+O.5. pg_receivexlog renamed to pg_receivewal
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+76.3. Backup Manifest WAL Range Object 
+Home
+ Appendix A. PostgreSQL Error Codes
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

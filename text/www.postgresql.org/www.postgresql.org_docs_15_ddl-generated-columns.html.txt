@@ -1,0 +1,269 @@
+
+
+
+PostgreSQL: Documentation: 15: 5.3. Generated Columns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.3. Generated Columns
+
+
+Prev 
+Up
+Chapter 5. Data Definition
+Home
+ Next
+
+
+
+
+
+
+
+
+5.3. Generated Columns
+
+
+
+A generated column is a special column that is always computed from other columns. Thus, it is for columns what a view is for tables. There are two kinds of generated columns: stored and virtual. A stored generated column is computed when it is written (inserted or updated) and occupies storage as if it were a normal column. A virtual generated column occupies no storage and is computed when it is read. Thus, a virtual generated column is similar to a view and a stored generated column is similar to a materialized view (except that it is always updated automatically). PostgreSQL currently implements only stored generated columns.
+To create a generated column, use the GENERATED ALWAYS AS clause in CREATE TABLE, for example:
+
+CREATE TABLE people (
+    ...,
+    height_cm numeric,
+    height_in numeric GENERATED ALWAYS AS (height_cm / 2.54) STORED
+);
+
+The keyword STORED must be specified to choose the stored kind of generated column. See CREATE TABLE for more details.
+A generated column cannot be written to directly. In INSERT or UPDATE commands, a value cannot be specified for a generated column, but the keyword DEFAULT may be specified.
+Consider the differences between a column with a default and a generated column. The column default is evaluated once when the row is first inserted if no other value was provided; a generated column is updated whenever the row changes and cannot be overridden. A column default may not refer to other columns of the table; a generation expression would normally do so. A column default can use volatile functions, for example random() or functions referring to the current time; this is not allowed for generated columns.
+Several restrictions apply to the definition of generated columns and tables involving generated columns:
+
+
+
+The generation expression can only use immutable functions and cannot use subqueries or reference anything other than the current row in any way.
+
+
+A generation expression cannot reference another generated column.
+
+
+A generation expression cannot reference a system column, except tableoid.
+
+
+A generated column cannot have a column default or an identity definition.
+
+
+A generated column cannot be part of a partition key.
+
+
+Foreign tables can have generated columns. See CREATE FOREIGN TABLE for details.
+
+
+For inheritance:
+
+
+
+If a parent column is a generated column, a child column must also be a generated column using the same expression. In the definition of the child column, leave off the GENERATED clause, as it will be copied from the parent.
+
+
+In case of multiple inheritance, if one parent column is a generated column, then all parent columns must be generated columns and with the same expression.
+
+
+If a parent column is not a generated column, a child column may be defined to be a generated column or not.
+
+
+
+
+
+
+Additional considerations apply to the use of generated columns.
+
+
+
+Generated columns maintain access privileges separately from their underlying base columns. So, it is possible to arrange it so that a particular role can read from a generated column but not from the underlying base columns.
+
+
+Generated columns are, conceptually, updated after BEFORE triggers have run. Therefore, changes made to base columns in a BEFORE trigger will be reflected in generated columns. But conversely, it is not allowed to access generated columns in BEFORE triggers.
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+5.2. Default Values 
+Home
+ 5.4. Constraints
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

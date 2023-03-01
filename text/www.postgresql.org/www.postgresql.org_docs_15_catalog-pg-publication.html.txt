@@ -1,0 +1,295 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.40. pg_publication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.40. pg_publication
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.40. pg_publication
+
+
+
+The catalog pg_publication contains all publications created in the database. For more on publications see Section 31.1.
+
+Table 53.40. pg_publication Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+oid oid
+Row identifier
+
+
+
+
+pubname name
+Name of the publication
+
+
+
+
+pubowner oid (references pg_authid.oid)
+Owner of the publication
+
+
+
+
+puballtables bool
+If true, this publication automatically includes all tables in the database, including any that will be created in the future.
+
+
+
+
+pubinsert bool
+If true, INSERT operations are replicated for tables in the publication.
+
+
+
+
+pubupdate bool
+If true, UPDATE operations are replicated for tables in the publication.
+
+
+
+
+pubdelete bool
+If true, DELETE operations are replicated for tables in the publication.
+
+
+
+
+pubtruncate bool
+If true, TRUNCATE operations are replicated for tables in the publication.
+
+
+
+
+pubviaroot bool
+If true, operations on a leaf partition are replicated using the identity and schema of its topmost partitioned ancestor mentioned in the publication instead of its own.
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.39. pg_proc 
+Home
+ 53.41. pg_publication_namespace
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

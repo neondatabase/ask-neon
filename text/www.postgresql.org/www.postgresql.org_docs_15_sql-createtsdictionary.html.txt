@@ -1,0 +1,303 @@
+
+
+
+PostgreSQL: Documentation: 15: CREATE TEXT SEARCH DICTIONARY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TEXT SEARCH DICTIONARY
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+CREATE TEXT SEARCH DICTIONARY
+CREATE TEXT SEARCH DICTIONARY — define a new text search dictionary
+
+
+Synopsis
+
+CREATE TEXT SEARCH DICTIONARY name (
+    TEMPLATE = template
+    [, option = value [, ... ]]
+)
+
+
+
+Description
+CREATE TEXT SEARCH DICTIONARY creates a new text search dictionary. A text search dictionary specifies a way of recognizing interesting or uninteresting words for searching. A dictionary depends on a text search template, which specifies the functions that actually perform the work. Typically the dictionary provides some options that control the detailed behavior of the template's functions.
+If a schema name is given then the text search dictionary is created in the specified schema. Otherwise it is created in the current schema.
+The user who defines a text search dictionary becomes its owner.
+Refer to Chapter 12 for further information.
+
+
+Parameters
+
+
+name
+
+The name of the text search dictionary to be created. The name can be schema-qualified.
+
+template
+
+The name of the text search template that will define the basic behavior of this dictionary.
+
+option
+
+The name of a template-specific option to be set for this dictionary.
+
+value
+
+The value to use for a template-specific option. If the value is not a simple identifier or number, it must be quoted (but you can always quote it, if you wish).
+
+
+
+The options can appear in any order.
+
+
+Examples
+The following example command creates a Snowball-based dictionary with a nonstandard list of stop words.
+
+CREATE TEXT SEARCH DICTIONARY my_russian (
+    template = snowball,
+    language = russian,
+    stopwords = myrussian
+);
+
+
+
+Compatibility
+There is no CREATE TEXT SEARCH DICTIONARY statement in the SQL standard.
+
+
+See AlsoALTER TEXT SEARCH DICTIONARY, DROP TEXT SEARCH DICTIONARY
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+CREATE TEXT SEARCH CONFIGURATION 
+Home
+ CREATE TEXT SEARCH PARSER
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

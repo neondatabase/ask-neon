@@ -1,0 +1,307 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.22. pg_seclabels
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.22. pg_seclabels
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.22. pg_seclabels
+
+
+
+The view pg_seclabels provides information about security labels. It as an easier-to-query version of the pg_seclabel catalog.
+
+Table 54.22. pg_seclabels Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+objoid oid (references any OID column)
+The OID of the object this security label pertains to
+
+
+
+
+classoid oid (references pg_class.oid)
+The OID of the system catalog this object appears in
+
+
+
+
+objsubid int4
+For a security label on a table column, this is the column number (the objoid and classoid refer to the table itself). For all other object types, this column is zero.
+
+
+
+
+objtype text
+The type of object to which this label applies, as text.
+
+
+
+
+objnamespace oid (references pg_namespace.oid)
+The OID of the namespace for this object, if applicable; otherwise NULL.
+
+
+
+
+objname text
+The name of the object to which this label applies, as text.
+
+
+
+
+provider text (references pg_seclabel.provider)
+The label provider associated with this label.
+
+
+
+
+label text (references pg_seclabel.label)
+The security label applied to this object.
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.21. pg_rules 
+Home
+ 54.23. pg_sequences
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

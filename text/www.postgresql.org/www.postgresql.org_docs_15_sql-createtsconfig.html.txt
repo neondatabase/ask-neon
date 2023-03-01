@@ -1,0 +1,292 @@
+
+
+
+PostgreSQL: Documentation: 15: CREATE TEXT SEARCH CONFIGURATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TEXT SEARCH CONFIGURATION
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+CREATE TEXT SEARCH CONFIGURATION
+CREATE TEXT SEARCH CONFIGURATION — define a new text search configuration
+
+
+Synopsis
+
+CREATE TEXT SEARCH CONFIGURATION name (
+    PARSER = parser_name |
+    COPY = source_config
+)
+
+
+
+Description
+CREATE TEXT SEARCH CONFIGURATION creates a new text search configuration. A text search configuration specifies a text search parser that can divide a string into tokens, plus dictionaries that can be used to determine which tokens are of interest for searching.
+If only the parser is specified, then the new text search configuration initially has no mappings from token types to dictionaries, and therefore will ignore all words. Subsequent ALTER TEXT SEARCH CONFIGURATION commands must be used to create mappings to make the configuration useful. Alternatively, an existing text search configuration can be copied.
+If a schema name is given then the text search configuration is created in the specified schema. Otherwise it is created in the current schema.
+The user who defines a text search configuration becomes its owner.
+Refer to Chapter 12 for further information.
+
+
+Parameters
+
+
+name
+
+The name of the text search configuration to be created. The name can be schema-qualified.
+
+parser_name
+
+The name of the text search parser to use for this configuration.
+
+source_config
+
+The name of an existing text search configuration to copy.
+
+
+
+
+
+Notes
+The PARSER and COPY options are mutually exclusive, because when an existing configuration is copied, its parser selection is copied too.
+
+
+Compatibility
+There is no CREATE TEXT SEARCH CONFIGURATION statement in the SQL standard.
+
+
+See AlsoALTER TEXT SEARCH CONFIGURATION, DROP TEXT SEARCH CONFIGURATION
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+CREATE TABLESPACE 
+Home
+ CREATE TEXT SEARCH DICTIONARY
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

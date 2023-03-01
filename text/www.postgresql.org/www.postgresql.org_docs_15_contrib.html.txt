@@ -1,0 +1,695 @@
+
+
+
+PostgreSQL: Documentation: 15: Appendix F. Additional Supplied Modules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix F. Additional Supplied Modules
+
+
+Prev 
+Up
+Part VIII. Appendixes
+Home
+ Next
+
+
+
+
+
+
+
+
+Appendix F. Additional Supplied Modules
+
+
+
+
+Table of Contents
+
+F.1. adminpack
+F.2. amcheck
+
+
+F.2.1. Functions
+F.2.2. Optional heapallindexed Verification
+F.2.3. Using amcheck Effectively
+F.2.4. Repairing Corruption
+
+
+F.3. auth_delay
+
+
+F.3.1. Configuration Parameters
+F.3.2. Author
+
+
+F.4. auto_explain
+
+
+F.4.1. Configuration Parameters
+F.4.2. Example
+F.4.3. Author
+
+
+F.5. basebackup_to_shell
+
+
+F.5.1. Configuration Parameters
+F.5.2. Author
+
+
+F.6. basic_archive
+
+
+F.6.1. Configuration Parameters
+F.6.2. Notes
+F.6.3. Author
+
+
+F.7. bloom
+
+
+F.7.1. Parameters
+F.7.2. Examples
+F.7.3. Operator Class Interface
+F.7.4. Limitations
+F.7.5. Authors
+
+
+F.8. btree_gin
+
+
+F.8.1. Example Usage
+F.8.2. Authors
+
+
+F.9. btree_gist
+
+
+F.9.1. Example Usage
+F.9.2. Authors
+
+
+F.10. citext
+
+
+F.10.1. Rationale
+F.10.2. How to Use It
+F.10.3. String Comparison Behavior
+F.10.4. Limitations
+F.10.5. Author
+
+
+F.11. cube
+
+
+F.11.1. Syntax
+F.11.2. Precision
+F.11.3. Usage
+F.11.4. Defaults
+F.11.5. Notes
+F.11.6. Credits
+
+
+F.12. dblink
+
+
+dblink_connect — opens a persistent connection to a remote database
+dblink_connect_u — opens a persistent connection to a remote database, insecurely
+dblink_disconnect — closes a persistent connection to a remote database
+dblink — executes a query in a remote database
+dblink_exec — executes a command in a remote database
+dblink_open — opens a cursor in a remote database
+dblink_fetch — returns rows from an open cursor in a remote database
+dblink_close — closes a cursor in a remote database
+dblink_get_connections — returns the names of all open named dblink connections
+dblink_error_message — gets last error message on the named connection
+dblink_send_query — sends an async query to a remote database
+dblink_is_busy — checks if connection is busy with an async query
+dblink_get_notify — retrieve async notifications on a connection
+dblink_get_result — gets an async query result
+dblink_cancel_query — cancels any active query on the named connection
+dblink_get_pkey — returns the positions and field names of a relation's primary key fields
+dblink_build_sql_insert — builds an INSERT statement using a local tuple, replacing the primary key field values with alternative supplied values
+dblink_build_sql_delete — builds a DELETE statement using supplied values for primary key field values
+dblink_build_sql_update — builds an UPDATE statement using a local tuple, replacing the primary key field values with alternative supplied values
+
+
+F.13. dict_int
+
+
+F.13.1. Configuration
+F.13.2. Usage
+
+
+F.14. dict_xsyn
+
+
+F.14.1. Configuration
+F.14.2. Usage
+
+
+F.15. earthdistance
+
+
+F.15.1. Cube-Based Earth Distances
+F.15.2. Point-Based Earth Distances
+
+
+F.16. file_fdw
+F.17. fuzzystrmatch
+
+
+F.17.1. Soundex
+F.17.2. Levenshtein
+F.17.3. Metaphone
+F.17.4. Double Metaphone
+
+
+F.18. hstore
+
+
+F.18.1. hstore External Representation
+F.18.2. hstore Operators and Functions
+F.18.3. Indexes
+F.18.4. Examples
+F.18.5. Statistics
+F.18.6. Compatibility
+F.18.7. Transforms
+F.18.8. Authors
+
+
+F.19. intagg
+
+
+F.19.1. Functions
+F.19.2. Sample Uses
+
+
+F.20. intarray
+
+
+F.20.1. intarray Functions and Operators
+F.20.2. Index Support
+F.20.3. Example
+F.20.4. Benchmark
+F.20.5. Authors
+
+
+F.21. isn
+
+
+F.21.1. Data Types
+F.21.2. Casts
+F.21.3. Functions and Operators
+F.21.4. Examples
+F.21.5. Bibliography
+F.21.6. Author
+
+
+F.22. lo
+
+
+F.22.1. Rationale
+F.22.2. How to Use It
+F.22.3. Limitations
+F.22.4. Author
+
+
+F.23. ltree
+
+
+F.23.1. Definitions
+F.23.2. Operators and Functions
+F.23.3. Indexes
+F.23.4. Example
+F.23.5. Transforms
+F.23.6. Authors
+
+
+F.24. old_snapshot
+
+
+F.24.1. Functions
+
+
+F.25. pageinspect
+
+
+F.25.1. General Functions
+F.25.2. Heap Functions
+F.25.3. B-Tree Functions
+F.25.4. BRIN Functions
+F.25.5. GIN Functions
+F.25.6. GiST Functions
+F.25.7. Hash Functions
+
+
+F.26. passwordcheck
+F.27. pg_buffercache
+
+
+F.27.1. The pg_buffercache View
+F.27.2. Sample Output
+F.27.3. Authors
+
+
+F.28. pgcrypto
+
+
+F.28.1. General Hashing Functions
+F.28.2. Password Hashing Functions
+F.28.3. PGP Encryption Functions
+F.28.4. Raw Encryption Functions
+F.28.5. Random-Data Functions
+F.28.6. Notes
+F.28.7. Author
+
+
+F.29. pg_freespacemap
+
+
+F.29.1. Functions
+F.29.2. Sample Output
+F.29.3. Author
+
+
+F.30. pg_prewarm
+
+
+F.30.1. Functions
+F.30.2. Configuration Parameters
+F.30.3. Author
+
+
+F.31. pgrowlocks
+
+
+F.31.1. Overview
+F.31.2. Sample Output
+F.31.3. Author
+
+
+F.32. pg_stat_statements
+
+
+F.32.1. The pg_stat_statements View
+F.32.2. The pg_stat_statements_info View
+F.32.3. Functions
+F.32.4. Configuration Parameters
+F.32.5. Sample Output
+F.32.6. Authors
+
+
+F.33. pgstattuple
+
+
+F.33.1. Functions
+F.33.2. Authors
+
+
+F.34. pg_surgery
+
+
+F.34.1. Functions
+F.34.2. Authors
+
+
+F.35. pg_trgm
+
+
+F.35.1. Trigram (or Trigraph) Concepts
+F.35.2. Functions and Operators
+F.35.3. GUC Parameters
+F.35.4. Index Support
+F.35.5. Text Search Integration
+F.35.6. References
+F.35.7. Authors
+
+
+F.36. pg_visibility
+
+
+F.36.1. Functions
+F.36.2. Author
+
+
+F.37. pg_walinspect
+
+
+F.37.1. General Functions
+F.37.2. Author
+
+
+F.38. postgres_fdw
+
+
+F.38.1. FDW Options of postgres_fdw
+F.38.2. Functions
+F.38.3. Connection Management
+F.38.4. Transaction Management
+F.38.5. Remote Query Optimization
+F.38.6. Remote Query Execution Environment
+F.38.7. Cross-Version Compatibility
+F.38.8. Configuration Parameters
+F.38.9. Examples
+F.38.10. Author
+
+
+F.39. seg
+
+
+F.39.1. Rationale
+F.39.2. Syntax
+F.39.3. Precision
+F.39.4. Usage
+F.39.5. Notes
+F.39.6. Credits
+
+
+F.40. sepgsql
+
+
+F.40.1. Overview
+F.40.2. Installation
+F.40.3. Regression Tests
+F.40.4. GUC Parameters
+F.40.5. Features
+F.40.6. Sepgsql Functions
+F.40.7. Limitations
+F.40.8. External Resources
+F.40.9. Author
+
+
+F.41. spi
+
+
+F.41.1. refint — Functions for Implementing Referential Integrity
+F.41.2. autoinc — Functions for Autoincrementing Fields
+F.41.3. insert_username — Functions for Tracking Who Changed a Table
+F.41.4. moddatetime — Functions for Tracking Last Modification Time
+
+
+F.42. sslinfo
+
+
+F.42.1. Functions Provided
+F.42.2. Author
+
+
+F.43. tablefunc
+
+
+F.43.1. Functions Provided
+F.43.2. Author
+
+
+F.44. tcn
+F.45. test_decoding
+F.46. tsm_system_rows
+
+
+F.46.1. Examples
+
+
+F.47. tsm_system_time
+
+
+F.47.1. Examples
+
+
+F.48. unaccent
+
+
+F.48.1. Configuration
+F.48.2. Usage
+F.48.3. Functions
+
+
+F.49. uuid-ossp
+
+
+F.49.1. uuid-ossp Functions
+F.49.2. Building uuid-ossp
+F.49.3. Author
+
+
+F.50. xml2
+
+
+F.50.1. Deprecation Notice
+F.50.2. Description of Functions
+F.50.3. xpath_table
+F.50.4. XSLT Functions
+F.50.5. Author
+
+
+
+
+This appendix and the next one contain information regarding the modules that can be found in the contrib directory of the PostgreSQL distribution. These include porting tools, analysis utilities, and plug-in features that are not part of the core PostgreSQL system, mainly because they address a limited audience or are too experimental to be part of the main source tree. This does not preclude their usefulness.
+This appendix covers extensions and other server plug-in modules found in contrib. Appendix G covers utility programs.
+When building from the source distribution, these components are not built automatically, unless you build the "world" target (see Step 2). You can build and install all of them by running:
+
+make
+make install
+
+in the contrib directory of a configured source tree; or to build and install just one selected module, do the same in that module's subdirectory. Many of the modules have regression tests, which can be executed by running:
+
+make check
+
+before installation or
+
+make installcheck
+
+once you have a PostgreSQL server running.
+If you are using a pre-packaged version of PostgreSQL, these modules are typically made available as a separate subpackage, such as postgresql-contrib.
+Many modules supply new user-defined functions, operators, or types. To make use of one of these modules, after you have installed the code you need to register the new SQL objects in the database system. This is done by executing a CREATE EXTENSION command. In a fresh database, you can simply do
+
+CREATE EXTENSION module_name;
+
+This command registers the new SQL objects in the current database only, so you need to run it in each database that you want the module's facilities to be available in. Alternatively, run it in database template1 so that the extension will be copied into subsequently-created databases by default.
+For all these modules, CREATE EXTENSION must be run by a database superuser, unless the module is considered “trusted”, in which case it can be run by any user who has CREATE privilege on the current database. Modules that are trusted are identified as such in the sections that follow. Generally, trusted modules are ones that cannot provide access to outside-the-database functionality.
+Many modules allow you to install their objects in a schema of your choice. To do that, add SCHEMA schema_name to the CREATE EXTENSION command. By default, the objects will be placed in your current creation target schema, which in turn defaults to public.
+Note, however, that some of these modules are not “extensions” in this sense, but are loaded into the server in some other way, for instance by way of shared_preload_libraries. See the documentation of each module for details.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+E.4. Prior Releases 
+Home
+ F.1. adminpack
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

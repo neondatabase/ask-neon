@@ -1,0 +1,347 @@
+
+
+
+PostgreSQL: Documentation: 15: CREATE SUBSCRIPTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE SUBSCRIPTION
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+CREATE SUBSCRIPTION
+CREATE SUBSCRIPTION — define a new subscription
+
+
+Synopsis
+
+CREATE SUBSCRIPTION subscription_name
+    CONNECTION 'conninfo'
+    PUBLICATION publication_name [, ...]
+    [ WITH ( subscription_parameter [= value] [, ... ] ) ]
+
+
+
+Description
+CREATE SUBSCRIPTION adds a new logical-replication subscription. The subscription name must be distinct from the name of any existing subscription in the current database.
+A subscription represents a replication connection to the publisher. Hence, in addition to adding definitions in the local catalogs, this command normally creates a replication slot on the publisher.
+A logical replication worker will be started to replicate data for the new subscription at the commit of the transaction where this command is run, unless the subscription is initially disabled.
+Additional information about subscriptions and logical replication as a whole is available at Section 31.2 and Chapter 31.
+
+
+Parameters
+
+
+subscription_name
+
+The name of the new subscription.
+
+CONNECTION 'conninfo'
+
+The libpq connection string defining how to connect to the publisher database. For details see Section 34.1.1.
+
+PUBLICATION publication_name [, ...]
+
+Names of the publications on the publisher to subscribe to.
+
+WITH ( subscription_parameter [= value] [, ... ] )
+
+This clause specifies optional parameters for a subscription.
+The following parameters control what happens during subscription creation:
+
+
+connect (boolean)
+
+Specifies whether the CREATE SUBSCRIPTION command should connect to the publisher at all. The default is true. Setting this to false will force the values of create_slot, enabled and copy_data to false. (You cannot combine setting connect to false with setting create_slot, enabled, or copy_data to true.)
+Since no connection is made when this option is false, no tables are subscribed, and so after you enable the subscription nothing will be replicated. You will need to then run ALTER SUBSCRIPTION ... REFRESH PUBLICATION for tables to be subscribed.
+
+create_slot (boolean)
+
+Specifies whether the command should create the replication slot on the publisher. The default is true. If set to false, you are responsible for creating the publisher's slot in some other way.
+
+enabled (boolean)
+
+Specifies whether the subscription should be actively replicating or whether it should just be set up but not started yet. The default is true.
+
+slot_name (string)
+
+Name of the publisher's replication slot to use. The default is to use the name of the subscription for the slot name.
+Setting slot_name to NONE means there will be no replication slot associated with the subscription. Use this when you will be creating the replication slot later manually. Such subscriptions must also have both enabled and create_slot set to false.
+
+
+
+The following parameters control the subscription's replication behavior after it has been created:
+
+
+binary (boolean)
+
+Specifies whether the subscription will request the publisher to send the data in binary format (as opposed to text). The default is false. Even when this option is enabled, only data types having binary send and receive functions will be transferred in binary.
+When doing cross-version replication, it could be that the publisher has a binary send function for some data type, but the subscriber lacks a binary receive function for that type. In such a case, data transfer will fail, and the binary option cannot be used.
+
+copy_data (boolean)
+
+Specifies whether to copy pre-existing data in the publications that are being subscribed to when the replication starts. The default is true.
+If the publications contain WHERE clauses, it will affect what data is copied. Refer to the Notes for details.
+
+streaming (boolean)
+
+Specifies whether to enable streaming of in-progress transactions for this subscription. By default, all transactions are fully decoded on the publisher and only then sent to the subscriber as a whole.
+
+synchronous_commit (enum)
+
+The value of this parameter overrides the synchronous_commit setting within this subscription's apply worker processes. The default value is off.
+It is safe to use off for logical replication: If the subscriber loses transactions because of missing synchronization, the data will be sent again from the publisher.
+A different setting might be appropriate when doing synchronous logical replication. The logical replication workers report the positions of writes and flushes to the publisher, and when using synchronous replication, the publisher will wait for the actual flush. This means that setting synchronous_commit for the subscriber to off when the subscription is used for synchronous replication might increase the latency for COMMIT on the publisher. In this scenario, it can be advantageous to set synchronous_commit to local or higher.
+
+two_phase (boolean)
+
+Specifies whether two-phase commit is enabled for this subscription. The default is false.
+When two-phase commit is enabled, prepared transactions are sent to the subscriber at the time of PREPARE TRANSACTION, and are processed as two-phase transactions on the subscriber too. Otherwise, prepared transactions are sent to the subscriber only when committed, and are then processed immediately by the subscriber.
+The implementation of two-phase commit requires that replication has successfully finished the initial table synchronization phase. So even when two_phase is enabled for a subscription, the internal two-phase state remains temporarily “pending” until the initialization phase completes. See column subtwophasestate of pg_subscription to know the actual two-phase state.
+
+disable_on_error (boolean)
+
+Specifies whether the subscription should be automatically disabled if any errors are detected by subscription workers during data replication from the publisher. The default is false.
+
+
+
+
+
+
+
+
+Notes
+See Section 31.9 for details on how to configure access control between the subscription and the publication instance.
+When creating a replication slot (the default behavior), CREATE SUBSCRIPTION cannot be executed inside a transaction block.
+Creating a subscription that connects to the same database cluster (for example, to replicate between databases in the same cluster or to replicate within the same database) will only succeed if the replication slot is not created as part of the same command. Otherwise, the CREATE SUBSCRIPTION call will hang. To make this work, create the replication slot separately (using the function pg_create_logical_replication_slot with the plugin name pgoutput) and create the subscription using the parameter create_slot = false. This is an implementation restriction that might be lifted in a future release.
+If any table in the publication has a WHERE clause, rows for which the expression evaluates to false or null will not be published. If the subscription has several publications in which the same table has been published with different WHERE clauses, a row will be published if any of the expressions (referring to that publish operation) are satisfied. In the case of different WHERE clauses, if one of the publications has no WHERE clause (referring to that publish operation) or the publication is declared as FOR ALL TABLES or FOR TABLES IN SCHEMA, rows are always published regardless of the definition of the other expressions. If the subscriber is a PostgreSQL version before 15, then any row filtering is ignored during the initial data synchronization phase. For this case, the user might want to consider deleting any initially copied data that would be incompatible with subsequent filtering. Because initial data synchronization does not take into account the publication publish parameter when copying existing table data, some rows may be copied that would not be replicated using DML. See Section 31.2.2 for examples.
+Subscriptions having several publications in which the same table has been published with different column lists are not supported.
+We allow non-existent publications to be specified so that users can add those later. This means pg_subscription can have non-existent publications.
+
+
+Examples
+Create a subscription to a remote server that replicates tables in the publications mypublication and insert_only and starts replicating immediately on commit:
+
+CREATE SUBSCRIPTION mysub
+         CONNECTION 'host=192.168.1.50 port=5432 user=foo dbname=foodb'
+        PUBLICATION mypublication, insert_only;
+
+Create a subscription to a remote server that replicates tables in the insert_only publication and does not start replicating until enabled at a later time.
+
+CREATE SUBSCRIPTION mysub
+         CONNECTION 'host=192.168.1.50 port=5432 user=foo dbname=foodb'
+        PUBLICATION insert_only
+               WITH (enabled = false);
+
+
+
+Compatibility
+CREATE SUBSCRIPTION is a PostgreSQL extension.
+
+
+See AlsoALTER SUBSCRIPTION, DROP SUBSCRIPTION, CREATE PUBLICATION, ALTER PUBLICATION
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+CREATE STATISTICS 
+Home
+ CREATE TABLE
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

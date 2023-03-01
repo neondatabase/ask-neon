@@ -1,0 +1,317 @@
+
+
+
+PostgreSQL: Documentation: 15: DROP OPERATOR CLASS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP OPERATOR CLASS
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DROP OPERATOR CLASS
+DROP OPERATOR CLASS — remove an operator class
+
+
+Synopsis
+
+DROP OPERATOR CLASS [ IF EXISTS ] name USING index_method [ CASCADE | RESTRICT ]
+
+
+
+Description
+DROP OPERATOR CLASS drops an existing operator class. To execute this command you must be the owner of the operator class.
+DROP OPERATOR CLASS does not drop any of the operators or functions referenced by the class. If there are any indexes depending on the operator class, you will need to specify CASCADE for the drop to complete.
+
+
+Parameters
+
+
+IF EXISTS
+
+Do not throw an error if the operator class does not exist. A notice is issued in this case.
+
+name
+
+The name (optionally schema-qualified) of an existing operator class.
+
+index_method
+
+The name of the index access method the operator class is for.
+
+CASCADE
+
+Automatically drop objects that depend on the operator class (such as indexes), and in turn all objects that depend on those objects (see Section 5.14).
+
+RESTRICT
+
+Refuse to drop the operator class if any objects depend on it. This is the default.
+
+
+
+
+
+Notes
+DROP OPERATOR CLASS will not drop the operator family containing the class, even if there is nothing else left in the family (in particular, in the case where the family was implicitly created by CREATE OPERATOR CLASS). An empty operator family is harmless, but for the sake of tidiness you might wish to remove the family with DROP OPERATOR FAMILY; or perhaps better, use DROP OPERATOR FAMILY in the first place.
+
+
+Examples
+Remove the B-tree operator class widget_ops:
+
+DROP OPERATOR CLASS widget_ops USING btree;
+
+This command will not succeed if there are any existing indexes that use the operator class. Add CASCADE to drop such indexes along with the operator class.
+
+
+Compatibility
+There is no DROP OPERATOR CLASS statement in the SQL standard.
+
+
+See AlsoALTER OPERATOR CLASS, CREATE OPERATOR CLASS, DROP OPERATOR FAMILY
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+DROP OPERATOR 
+Home
+ DROP OPERATOR FAMILY
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,389 @@
+
+
+
+PostgreSQL: Documentation: 15: 34.15. Environment Variables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+34.15. Environment Variables
+
+
+Prev 
+Up
+Chapter 34. libpq — C Library
+Home
+ Next
+
+
+
+
+
+
+
+
+34.15. Environment Variables
+
+
+
+The following environment variables can be used to select default connection parameter values, which will be used by PQconnectdb, PQsetdbLogin and PQsetdb if no value is directly specified by the calling code. These are useful to avoid hard-coding database connection information into simple client applications, for example.
+
+
+
+ PGHOST behaves the same as the host connection parameter.
+
+
+ PGHOSTADDR behaves the same as the hostaddr connection parameter. This can be set instead of or in addition to PGHOST to avoid DNS lookup overhead.
+
+
+ PGPORT behaves the same as the port connection parameter.
+
+
+ PGDATABASE behaves the same as the dbname connection parameter.
+
+
+ PGUSER behaves the same as the user connection parameter.
+
+
+ PGPASSWORD behaves the same as the password connection parameter. Use of this environment variable is not recommended for security reasons, as some operating systems allow non-root users to see process environment variables via ps; instead consider using a password file (see Section 34.16).
+
+
+ PGPASSFILE behaves the same as the passfile connection parameter.
+
+
+ PGCHANNELBINDING behaves the same as the channel_binding connection parameter.
+
+
+ PGSERVICE behaves the same as the service connection parameter.
+
+
+ PGSERVICEFILE specifies the name of the per-user connection service file (see Section 34.17). Defaults to ~/.pg_service.conf, or %APPDATA%\postgresql\.pg_service.conf on Microsoft Windows.
+
+
+ PGOPTIONS behaves the same as the options connection parameter.
+
+
+ PGAPPNAME behaves the same as the application_name connection parameter.
+
+
+ PGSSLMODE behaves the same as the sslmode connection parameter.
+
+
+ PGREQUIRESSL behaves the same as the requiressl connection parameter. This environment variable is deprecated in favor of the PGSSLMODE variable; setting both variables suppresses the effect of this one.
+
+
+ PGSSLCOMPRESSION behaves the same as the sslcompression connection parameter.
+
+
+ PGSSLCERT behaves the same as the sslcert connection parameter.
+
+
+ PGSSLKEY behaves the same as the sslkey connection parameter.
+
+
+ PGSSLROOTCERT behaves the same as the sslrootcert connection parameter.
+
+
+ PGSSLCRL behaves the same as the sslcrl connection parameter.
+
+
+ PGSSLCRLDIR behaves the same as the sslcrldir connection parameter.
+
+
+ PGSSLSNI behaves the same as the sslsni connection parameter.
+
+
+ PGREQUIREPEER behaves the same as the requirepeer connection parameter.
+
+
+ PGSSLMINPROTOCOLVERSION behaves the same as the ssl_min_protocol_version connection parameter.
+
+
+ PGSSLMAXPROTOCOLVERSION behaves the same as the ssl_max_protocol_version connection parameter.
+
+
+ PGGSSENCMODE behaves the same as the gssencmode connection parameter.
+
+
+ PGKRBSRVNAME behaves the same as the krbsrvname connection parameter.
+
+
+ PGGSSLIB behaves the same as the gsslib connection parameter.
+
+
+ PGCONNECT_TIMEOUT behaves the same as the connect_timeout connection parameter.
+
+
+ PGCLIENTENCODING behaves the same as the client_encoding connection parameter.
+
+
+ PGTARGETSESSIONATTRS behaves the same as the target_session_attrs connection parameter.
+
+
+
+The following environment variables can be used to specify default behavior for each PostgreSQL session. (See also the ALTER ROLE and ALTER DATABASE commands for ways to set default behavior on a per-user or per-database basis.)
+
+
+
+ PGDATESTYLE sets the default style of date/time representation. (Equivalent to SET datestyle TO ....)
+
+
+ PGTZ sets the default time zone. (Equivalent to SET timezone TO ....)
+
+
+ PGGEQO sets the default mode for the genetic query optimizer. (Equivalent to SET geqo TO ....)
+
+
+
+Refer to the SQL command SET for information on correct values for these environment variables.
+The following environment variables determine internal behavior of libpq; they override compiled-in defaults.
+
+
+
+ PGSYSCONFDIR sets the directory containing the pg_service.conf file and in a future version possibly other system-wide configuration files.
+
+
+ PGLOCALEDIR sets the directory containing the locale files for message localization.
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+34.14. Event System 
+Home
+ 34.16. The Password File
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

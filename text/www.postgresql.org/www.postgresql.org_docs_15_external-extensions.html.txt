@@ -1,0 +1,257 @@
+
+
+
+PostgreSQL: Documentation: 15: H.4. Extensions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H.4. Extensions
+
+
+Prev 
+Up
+Appendix H. External Projects
+Home
+ Next
+
+
+
+
+
+
+
+
+H.4. Extensions
+
+
+
+PostgreSQL is designed to be easily extensible. For this reason, extensions loaded into the database can function just like features that are built in. The contrib/ directory shipped with the source code contains several extensions, which are described in Appendix F. Other extensions are developed independently, like PostGIS. Even PostgreSQL replication solutions can be developed externally. For example, Slony-I is a popular primary/standby replication solution that is developed independently from the core project.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+H.3. Procedural Languages 
+Home
+ Appendix I. The Source Code Repository
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

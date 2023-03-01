@@ -1,0 +1,209 @@
+
+
+
+PostgreSQL: Documentation: 15: 9.14. UUID Functions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9.14. UUID Functions
+
+
+Prev 
+Up
+Chapter 9. Functions and Operators
+Home
+ Next
+
+
+
+
+
+
+
+
+9.14. UUID Functions
+
+
+
+PostgreSQL includes one function to generate a UUID:
+
+gen_random_uuid () → uuid
+
+This function returns a version 4 (random) UUID. This is the most commonly used type of UUID and is appropriate for most applications.
+The uuid-ossp module provides additional functions that implement other standard algorithms for generating UUIDs.
+PostgreSQL also provides the usual comparison operators shown in Table 9.1 for UUIDs.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+9.13. Text Search Functions and Operators 
+Home
+ 9.15. XML Functions
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,334 @@
+
+
+
+PostgreSQL: Documentation: 15: 37.32. key_column_usage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37.32. key_column_usage
+
+
+Prev 
+Up
+Chapter 37. The Information Schema
+Home
+ Next
+
+
+
+
+
+
+
+
+37.32. key_column_usage
+
+
+
+The view key_column_usage identifies all columns in the current database that are restricted by some unique, primary key, or foreign key constraint. Check constraints are not included in this view. Only those columns are shown that the current user has access to, by way of being the owner or having some privilege.
+
+Table 37.30. key_column_usage Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+constraint_catalog sql_identifier
+Name of the database that contains the constraint (always the current database)
+
+
+
+
+constraint_schema sql_identifier
+Name of the schema that contains the constraint
+
+
+
+
+constraint_name sql_identifier
+Name of the constraint
+
+
+
+
+table_catalog sql_identifier
+Name of the database that contains the table that contains the column that is restricted by this constraint (always the current database)
+
+
+
+
+table_schema sql_identifier
+Name of the schema that contains the table that contains the column that is restricted by this constraint
+
+
+
+
+table_name sql_identifier
+Name of the table that contains the column that is restricted by this constraint
+
+
+
+
+column_name sql_identifier
+Name of the column that is restricted by this constraint
+
+
+
+
+ordinal_position cardinal_number
+Ordinal position of the column within the constraint key (count starts at 1)
+
+
+
+
+position_in_unique_constraint cardinal_number
+For a foreign-key constraint, ordinal position of the referenced column within its unique constraint (count starts at 1); otherwise null
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.31. foreign_tables 
+Home
+ 37.33. parameters
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

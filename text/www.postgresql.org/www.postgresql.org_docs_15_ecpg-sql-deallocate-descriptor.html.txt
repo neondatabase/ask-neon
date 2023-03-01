@@ -1,0 +1,270 @@
+
+
+
+PostgreSQL: Documentation: 15: DEALLOCATE DESCRIPTOR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEALLOCATE DESCRIPTOR
+
+
+Prev 
+Up
+36.14. Embedded SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DEALLOCATE DESCRIPTOR
+DEALLOCATE DESCRIPTOR — deallocate an SQL descriptor area
+
+
+Synopsis
+
+DEALLOCATE DESCRIPTOR name
+
+
+
+Description
+DEALLOCATE DESCRIPTOR deallocates a named SQL descriptor area.
+
+
+Parameters
+
+
+name
+
+The name of the descriptor which is going to be deallocated. It is case sensitive. This can be an SQL identifier or a host variable.
+
+
+
+
+
+Examples
+
+EXEC SQL DEALLOCATE DESCRIPTOR mydesc;
+
+
+
+Compatibility
+DEALLOCATE DESCRIPTOR is specified in the SQL standard.
+
+
+See AlsoALLOCATE DESCRIPTOR, GET DESCRIPTOR, SET DESCRIPTOR
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+CONNECT 
+Home
+ DECLARE
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

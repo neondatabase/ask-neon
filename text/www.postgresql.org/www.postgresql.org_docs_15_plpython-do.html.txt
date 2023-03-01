@@ -1,0 +1,248 @@
+
+
+
+PostgreSQL: Documentation: 15: 46.4. Anonymous Code Blocks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+46.4. Anonymous Code Blocks
+
+
+Prev 
+Up
+Chapter 46. PL/Python — Python Procedural Language
+Home
+ Next
+
+
+
+
+
+
+
+
+46.4. Anonymous Code Blocks
+
+
+
+PL/Python also supports anonymous code blocks called with the DO statement:
+
+DO $$
+    # PL/Python code
+$$ LANGUAGE plpython3u;
+
+An anonymous code block receives no arguments, and whatever value it might return is discarded. Otherwise it behaves just like a function.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+46.3. Sharing Data 
+Home
+ 46.5. Trigger Functions
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,307 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.23. pg_sequences
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.23. pg_sequences
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.23. pg_sequences
+
+
+
+The view pg_sequences provides access to useful information about each sequence in the database.
+
+Table 54.23. pg_sequences Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+schemaname name (references pg_namespace.nspname)
+Name of schema containing sequence
+
+
+
+
+sequencename name (references pg_class.relname)
+Name of sequence
+
+
+
+
+sequenceowner name (references pg_authid.rolname)
+Name of sequence's owner
+
+
+
+
+data_type regtype (references pg_type.oid)
+Data type of the sequence
+
+
+
+
+start_value int8
+Start value of the sequence
+
+
+
+
+min_value int8
+Minimum value of the sequence
+
+
+
+
+max_value int8
+Maximum value of the sequence
+
+
+
+
+increment_by int8
+Increment value of the sequence
+
+
+
+
+cycle bool
+Whether the sequence cycles
+
+
+
+
+cache_size int8
+Cache size of the sequence
+
+
+
+
+last_value int8
+The last sequence value written to disk. If caching is used, this value can be greater than the last value handed out from the sequence. Null if the sequence has not been read from yet. Also, if the current user does not have USAGE or SELECT privilege on the sequence, the value is null.
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.22. pg_seclabels 
+Home
+ 54.24. pg_settings
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

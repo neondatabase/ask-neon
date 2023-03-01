@@ -1,0 +1,390 @@
+
+
+
+PostgreSQL: Documentation: 15: F.27. pg_buffercache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F.27. pg_buffercache
+
+
+Prev 
+Up
+Appendix F. Additional Supplied Modules
+Home
+ Next
+
+
+
+
+
+
+
+
+F.27. pg_buffercache
+
+
+
+
+
+F.27.1. The pg_buffercache View
+F.27.2. Sample Output
+F.27.3. Authors
+
+
+The pg_buffercache module provides a means for examining what's happening in the shared buffer cache in real time.
+The module provides a C function pg_buffercache_pages that returns a set of records, plus a view pg_buffercache that wraps the function for convenient use.
+By default, use is restricted to superusers and roles with privileges of the pg_monitor role. Access may be granted to others using GRANT.
+
+
+
+
+F.27.1. The pg_buffercache View
+
+
+
+The definitions of the columns exposed by the view are shown in Table F.15.
+
+Table F.15. pg_buffercache Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+bufferid integer
+ID, in the range 1..shared_buffers
+
+
+
+
+relfilenode oid (references pg_class.relfilenode)
+Filenode number of the relation
+
+
+
+
+reltablespace oid (references pg_tablespace.oid)
+Tablespace OID of the relation
+
+
+
+
+reldatabase oid (references pg_database.oid)
+Database OID of the relation
+
+
+
+
+relforknumber smallint
+Fork number within the relation; see common/relpath.h
+
+
+
+
+relblocknumber bigint
+Page number within the relation
+
+
+
+
+isdirty boolean
+Is the page dirty?
+
+
+
+
+usagecount smallint
+Clock-sweep access count
+
+
+
+
+pinning_backends integer
+Number of backends pinning this buffer
+
+
+
+
+
+
+There is one row for each buffer in the shared cache. Unused buffers are shown with all fields null except bufferid. Shared system catalogs are shown as belonging to database zero.
+Because the cache is shared by all the databases, there will normally be pages from relations not belonging to the current database. This means that there may not be matching join rows in pg_class for some rows, or that there could even be incorrect joins. If you are trying to join against pg_class, it's a good idea to restrict the join to rows having reldatabase equal to the current database's OID or zero.
+Since buffer manager locks are not taken to copy the buffer state data that the view will display, accessing pg_buffercache view has less impact on normal buffer activity but it doesn't provide a consistent set of results across all buffers. However, we ensure that the information of each buffer is self-consistent.
+
+
+
+
+
+F.27.2. Sample Output
+
+
+
+
+regression=# SELECT n.nspname, c.relname, count(*) AS buffers
+             FROM pg_buffercache b JOIN pg_class c
+             ON b.relfilenode = pg_relation_filenode(c.oid) AND
+                b.reldatabase IN (0, (SELECT oid FROM pg_database
+                                      WHERE datname = current_database()))
+             JOIN pg_namespace n ON n.oid = c.relnamespace
+             GROUP BY n.nspname, c.relname
+             ORDER BY 3 DESC
+             LIMIT 10;
+
+  nspname   |        relname         | buffers
+------------+------------------------+---------
+ public     | delete_test_table      |     593
+ public     | delete_test_table_pkey |     494
+ pg_catalog | pg_attribute           |     472
+ public     | quad_poly_tbl          |     353
+ public     | tenk2                  |     349
+ public     | tenk1                  |     349
+ public     | gin_test_idx           |     306
+ pg_catalog | pg_largeobject         |     206
+ public     | gin_test_tbl           |     188
+ public     | spgist_text_tbl        |     182
+(10 rows)
+
+
+
+
+
+
+F.27.3. Authors
+
+
+
+Mark Kirkwood <markir@paradise.net.nz>
+Design suggestions: Neil Conway <neilc@samurai.com>
+Debugging advice: Tom Lane <tgl@sss.pgh.pa.us>
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+F.26. passwordcheck 
+Home
+ F.28. pgcrypto
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

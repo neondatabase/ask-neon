@@ -1,0 +1,306 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 7. Queries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 7. Queries
+
+
+Prev 
+Up
+Part II. The SQL Language
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 7. Queries
+
+
+
+
+Table of Contents
+
+7.1. Overview
+7.2. Table Expressions
+
+
+7.2.1. The FROM Clause
+7.2.2. The WHERE Clause
+7.2.3. The GROUP BY and HAVING Clauses
+7.2.4. GROUPING SETS, CUBE, and ROLLUP
+7.2.5. Window Function Processing
+
+
+7.3. Select Lists
+
+
+7.3.1. Select-List Items
+7.3.2. Column Labels
+7.3.3. DISTINCT
+
+
+7.4. Combining Queries (UNION, INTERSECT, EXCEPT)
+7.5. Sorting Rows (ORDER BY)
+7.6. LIMIT and OFFSET
+7.7. VALUES Lists
+7.8. WITH Queries (Common Table Expressions)
+
+
+7.8.1. SELECT in WITH
+7.8.2. Recursive Queries
+7.8.3. Common Table Expression Materialization
+7.8.4. Data-Modifying Statements in WITH
+
+
+
+
+The previous chapters explained how to create tables, how to fill them with data, and how to manipulate that data. Now we finally discuss how to retrieve the data from the database.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+6.4. Returning Data from Modified Rows 
+Home
+ 7.1. Overview
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

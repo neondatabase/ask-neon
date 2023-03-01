@@ -1,0 +1,260 @@
+
+
+
+PostgreSQL: Documentation: 15: 11.11. Indexes and Collations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11.11. Indexes and Collations
+
+
+Prev 
+Up
+Chapter 11. Indexes
+Home
+ Next
+
+
+
+
+
+
+
+
+11.11. Indexes and Collations
+
+
+
+An index can support only one collation per index column. If multiple collations are of interest, multiple indexes may be needed.
+Consider these statements:
+
+CREATE TABLE test1c (
+    id integer,
+    content varchar COLLATE "x"
+);
+
+CREATE INDEX test1c_content_index ON test1c (content);
+
+The index automatically uses the collation of the underlying column. So a query of the form
+
+SELECT * FROM test1c WHERE content > constant;
+
+could use the index, because the comparison will by default use the collation of the column. However, this index cannot accelerate queries that involve some other collation. So if queries of the form, say,
+
+SELECT * FROM test1c WHERE content > constant COLLATE "y";
+
+are also of interest, an additional index could be created that supports the "y" collation, like this:
+
+CREATE INDEX test1c_content_y_index ON test1c (content COLLATE "y");
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+11.10. Operator Classes and Operator Families 
+Home
+ 11.12. Examining Index Usage
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

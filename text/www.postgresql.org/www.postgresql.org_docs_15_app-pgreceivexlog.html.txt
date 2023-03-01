@@ -1,0 +1,236 @@
+
+
+
+PostgreSQL: Documentation: 15: O.5. pg_receivexlog renamed to pg_receivewal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+O.5. pg_receivexlog renamed to pg_receivewal
+
+
+Prev 
+Up
+Appendix O. Obsolete or Renamed Features
+Home
+ Next
+
+
+
+
+
+
+
+
+O.5. pg_receivexlog renamed to pg_receivewal
+
+
+
+PostgreSQL 9.6 and below provided a command named pg_receivexlog  to fetch write-ahead-log (WAL) files. This command was renamed to pg_receivewal, see pg_receivewal for documentation of pg_receivewal and see the release notes for PostgreSQL 10 for details on this change.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+O.4. pg_resetxlog renamed to pg_resetwal 
+Home
+ Bibliography
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

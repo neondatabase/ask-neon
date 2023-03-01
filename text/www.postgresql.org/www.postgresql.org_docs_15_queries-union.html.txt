@@ -1,0 +1,307 @@
+
+
+
+PostgreSQL: Documentation: 15: 7.4. Combining Queries (UNION, INTERSECT, EXCEPT)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.4. Combining Queries (UNION, INTERSECT, EXCEPT)
+
+
+Prev 
+Up
+Chapter 7. Queries
+Home
+ Next
+
+
+
+
+
+
+
+
+7.4. Combining Queries (UNION, INTERSECT, EXCEPT)
+
+
+
+The results of two queries can be combined using the set operations union, intersection, and difference. The syntax is
+
+query1 UNION [ALL] query2
+query1 INTERSECT [ALL] query2
+query1 EXCEPT [ALL] query2
+
+where query1 and query2 are queries that can use any of the features discussed up to this point.
+UNION effectively appends the result of query2 to the result of query1 (although there is no guarantee that this is the order in which the rows are actually returned). Furthermore, it eliminates duplicate rows from its result, in the same way as DISTINCT, unless UNION ALL is used.
+INTERSECT returns all rows that are both in the result of query1 and in the result of query2. Duplicate rows are eliminated unless INTERSECT ALL is used.
+EXCEPT returns all rows that are in the result of query1 but not in the result of query2. (This is sometimes called the difference between two queries.) Again, duplicates are eliminated unless EXCEPT ALL is used.
+In order to calculate the union, intersection, or difference of two queries, the two queries must be “union compatible”, which means that they return the same number of columns and the corresponding columns have compatible data types, as described in Section 10.5.
+Set operations can be combined, for example
+
+query1 UNION query2 EXCEPT query3
+
+which is equivalent to
+
+(query1 UNION query2) EXCEPT query3
+
+As shown here, you can use parentheses to control the order of evaluation. Without parentheses, UNION and EXCEPT associate left-to-right, but INTERSECT binds more tightly than those two operators. Thus
+
+query1 UNION query2 INTERSECT query3
+
+means
+
+query1 UNION (query2 INTERSECT query3)
+
+You can also surround an individual query with parentheses. This is important if the query needs to use any of the clauses discussed in following sections, such as LIMIT. Without parentheses, you'll get a syntax error, or else the clause will be understood as applying to the output of the set operation rather than one of its inputs. For example,
+
+SELECT a FROM b UNION SELECT x FROM y LIMIT 10
+
+is accepted, but it means
+
+(SELECT a FROM b UNION SELECT x FROM y) LIMIT 10
+
+not
+
+SELECT a FROM b UNION (SELECT x FROM y LIMIT 10)
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+7.3. Select Lists 
+Home
+ 7.5. Sorting Rows (ORDER BY)
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,344 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 34. libpq — C Library
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 34. libpq — C Library
+
+
+Prev 
+Up
+Part IV. Client Interfaces
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 34. libpq — C Library
+
+
+
+
+Table of Contents
+
+34.1. Database Connection Control Functions
+
+
+34.1.1. Connection Strings
+34.1.2. Parameter Key Words
+
+
+34.2. Connection Status Functions
+34.3. Command Execution Functions
+
+
+34.3.1. Main Functions
+34.3.2. Retrieving Query Result Information
+34.3.3. Retrieving Other Result Information
+34.3.4. Escaping Strings for Inclusion in SQL Commands
+
+
+34.4. Asynchronous Command Processing
+34.5. Pipeline Mode
+
+
+34.5.1. Using Pipeline Mode
+34.5.2. Functions Associated with Pipeline Mode
+34.5.3. When to Use Pipeline Mode
+
+
+34.6. Retrieving Query Results Row-by-Row
+34.7. Canceling Queries in Progress
+34.8. The Fast-Path Interface
+34.9. Asynchronous Notification
+34.10. Functions Associated with the COPY Command
+
+
+34.10.1. Functions for Sending COPY Data
+34.10.2. Functions for Receiving COPY Data
+34.10.3. Obsolete Functions for COPY
+
+
+34.11. Control Functions
+34.12. Miscellaneous Functions
+34.13. Notice Processing
+34.14. Event System
+
+
+34.14.1. Event Types
+34.14.2. Event Callback Procedure
+34.14.3. Event Support Functions
+34.14.4. Event Example
+
+
+34.15. Environment Variables
+34.16. The Password File
+34.17. The Connection Service File
+34.18. LDAP Lookup of Connection Parameters
+34.19. SSL Support
+
+
+34.19.1. Client Verification of Server Certificates
+34.19.2. Client Certificates
+34.19.3. Protection Provided in Different Modes
+34.19.4. SSL Client File Usage
+34.19.5. SSL Library Initialization
+
+
+34.20. Behavior in Threaded Programs
+34.21. Building libpq Programs
+34.22. Example Programs
+
+
+libpq is the C application programmer's interface to PostgreSQL. libpq is a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.
+libpq is also the underlying engine for several other PostgreSQL application interfaces, including those written for C++, Perl, Python, Tcl and ECPG. So some aspects of libpq's behavior will be important to you if you use one of those packages. In particular, Section 34.15, Section 34.16 and Section 34.19 describe behavior that is visible to the user of any application that uses libpq.
+Some short programs are included at the end of this chapter (Section 34.22) to show how to write programs that use libpq. There are also several complete examples of libpq applications in the directory src/test/examples in the source code distribution.
+Client programs that use libpq must include the header file libpq-fe.h and must link with the libpq library.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Part IV. Client Interfaces 
+Home
+ 34.1. Database Connection Control Functions
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

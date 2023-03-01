@@ -1,0 +1,296 @@
+
+
+
+PostgreSQL: Documentation: 15: F.37. pg_walinspect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                  
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+F.37. pg_walinspect
+
+
+Prev 
+Up
+Appendix F. Additional Supplied Modules
+Home
+ Next
+
+
+
+
+
+
+
+
+F.37. pg_walinspect
+
+
+
+
+
+F.37.1. General Functions
+F.37.2. Author
+
+
+The pg_walinspect module provides SQL functions that allow you to inspect the contents of write-ahead log of a running PostgreSQL database cluster at a low level, which is useful for debugging, analytical, reporting or educational purposes. It is similar to pg_waldump, but accessible through SQL rather than a separate utility.
+All the functions of this module will provide the WAL information using the current server's timeline ID.
+All the functions of this module will try to find the first valid WAL record that is at or after the given in_lsn or start_lsn and will emit error if no such record is available. Similarly, the end_lsn must be available, and if it falls in the middle of a record, the entire record must be available.
+
+Note
+Some functions, such as pg_logical_emit_message, return the LSN after the record just inserted. Therefore, if you pass that LSN as in_lsn or start_lsn to one of these functions, it will return the next record.
+
+By default, use of these functions is restricted to superusers and members of the pg_read_server_files role. Access may be granted by superusers to others using GRANT.
+
+
+
+
+F.37.1. General Functions
+
+
+
+
+
+pg_get_wal_record_info(in_lsn pg_lsn) returns record
+
+Gets WAL record information of a given LSN. If the given LSN isn't at the start of a WAL record, it gives the information of the next available valid WAL record; or an error if no such record is found. For example, usage of the function is as follows:
+
+postgres=# SELECT * FROM pg_get_wal_record_info('0/1E826E98');
+-[ RECORD 1 ]----+----------------------------------------------------
+start_lsn        | 0/1E826F20
+end_lsn          | 0/1E826F60
+prev_lsn         | 0/1E826C80
+xid              | 0
+resource_manager | Heap2
+record_type      | PRUNE
+record_length    | 58
+main_data_length | 8
+fpi_length       | 0
+description      | snapshotConflictHorizon 33748 nredirected 0 ndead 2
+block_ref        | blkref #0: rel 1663/5/60221 fork main blk 2
+
+
+pg_get_wal_records_info(start_lsn pg_lsn, end_lsn pg_lsn) returns setof record
+
+Gets information of all the valid WAL records between start_lsn and end_lsn. Returns one row per WAL record. If start_lsn or end_lsn are not yet available, the function will raise an error. For example:
+
+postgres=# SELECT * FROM pg_get_wal_records_info('0/1E913618', '0/1E913740') LIMIT 1;
+-[ RECORD 1 ]----+--------------------------------------------------------------
+start_lsn        | 0/1E913618
+end_lsn          | 0/1E913650
+prev_lsn         | 0/1E9135A0
+xid              | 0
+resource_manager | Standby
+record_type      | RUNNING_XACTS
+record_length    | 50
+main_data_length | 24
+fpi_length       | 0
+description      | nextXid 33775 latestCompletedXid 33774 oldestRunningXid 33775
+block_ref        |
+
+
+pg_get_wal_records_info_till_end_of_wal(start_lsn pg_lsn) returns setof record
+
+This function is the same as pg_get_wal_records_info(), except that it gets information of all the valid WAL records from start_lsn till the end of WAL.
+
+pg_get_wal_stats(start_lsn pg_lsn, end_lsn pg_lsn, per_record boolean DEFAULT false) returns setof record
+
+Gets statistics of all the valid WAL records between start_lsn and end_lsn. By default, it returns one row per resource_manager type. When per_record is set to true, it returns one row per record_type. If start_lsn or end_lsn are not yet available, the function will raise an error. For example:
+
+postgres=# SELECT * FROM pg_get_wal_stats('0/1E847D00', '0/1E84F500')
+             WHERE count > 0 LIMIT 1 AND
+                   "resource_manager/record_type" = 'Transaction';
+-[ RECORD 1 ]----------------+-------------------
+resource_manager/record_type | Transaction
+count                        | 2
+count_percentage             | 8
+record_size                  | 875
+record_size_percentage       | 41.23468426013195
+fpi_size                     | 0
+fpi_size_percentage          | 0
+combined_size                | 875
+combined_size_percentage     | 2.8634072910530795
+
+
+pg_get_wal_stats_till_end_of_wal(start_lsn pg_lsn, end_lsn pg_lsn, per_record boolean DEFAULT false) returns setof record
+
+This function is the same as pg_get_wal_stats(), except that it gets statistics of all the valid WAL records from start_lsn till end of WAL.
+
+
+
+
+
+
+
+
+F.37.2. Author
+
+
+
+Bharath Rupireddy <bharath.rupireddyforpostgres@gmail.com>
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+F.36. pg_visibility 
+Home
+ F.38. postgres_fdw
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

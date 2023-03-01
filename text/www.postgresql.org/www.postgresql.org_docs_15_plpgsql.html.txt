@@ -1,0 +1,364 @@
+
+
+
+PostgreSQL: Documentation: 15: Chapter 43. PL/pgSQL — SQL Procedural Language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 43. PL/pgSQL — SQL Procedural Language
+
+
+Prev 
+Up
+Part V. Server Programming
+Home
+ Next
+
+
+
+
+
+
+
+
+Chapter 43. PL/pgSQL — SQL Procedural Language
+
+
+
+
+Table of Contents
+
+43.1. Overview
+
+
+43.1.1. Advantages of Using PL/pgSQL
+43.1.2. Supported Argument and Result Data Types
+
+
+43.2. Structure of PL/pgSQL
+43.3. Declarations
+
+
+43.3.1. Declaring Function Parameters
+43.3.2. ALIAS
+43.3.3. Copying Types
+43.3.4. Row Types
+43.3.5. Record Types
+43.3.6. Collation of PL/pgSQL Variables
+
+
+43.4. Expressions
+43.5. Basic Statements
+
+
+43.5.1. Assignment
+43.5.2. Executing SQL Commands
+43.5.3. Executing a Command with a Single-Row Result
+43.5.4. Executing Dynamic Commands
+43.5.5. Obtaining the Result Status
+43.5.6. Doing Nothing At All
+
+
+43.6. Control Structures
+
+
+43.6.1. Returning from a Function
+43.6.2. Returning from a Procedure
+43.6.3. Calling a Procedure
+43.6.4. Conditionals
+43.6.5. Simple Loops
+43.6.6. Looping through Query Results
+43.6.7. Looping through Arrays
+43.6.8. Trapping Errors
+43.6.9. Obtaining Execution Location Information
+
+
+43.7. Cursors
+
+
+43.7.1. Declaring Cursor Variables
+43.7.2. Opening Cursors
+43.7.3. Using Cursors
+43.7.4. Looping through a Cursor's Result
+
+
+43.8. Transaction Management
+43.9. Errors and Messages
+
+
+43.9.1. Reporting Errors and Messages
+43.9.2. Checking Assertions
+
+
+43.10. Trigger Functions
+
+
+43.10.1. Triggers on Data Changes
+43.10.2. Triggers on Events
+
+
+43.11. PL/pgSQL under the Hood
+
+
+43.11.1. Variable Substitution
+43.11.2. Plan Caching
+
+
+43.12. Tips for Developing in PL/pgSQL
+
+
+43.12.1. Handling of Quotation Marks
+43.12.2. Additional Compile-Time and Run-Time Checks
+
+
+43.13. Porting from Oracle PL/SQL
+
+
+43.13.1. Porting Examples
+43.13.2. Other Things to Watch For
+43.13.3. Appendix
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+42.1. Installing Procedural Languages 
+Home
+ 43.1. Overview
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

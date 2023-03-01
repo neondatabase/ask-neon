@@ -1,0 +1,276 @@
+
+
+
+PostgreSQL: Documentation: 15: dblink_is_busy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dblink_is_busy
+
+
+Prev 
+Up
+F.12. dblink
+Home
+ Next
+
+
+
+
+
+
+
+dblink_is_busy
+dblink_is_busy — checks if connection is busy with an async query
+
+
+Synopsis
+
+dblink_is_busy(text connname) returns int
+
+
+
+Description
+dblink_is_busy tests whether an async query is in progress.
+
+
+Arguments
+
+
+connname
+
+Name of the connection to check.
+
+
+
+
+
+Return Value
+Returns 1 if connection is busy, 0 if it is not busy. If this function returns 0, it is guaranteed that dblink_get_result will not block.
+
+
+Examples
+
+SELECT dblink_is_busy('dtest1');
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+dblink_send_query 
+Home
+ dblink_get_notify
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

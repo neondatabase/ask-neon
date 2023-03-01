@@ -1,0 +1,545 @@
+
+
+
+PostgreSQL: Documentation: 15: 9.12. Network Address Functions and Operators
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9.12. Network Address Functions and Operators
+
+
+Prev 
+Up
+Chapter 9. Functions and Operators
+Home
+ Next
+
+
+
+
+
+
+
+
+9.12. Network Address Functions and Operators
+
+
+
+The IP network address types, cidr and inet, support the usual comparison operators shown in Table 9.1 as well as the specialized operators and functions shown in Table 9.39 and Table 9.40.
+Any cidr value can be cast to inet implicitly; therefore, the operators and functions shown below as operating on inet also work on cidr values. (Where there are separate functions for inet and cidr, it is because the behavior should be different for the two cases.) Also, it is permitted to cast an inet value to cidr. When this is done, any bits to the right of the netmask are silently zeroed to create a valid cidr value.
+
+Table 9.39. IP Address Operators
+
+
+
+
+
+
+
+
+Operator
+Description
+Example(s)
+
+
+
+
+
+
+inet << inet → boolean
+Is subnet strictly contained by subnet? This operator, and the next four, test for subnet inclusion. They consider only the network parts of the two addresses (ignoring any bits to the right of the netmasks) and determine whether one network is identical to or a subnet of the other.
+inet '192.168.1.5' << inet '192.168.1/24' → t
+inet '192.168.0.5' << inet '192.168.1/24' → f
+inet '192.168.1/24' << inet '192.168.1/24' → f
+
+
+
+
+inet <<= inet → boolean
+Is subnet contained by or equal to subnet?
+inet '192.168.1/24' <<= inet '192.168.1/24' → t
+
+
+
+
+inet >> inet → boolean
+Does subnet strictly contain subnet?
+inet '192.168.1/24' >> inet '192.168.1.5' → t
+
+
+
+
+inet >>= inet → boolean
+Does subnet contain or equal subnet?
+inet '192.168.1/24' >>= inet '192.168.1/24' → t
+
+
+
+
+inet && inet → boolean
+Does either subnet contain or equal the other?
+inet '192.168.1/24' && inet '192.168.1.80/28' → t
+inet '192.168.1/24' && inet '192.168.2.0/28' → f
+
+
+
+
+~ inet → inet
+Computes bitwise NOT.
+~ inet '192.168.1.6' → 63.87.254.249
+
+
+
+
+inet & inet → inet
+Computes bitwise AND.
+inet '192.168.1.6' & inet '0.0.0.255' → 0.0.0.6
+
+
+
+
+inet | inet → inet
+Computes bitwise OR.
+inet '192.168.1.6' | inet '0.0.0.255' → 192.168.1.255
+
+
+
+
+inet + bigint → inet
+Adds an offset to an address.
+inet '192.168.1.6' + 25 → 192.168.1.31
+
+
+
+
+bigint + inet → inet
+Adds an offset to an address.
+200 + inet '::ffff:fff0:1' → ::ffff:255.240.0.201
+
+
+
+
+inet - bigint → inet
+Subtracts an offset from an address.
+inet '192.168.1.43' - 36 → 192.168.1.7
+
+
+
+
+inet - inet → bigint
+Computes the difference of two addresses.
+inet '192.168.1.43' - inet '192.168.1.19' → 24
+inet '::1' - inet '::ffff:1' → -4294901760
+
+
+
+
+
+
+
+Table 9.40. IP Address Functions
+
+
+
+
+
+
+
+
+Function
+Description
+Example(s)
+
+
+
+
+
+
+ abbrev ( inet ) → text
+Creates an abbreviated display format as text. (The result is the same as the inet output function produces; it is “abbreviated” only in comparison to the result of an explicit cast to text, which for historical reasons will never suppress the netmask part.)
+abbrev(inet '10.1.0.0/32') → 10.1.0.0
+
+
+
+
+abbrev ( cidr ) → text
+Creates an abbreviated display format as text. (The abbreviation consists of dropping all-zero octets to the right of the netmask; more examples are in Table 8.22.)
+abbrev(cidr '10.1.0.0/16') → 10.1/16
+
+
+
+
+ broadcast ( inet ) → inet
+Computes the broadcast address for the address's network.
+broadcast(inet '192.168.1.5/24') → 192.168.1.255/24
+
+
+
+
+ family ( inet ) → integer
+Returns the address's family: 4 for IPv4, 6 for IPv6.
+family(inet '::1') → 6
+
+
+
+
+ host ( inet ) → text
+Returns the IP address as text, ignoring the netmask.
+host(inet '192.168.1.0/24') → 192.168.1.0
+
+
+
+
+ hostmask ( inet ) → inet
+Computes the host mask for the address's network.
+hostmask(inet '192.168.23.20/30') → 0.0.0.3
+
+
+
+
+ inet_merge ( inet, inet ) → cidr
+Computes the smallest network that includes both of the given networks.
+inet_merge(inet '192.168.1.5/24', inet '192.168.2.5/24') → 192.168.0.0/22
+
+
+
+
+ inet_same_family ( inet, inet ) → boolean
+Tests whether the addresses belong to the same IP family.
+inet_same_family(inet '192.168.1.5/24', inet '::1') → f
+
+
+
+
+ masklen ( inet ) → integer
+Returns the netmask length in bits.
+masklen(inet '192.168.1.5/24') → 24
+
+
+
+
+ netmask ( inet ) → inet
+Computes the network mask for the address's network.
+netmask(inet '192.168.1.5/24') → 255.255.255.0
+
+
+
+
+ network ( inet ) → cidr
+Returns the network part of the address, zeroing out whatever is to the right of the netmask. (This is equivalent to casting the value to cidr.)
+network(inet '192.168.1.5/24') → 192.168.1.0/24
+
+
+
+
+ set_masklen ( inet, integer ) → inet
+Sets the netmask length for an inet value. The address part does not change.
+set_masklen(inet '192.168.1.5/24', 16) → 192.168.1.5/16
+
+
+
+
+set_masklen ( cidr, integer ) → cidr
+Sets the netmask length for a cidr value. Address bits to the right of the new netmask are set to zero.
+set_masklen(cidr '192.168.1.0/24', 16) → 192.168.0.0/16
+
+
+
+
+ text ( inet ) → text
+Returns the unabbreviated IP address and netmask length as text. (This has the same result as an explicit cast to text.)
+text(inet '192.168.1.5') → 192.168.1.5/32
+
+
+
+
+
+
+
+Tip
+The abbrev, host, and text functions are primarily intended to offer alternative display formats for IP addresses.
+
+The MAC address types, macaddr and macaddr8, support the usual comparison operators shown in Table 9.1 as well as the specialized functions shown in Table 9.41. In addition, they support the bitwise logical operators ~, & and | (NOT, AND and OR), just as shown above for IP addresses.
+
+Table 9.41. MAC Address Functions
+
+
+
+
+
+
+
+
+Function
+Description
+Example(s)
+
+
+
+
+
+
+ trunc ( macaddr ) → macaddr
+Sets the last 3 bytes of the address to zero. The remaining prefix can be associated with a particular manufacturer (using data not included in PostgreSQL).
+trunc(macaddr '12:34:56:78:90:ab') → 12:34:56:00:00:00
+
+
+
+
+trunc ( macaddr8 ) → macaddr8
+Sets the last 5 bytes of the address to zero. The remaining prefix can be associated with a particular manufacturer (using data not included in PostgreSQL).
+trunc(macaddr8 '12:34:56:78:90:ab:cd:ef') → 12:34:56:00:00:00:00:00
+
+
+
+
+ macaddr8_set7bit ( macaddr8 ) → macaddr8
+Sets the 7th bit of the address to one, creating what is known as modified EUI-64, for inclusion in an IPv6 address.
+macaddr8_set7bit(macaddr8 '00:34:56:ab:cd:ef') → 02:34:56:ff:fe:ab:cd:ef
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+9.11. Geometric Functions and Operators 
+Home
+ 9.13. Text Search Functions and Operators
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

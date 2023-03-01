@@ -1,0 +1,327 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.54. pg_subscription
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.54. pg_subscription
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.54. pg_subscription
+
+
+
+The catalog pg_subscription contains all existing logical replication subscriptions. For more information about logical replication see Chapter 31.
+Unlike most system catalogs, pg_subscription is shared across all databases of a cluster: there is only one copy of pg_subscription per cluster, not one per database.
+Access to the column subconninfo is revoked from normal users, because it could contain plain-text passwords.
+
+Table 53.54. pg_subscription Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+oid oid
+Row identifier
+
+
+
+
+subdbid oid (references pg_database.oid)
+OID of the database that the subscription resides in
+
+
+
+
+subskiplsn pg_lsn
+Finish LSN of the transaction whose changes are to be skipped, if a valid LSN; otherwise 0/0.
+
+
+
+
+subname name
+Name of the subscription
+
+
+
+
+subowner oid (references pg_authid.oid)
+Owner of the subscription
+
+
+
+
+subenabled bool
+If true, the subscription is enabled and should be replicating
+
+
+
+
+subbinary bool
+If true, the subscription will request that the publisher send data in binary format
+
+
+
+
+substream bool
+If true, the subscription will allow streaming of in-progress transactions
+
+
+
+
+subtwophasestate char
+State codes for two-phase mode: d = disabled, p = pending enablement, e = enabled
+
+
+
+
+subdisableonerr bool
+If true, the subscription will be disabled if one of its workers detects an error
+
+
+
+
+subconninfo text
+Connection string to the upstream database
+
+
+
+
+subslotname name
+Name of the replication slot in the upstream database (also used for the local replication origin name); null represents NONE
+
+
+
+
+subsynccommit text
+The synchronous_commit setting for the subscription's workers to use
+
+
+
+
+subpublications text[]
+Array of subscribed publication names. These reference publications defined in the upstream database. For more on publications see Section 31.1.
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.53. pg_statistic_ext_data 
+Home
+ 53.55. pg_subscription_rel
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

@@ -1,0 +1,271 @@
+
+
+
+PostgreSQL: Documentation: 15: ALLOCATE DESCRIPTOR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALLOCATE DESCRIPTOR
+
+
+Prev 
+Up
+36.14. Embedded SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+ALLOCATE DESCRIPTOR
+ALLOCATE DESCRIPTOR — allocate an SQL descriptor area
+
+
+Synopsis
+
+ALLOCATE DESCRIPTOR name
+
+
+
+Description
+ALLOCATE DESCRIPTOR allocates a new named SQL descriptor area, which can be used to exchange data between the PostgreSQL server and the host program.
+Descriptor areas should be freed after use using the DEALLOCATE DESCRIPTOR command.
+
+
+Parameters
+
+
+name
+
+A name of SQL descriptor, case sensitive. This can be an SQL identifier or a host variable.
+
+
+
+
+
+Examples
+
+EXEC SQL ALLOCATE DESCRIPTOR mydesc;
+
+
+
+Compatibility
+ALLOCATE DESCRIPTOR is specified in the SQL standard.
+
+
+See AlsoDEALLOCATE DESCRIPTOR, GET DESCRIPTOR, SET DESCRIPTOR
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+36.14. Embedded SQL Commands 
+Home
+ CONNECT
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

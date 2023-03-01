@@ -1,0 +1,362 @@
+
+
+
+PostgreSQL: Documentation: 15: J.3. Building the Documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+J.3. Building the Documentation
+
+
+Prev 
+Up
+Appendix J. Documentation
+Home
+ Next
+
+
+
+
+
+
+
+
+J.3. Building the Documentation
+
+
+
+
+
+J.3.1. HTML
+J.3.2. Manpages
+J.3.3. PDF
+J.3.4. Plain Text Files
+J.3.5. Syntax Check
+
+
+Once you have everything set up, change to the directory doc/src/sgml and run one of the commands described in the following subsections to build the documentation. (Remember to use GNU make.)
+
+
+
+
+J.3.1. HTML
+
+
+
+To build the HTML version of the documentation:
+
+doc/src/sgml$ make html
+
+This is also the default target. The output appears in the subdirectory html.
+To produce HTML documentation with the stylesheet used on postgresql.org instead of the default simple style use:
+
+doc/src/sgml$ make STYLE=website html
+
+If the STYLE=website option is used, the generated HTML files include references to stylesheets hosted on postgresql.org and require network access to view.
+
+
+
+
+
+J.3.2. Manpages
+
+
+
+We use the DocBook XSL stylesheets to convert DocBook refentry pages to *roff output suitable for man pages. To create the man pages, use the command:
+
+doc/src/sgml$ make man
+
+
+
+
+
+
+J.3.3. PDF
+
+
+
+To produce a PDF rendition of the documentation using FOP, you can use one of the following commands, depending on the preferred paper format:
+
+
+
+For A4 format:
+
+doc/src/sgml$ make postgres-A4.pdf
+
+
+
+For U.S. letter format:
+
+doc/src/sgml$ make postgres-US.pdf
+
+
+
+
+Because the PostgreSQL documentation is fairly big, FOP will require a significant amount of memory. Because of that, on some systems, the build will fail with a memory-related error message. This can usually be fixed by configuring Java heap settings in the configuration file ~/.foprc, for example:
+
+# FOP binary distribution
+FOP_OPTS='-Xmx1500m'
+# Debian
+JAVA_ARGS='-Xmx1500m'
+# Red Hat
+ADDITIONAL_FLAGS='-Xmx1500m'
+
+There is a minimum amount of memory that is required, and to some extent more memory appears to make things a bit faster. On systems with very little memory (less than 1 GB), the build will either be very slow due to swapping or will not work at all.
+Other XSL-FO processors can also be used manually, but the automated build process only supports FOP.
+
+
+
+
+
+J.3.4. Plain Text Files
+
+
+
+The installation instructions are also distributed as plain text, in case they are needed in a situation where better reading tools are not available. The INSTALL file corresponds to Chapter 17, with some minor changes to account for the different context. To recreate the file, change to the directory doc/src/sgml and enter make INSTALL. Building text output requires Pandoc version 1.13 or newer as an additional build tool.
+In the past, the release notes and regression testing instructions were also distributed as plain text, but this practice has been discontinued.
+
+
+
+
+
+J.3.5. Syntax Check
+
+
+
+Building the documentation can take very long. But there is a method to just check the correct syntax of the documentation files, which only takes a few seconds:
+
+doc/src/sgml$ make check
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+J.2. Tool Sets 
+Home
+ J.4. Documentation Authoring
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

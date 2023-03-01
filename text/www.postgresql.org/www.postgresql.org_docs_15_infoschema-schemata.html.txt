@@ -1,0 +1,322 @@
+
+
+
+PostgreSQL: Documentation: 15: 37.46. schemata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37.46. schemata
+
+
+Prev 
+Up
+Chapter 37. The Information Schema
+Home
+ Next
+
+
+
+
+
+
+
+
+37.46. schemata
+
+
+
+The view schemata contains all schemas in the current database that the current user has access to (by way of being the owner or having some privilege).
+
+Table 37.44. schemata Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+catalog_name sql_identifier
+Name of the database that the schema is contained in (always the current database)
+
+
+
+
+schema_name sql_identifier
+Name of the schema
+
+
+
+
+schema_owner sql_identifier
+Name of the owner of the schema
+
+
+
+
+default_character_set_catalog sql_identifier
+Applies to a feature not available in PostgreSQL
+
+
+
+
+default_character_set_schema sql_identifier
+Applies to a feature not available in PostgreSQL
+
+
+
+
+default_character_set_name sql_identifier
+Applies to a feature not available in PostgreSQL
+
+
+
+
+sql_path character_data
+Applies to a feature not available in PostgreSQL
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.45. routines 
+Home
+ 37.47. sequences
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

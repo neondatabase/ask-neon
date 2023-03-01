@@ -1,0 +1,426 @@
+
+
+
+PostgreSQL: Documentation: 15: PostgreSQL 15.2 Documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PostgreSQL 15.2 Documentation
+
+
+ 
+ 
+ 
+ 
+ Next
+
+
+
+
+
+
+
+
+PostgreSQL 15.2 Documentation
+
+
+The PostgreSQL Global Development Group
+
+
+Copyright © 1996–2023 The PostgreSQL Global Development Group
+
+
+Legal Notice
+
+
+
+
+
+Table of Contents
+
+Preface
+
+
+1. What Is PostgreSQL?
+2. A Brief History of PostgreSQL
+3. Conventions
+4. Further Information
+5. Bug Reporting Guidelines
+
+
+I. Tutorial
+
+
+1. Getting Started
+2. The SQL Language
+3. Advanced Features
+
+
+II. The SQL Language
+
+
+4. SQL Syntax
+5. Data Definition
+6. Data Manipulation
+7. Queries
+8. Data Types
+9. Functions and Operators
+10. Type Conversion
+11. Indexes
+12. Full Text Search
+13. Concurrency Control
+14. Performance Tips
+15. Parallel Query
+
+
+III. Server Administration
+
+
+16. Installation from Binaries
+17. Installation from Source Code
+18. Installation from Source Code on Windows
+19. Server Setup and Operation
+20. Server Configuration
+21. Client Authentication
+22. Database Roles
+23. Managing Databases
+24. Localization
+25. Routine Database Maintenance Tasks
+26. Backup and Restore
+27. High Availability, Load Balancing, and Replication
+28. Monitoring Database Activity
+29. Monitoring Disk Usage
+30. Reliability and the Write-Ahead Log
+31. Logical Replication
+32. Just-in-Time Compilation (JIT)
+33. Regression Tests
+
+
+IV. Client Interfaces
+
+
+34. libpq — C Library
+35. Large Objects
+36. ECPG — Embedded SQL in C
+37. The Information Schema
+
+
+V. Server Programming
+
+
+38. Extending SQL
+39. Triggers
+40. Event Triggers
+41. The Rule System
+42. Procedural Languages
+43. PL/pgSQL — SQL Procedural Language
+44. PL/Tcl — Tcl Procedural Language
+45. PL/Perl — Perl Procedural Language
+46. PL/Python — Python Procedural Language
+47. Server Programming Interface
+48. Background Worker Processes
+49. Logical Decoding
+50. Replication Progress Tracking
+51. Archive Modules
+
+
+VI. Reference
+
+
+I. SQL Commands
+II. PostgreSQL Client Applications
+III. PostgreSQL Server Applications
+
+
+VII. Internals
+
+
+52. Overview of PostgreSQL Internals
+53. System Catalogs
+54. System Views
+55. Frontend/Backend Protocol
+56. PostgreSQL Coding Conventions
+57. Native Language Support
+58. Writing a Procedural Language Handler
+59. Writing a Foreign Data Wrapper
+60. Writing a Table Sampling Method
+61. Writing a Custom Scan Provider
+62. Genetic Query Optimizer
+63. Table Access Method Interface Definition
+64. Index Access Method Interface Definition
+65. Generic WAL Records
+66. Custom WAL Resource Managers
+67. B-Tree Indexes
+68. GiST Indexes
+69. SP-GiST Indexes
+70. GIN Indexes
+71. BRIN Indexes
+72. Hash Indexes
+73. Database Physical Storage
+74. System Catalog Declarations and Initial Contents
+75. How the Planner Uses Statistics
+76. Backup Manifest Format
+
+
+VIII. Appendixes
+
+
+A. PostgreSQL Error Codes
+B. Date/Time Support
+C. SQL Key Words
+D. SQL Conformance
+E. Release Notes
+F. Additional Supplied Modules
+G. Additional Supplied Programs
+H. External Projects
+I. The Source Code Repository
+J. Documentation
+K. PostgreSQL Limits
+L. Acronyms
+M. Glossary
+N. Color Support
+O. Obsolete or Renamed Features
+
+
+Bibliography
+Index
+
+
+
+
+
+
+
+ 
+ 
+ Next
+
+
+ 
+ 
+ Preface
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

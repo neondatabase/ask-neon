@@ -1,0 +1,274 @@
+
+
+
+PostgreSQL: Documentation: 15: VAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VAR
+
+
+Prev 
+Up
+36.14. Embedded SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+VAR
+VAR — define a variable
+
+
+Synopsis
+
+VAR varname IS ctype
+
+
+
+Description
+The VAR command assigns a new C data type to a host variable. The host variable must be previously declared in a declare section.
+
+
+Parameters
+
+
+varname
+
+A C variable name.
+
+ctype
+
+A C type specification.
+
+
+
+
+
+Examples
+
+Exec sql begin declare section;
+short a;
+exec sql end declare section;
+EXEC SQL VAR a IS int;
+
+
+
+Compatibility
+The VAR command is a PostgreSQL extension.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+TYPE 
+Home
+ WHENEVER
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

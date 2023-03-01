@@ -1,0 +1,246 @@
+
+
+
+PostgreSQL: Documentation: 15: O.1. recovery.conf file merged into postgresql.conf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+O.1. recovery.conf file merged into postgresql.conf
+
+
+Prev 
+Up
+Appendix O. Obsolete or Renamed Features
+Home
+ Next
+
+
+
+
+
+
+
+
+O.1. recovery.conf file merged into postgresql.conf
+
+
+
+PostgreSQL 11 and below used a configuration file named recovery.conf  to manage replicas and standbys. Support for this file was removed in PostgreSQL 12. See the release notes for PostgreSQL 12 for details on this change.
+On PostgreSQL 12 and above, archive recovery, streaming replication, and PITR are configured using normal server configuration parameters. These are set in postgresql.conf or via ALTER SYSTEM like any other parameter.
+The server will not start if a recovery.conf exists.
+The trigger_file  setting has been renamed to promote_trigger_file.
+The standby_mode  setting has been removed. A standby.signal file in the data directory is used instead. See Standby Server Operation for details.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+Appendix O. Obsolete or Renamed Features 
+Home
+ O.2. Default Roles Renamed to Predefined Roles
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

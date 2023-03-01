@@ -1,0 +1,298 @@
+
+
+
+PostgreSQL: Documentation: 15: H.3. Procedural Languages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H.3. Procedural Languages
+
+
+Prev 
+Up
+Appendix H. External Projects
+Home
+ Next
+
+
+
+
+
+
+
+
+H.3. Procedural Languages
+
+
+
+PostgreSQL includes several procedural languages with the base distribution: PL/pgSQL, PL/Tcl, PL/Perl, and PL/Python.
+In addition, there are a number of procedural languages that are developed and maintained outside the core PostgreSQL distribution. Table H.2 lists some of these packages. Note that some of these projects might not be released under the same license as PostgreSQL. For more information on each procedural language, including licensing information, refer to its website and documentation.
+
+Table H.2. Externally Maintained Procedural Languages
+
+
+
+
+
+
+
+
+
+Name
+Language
+Website
+
+
+
+
+PL/Java
+Java
+https://tada.github.io/pljava/
+
+
+PL/Lua
+Lua
+https://github.com/pllua/pllua-ng
+
+
+PL/R
+R
+https://github.com/postgres-plr/plr
+
+
+PL/sh
+Unix shell
+https://github.com/petere/plsh
+
+
+PL/v8
+JavaScript
+https://github.com/plv8/plv8
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+H.2. Administration Tools 
+Home
+ H.4. Extensions
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

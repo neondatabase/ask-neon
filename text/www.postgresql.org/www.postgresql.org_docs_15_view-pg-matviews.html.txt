@@ -1,0 +1,295 @@
+
+
+
+PostgreSQL: Documentation: 15: 54.13. pg_matviews
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54.13. pg_matviews
+
+
+Prev 
+Up
+Chapter 54. System Views
+Home
+ Next
+
+
+
+
+
+
+
+
+54.13. pg_matviews
+
+
+
+The view pg_matviews provides access to useful information about each materialized view in the database.
+
+Table 54.13. pg_matviews Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+schemaname name (references pg_namespace.nspname)
+Name of schema containing materialized view
+
+
+
+
+matviewname name (references pg_class.relname)
+Name of materialized view
+
+
+
+
+matviewowner name (references pg_authid.rolname)
+Name of materialized view's owner
+
+
+
+
+tablespace name (references pg_tablespace.spcname)
+Name of tablespace containing materialized view (null if default for database)
+
+
+
+
+hasindexes bool
+True if materialized view has (or recently had) any indexes
+
+
+
+
+ispopulated bool
+True if materialized view is currently populated
+
+
+
+
+definition text
+Materialized view definition (a reconstructed SELECT query)
+
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+54.12. pg_locks 
+Home
+ 54.14. pg_policies
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

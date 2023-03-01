@@ -1,0 +1,299 @@
+
+
+
+PostgreSQL: Documentation: 15: 53.43. pg_range
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53.43. pg_range
+
+
+Prev 
+Up
+Chapter 53. System Catalogs
+Home
+ Next
+
+
+
+
+
+
+
+
+53.43. pg_range
+
+
+
+The catalog pg_range stores information about range types. This is in addition to the types' entries in pg_type.
+
+Table 53.43. pg_range Columns
+
+
+
+
+
+
+
+
+Column Type
+Description
+
+
+
+
+
+
+rngtypid oid (references pg_type.oid)
+OID of the range type
+
+
+
+
+rngsubtype oid (references pg_type.oid)
+OID of the element type (subtype) of this range type
+
+
+
+
+rngmultitypid oid (references pg_type.oid)
+OID of the multirange type for this range type
+
+
+
+
+rngcollation oid (references pg_collation.oid)
+OID of the collation used for range comparisons, or zero if none
+
+
+
+
+rngsubopc oid (references pg_opclass.oid)
+OID of the subtype's operator class used for range comparisons
+
+
+
+
+rngcanonical regproc (references pg_proc.oid)
+OID of the function to convert a range value into canonical form, or zero if none
+
+
+
+
+rngsubdiff regproc (references pg_proc.oid)
+OID of the function to return the difference between two element values as double precision, or zero if none
+
+
+
+
+
+
+rngsubopc (plus rngcollation, if the element type is collatable) determines the sort ordering used by the range type. rngcanonical is used when the element type is discrete. rngsubdiff is optional but should be supplied to improve performance of GiST indexes on the range type.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+53.42. pg_publication_rel 
+Home
+ 53.44. pg_replication_origin
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

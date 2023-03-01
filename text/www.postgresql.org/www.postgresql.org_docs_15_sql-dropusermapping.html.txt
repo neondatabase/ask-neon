@@ -1,0 +1,286 @@
+
+
+
+PostgreSQL: Documentation: 15: DROP USER MAPPING
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP USER MAPPING
+
+
+Prev 
+Up
+SQL Commands
+Home
+ Next
+
+
+
+
+
+
+
+DROP USER MAPPING
+DROP USER MAPPING — remove a user mapping for a foreign server
+
+
+Synopsis
+
+DROP USER MAPPING [ IF EXISTS ] FOR { user_name | USER | CURRENT_ROLE | CURRENT_USER | PUBLIC } SERVER server_name
+
+
+
+Description
+DROP USER MAPPING removes an existing user mapping from foreign server.
+The owner of a foreign server can drop user mappings for that server for any user. Also, a user can drop a user mapping for their own user name if USAGE privilege on the server has been granted to the user.
+
+
+Parameters
+
+
+IF EXISTS
+
+Do not throw an error if the user mapping does not exist. A notice is issued in this case.
+
+user_name
+
+User name of the mapping. CURRENT_ROLE, CURRENT_USER, and USER match the name of the current user. PUBLIC is used to match all present and future user names in the system.
+
+server_name
+
+Server name of the user mapping.
+
+
+
+
+
+Examples
+Drop a user mapping bob, server foo if it exists:
+
+DROP USER MAPPING IF EXISTS FOR bob SERVER foo;
+
+
+
+Compatibility
+DROP USER MAPPING conforms to ISO/IEC 9075-9 (SQL/MED). The IF EXISTS clause is a PostgreSQL extension.
+
+
+See AlsoCREATE USER MAPPING, ALTER USER MAPPING
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+DROP USER 
+Home
+ DROP VIEW
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

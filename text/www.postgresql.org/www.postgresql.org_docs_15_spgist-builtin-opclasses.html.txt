@@ -1,0 +1,468 @@
+
+
+
+PostgreSQL: Documentation: 15: 69.2. Built-in Operator Classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+69.2. Built-in Operator Classes
+
+
+Prev 
+Up
+Chapter 69. SP-GiST Indexes
+Home
+ Next
+
+
+
+
+
+
+
+
+69.2. Built-in Operator Classes
+
+
+
+The core PostgreSQL distribution includes the SP-GiST operator classes shown in Table 69.1.
+
+Table 69.1. Built-in SP-GiST Operator Classes
+
+
+
+
+
+
+
+
+
+Name
+Indexable Operators
+Ordering Operators
+
+
+
+
+box_ops
+<< (box,box)
+<-> (box,point)
+
+
+&< (box,box)
+
+
+&> (box,box)
+
+
+>> (box,box)
+
+
+<@ (box,box)
+
+
+@> (box,box)
+
+
+~= (box,box)
+
+
+&& (box,box)
+
+
+<<| (box,box)
+
+
+&<| (box,box)
+
+
+|&> (box,box)
+
+
+|>> (box,box)
+
+
+inet_ops
+<< (inet,inet)
+ 
+
+
+<<= (inet,inet)
+
+
+>> (inet,inet)
+
+
+>>= (inet,inet)
+
+
+= (inet,inet)
+
+
+<> (inet,inet)
+
+
+< (inet,inet)
+
+
+<= (inet,inet)
+
+
+> (inet,inet)
+
+
+>= (inet,inet)
+
+
+&& (inet,inet)
+
+
+kd_point_ops
+|>> (point,point)
+<-> (point,point)
+
+
+<< (point,point)
+
+
+>> (point,point)
+
+
+<<| (point,point)
+
+
+~= (point,point)
+
+
+<@ (point,box)
+
+
+poly_ops
+<< (polygon,polygon)
+<-> (polygon,point)
+
+
+&< (polygon,polygon)
+
+
+&> (polygon,polygon)
+
+
+>> (polygon,polygon)
+
+
+<@ (polygon,polygon)
+
+
+@> (polygon,polygon)
+
+
+~= (polygon,polygon)
+
+
+&& (polygon,polygon)
+
+
+<<| (polygon,polygon)
+
+
+&<| (polygon,polygon)
+
+
+|>> (polygon,polygon)
+
+
+|&> (polygon,polygon)
+
+
+quad_point_ops
+|>> (point,point)
+<-> (point,point)
+
+
+<< (point,point)
+
+
+>> (point,point)
+
+
+<<| (point,point)
+
+
+~= (point,point)
+
+
+<@ (point,box)
+
+
+range_ops
+= (anyrange,anyrange)
+ 
+
+
+&& (anyrange,anyrange)
+
+
+@> (anyrange,anyelement)
+
+
+@> (anyrange,anyrange)
+
+
+<@ (anyrange,anyrange)
+
+
+<< (anyrange,anyrange)
+
+
+>> (anyrange,anyrange)
+
+
+&< (anyrange,anyrange)
+
+
+&> (anyrange,anyrange)
+
+
+-|- (anyrange,anyrange)
+
+
+text_ops
+= (text,text)
+ 
+
+
+< (text,text)
+
+
+<= (text,text)
+
+
+> (text,text)
+
+
+>= (text,text)
+
+
+~<~ (text,text)
+
+
+~<=~ (text,text)
+
+
+~>=~ (text,text)
+
+
+~>~ (text,text)
+
+
+^@ (text,text)
+
+
+
+
+
+Of the two operator classes for type point, quad_point_ops is the default. kd_point_ops supports the same operators but uses a different index data structure that may offer better performance in some applications.
+The quad_point_ops, kd_point_ops and poly_ops operator classes support the <-> ordering operator, which enables the k-nearest neighbor (k-NN) search over indexed point or polygon data sets.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+69.1. Introduction 
+Home
+ 69.3. Extensibility
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

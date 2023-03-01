@@ -1,0 +1,245 @@
+
+
+
+PostgreSQL: Documentation: 15: 49.3. Streaming Replication Protocol Interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+49.3. Streaming Replication Protocol Interface
+
+
+Prev 
+Up
+Chapter 49. Logical Decoding
+Home
+ Next
+
+
+
+
+
+
+
+
+49.3. Streaming Replication Protocol Interface
+
+
+
+The commands
+
+
+
+CREATE_REPLICATION_SLOT slot_name LOGICAL output_plugin
+
+
+DROP_REPLICATION_SLOT slot_name [ WAIT ]
+
+
+START_REPLICATION SLOT slot_name LOGICAL ...
+
+
+
+are used to create, drop, and stream changes from a replication slot, respectively. These commands are only available over a replication connection; they cannot be used via SQL. See Section 55.4 for details on these commands.
+The command pg_recvlogical can be used to control logical decoding over a streaming replication connection. (It uses these commands internally.)
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+49.2. Logical Decoding Concepts 
+Home
+ 49.4. Logical Decoding SQL Interface
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

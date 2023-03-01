@@ -1,0 +1,299 @@
+
+
+
+PostgreSQL: Documentation: 15: 70.2. Built-in Operator Classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+70.2. Built-in Operator Classes
+
+
+Prev 
+Up
+Chapter 70. GIN Indexes
+Home
+ Next
+
+
+
+
+
+
+
+
+70.2. Built-in Operator Classes
+
+
+
+The core PostgreSQL distribution includes the GIN operator classes shown in Table 70.1. (Some of the optional modules described in Appendix F provide additional GIN operator classes.)
+
+Table 70.1. Built-in GIN Operator Classes
+
+
+
+
+
+
+
+
+Name
+Indexable Operators
+
+
+
+
+array_ops
+&& (anyarray,anyarray)
+
+
+@> (anyarray,anyarray)
+
+
+<@ (anyarray,anyarray)
+
+
+= (anyarray,anyarray)
+
+
+jsonb_ops
+@> (jsonb,jsonb)
+
+
+@? (jsonb,jsonpath)
+
+
+@@ (jsonb,jsonpath)
+
+
+? (jsonb,text)
+
+
+?| (jsonb,text[])
+
+
+?& (jsonb,text[])
+
+
+jsonb_path_ops
+@> (jsonb,jsonb)
+
+
+@? (jsonb,jsonpath)
+
+
+@@ (jsonb,jsonpath)
+
+
+tsvector_ops
+@@ (tsvector,tsquery)
+
+
+@@@ (tsvector,tsquery)
+
+
+
+
+
+Of the two operator classes for type jsonb, jsonb_ops is the default. jsonb_path_ops supports fewer operators but offers better performance for those operators. See Section 8.14.4 for details.
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+70.1. Introduction 
+Home
+ 70.3. Extensibility
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

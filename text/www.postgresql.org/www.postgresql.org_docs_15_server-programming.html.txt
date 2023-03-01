@@ -1,0 +1,426 @@
+
+
+
+PostgreSQL: Documentation: 15: Part V. Server Programming
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Part V. Server Programming
+
+
+Prev 
+Up
+PostgreSQL 15.2 Documentation
+Home
+ Next
+
+
+
+
+
+
+
+
+Part V. Server Programming
+
+
+
+
+This part is about extending the server functionality with user-defined functions, data types, triggers, etc. These are advanced topics which should probably be approached only after all the other user documentation about PostgreSQL has been understood. Later chapters in this part describe the server-side programming languages available in the PostgreSQL distribution as well as general issues concerning server-side programming languages. It is essential to read at least the earlier sections of Chapter 38 (covering functions) before diving into the material about server-side programming languages.
+
+Table of Contents
+
+38. Extending SQL
+
+
+38.1. How Extensibility Works
+38.2. The PostgreSQL Type System
+38.3. User-Defined Functions
+38.4. User-Defined Procedures
+38.5. Query Language (SQL) Functions
+38.6. Function Overloading
+38.7. Function Volatility Categories
+38.8. Procedural Language Functions
+38.9. Internal Functions
+38.10. C-Language Functions
+38.11. Function Optimization Information
+38.12. User-Defined Aggregates
+38.13. User-Defined Types
+38.14. User-Defined Operators
+38.15. Operator Optimization Information
+38.16. Interfacing Extensions to Indexes
+38.17. Packaging Related Objects into an Extension
+38.18. Extension Building Infrastructure
+
+
+39. Triggers
+
+
+39.1. Overview of Trigger Behavior
+39.2. Visibility of Data Changes
+39.3. Writing Trigger Functions in C
+39.4. A Complete Trigger Example
+
+
+40. Event Triggers
+
+
+40.1. Overview of Event Trigger Behavior
+40.2. Event Trigger Firing Matrix
+40.3. Writing Event Trigger Functions in C
+40.4. A Complete Event Trigger Example
+40.5. A Table Rewrite Event Trigger Example
+
+
+41. The Rule System
+
+
+41.1. The Query Tree
+41.2. Views and the Rule System
+41.3. Materialized Views
+41.4. Rules on INSERT, UPDATE, and DELETE
+41.5. Rules and Privileges
+41.6. Rules and Command Status
+41.7. Rules Versus Triggers
+
+
+42. Procedural Languages
+
+
+42.1. Installing Procedural Languages
+
+
+43. PL/pgSQL — SQL Procedural Language
+
+
+43.1. Overview
+43.2. Structure of PL/pgSQL
+43.3. Declarations
+43.4. Expressions
+43.5. Basic Statements
+43.6. Control Structures
+43.7. Cursors
+43.8. Transaction Management
+43.9. Errors and Messages
+43.10. Trigger Functions
+43.11. PL/pgSQL under the Hood
+43.12. Tips for Developing in PL/pgSQL
+43.13. Porting from Oracle PL/SQL
+
+
+44. PL/Tcl — Tcl Procedural Language
+
+
+44.1. Overview
+44.2. PL/Tcl Functions and Arguments
+44.3. Data Values in PL/Tcl
+44.4. Global Data in PL/Tcl
+44.5. Database Access from PL/Tcl
+44.6. Trigger Functions in PL/Tcl
+44.7. Event Trigger Functions in PL/Tcl
+44.8. Error Handling in PL/Tcl
+44.9. Explicit Subtransactions in PL/Tcl
+44.10. Transaction Management
+44.11. PL/Tcl Configuration
+44.12. Tcl Procedure Names
+
+
+45. PL/Perl — Perl Procedural Language
+
+
+45.1. PL/Perl Functions and Arguments
+45.2. Data Values in PL/Perl
+45.3. Built-in Functions
+45.4. Global Values in PL/Perl
+45.5. Trusted and Untrusted PL/Perl
+45.6. PL/Perl Triggers
+45.7. PL/Perl Event Triggers
+45.8. PL/Perl Under the Hood
+
+
+46. PL/Python — Python Procedural Language
+
+
+46.1. PL/Python Functions
+46.2. Data Values
+46.3. Sharing Data
+46.4. Anonymous Code Blocks
+46.5. Trigger Functions
+46.6. Database Access
+46.7. Explicit Subtransactions
+46.8. Transaction Management
+46.9. Utility Functions
+46.10. Python 2 vs. Python 3
+46.11. Environment Variables
+
+
+47. Server Programming Interface
+
+
+47.1. Interface Functions
+47.2. Interface Support Functions
+47.3. Memory Management
+47.4. Transaction Management
+47.5. Visibility of Data Changes
+47.6. Examples
+
+
+48. Background Worker Processes
+49. Logical Decoding
+
+
+49.1. Logical Decoding Examples
+49.2. Logical Decoding Concepts
+49.3. Streaming Replication Protocol Interface
+49.4. Logical Decoding SQL Interface
+49.5. System Catalogs Related to Logical Decoding
+49.6. Logical Decoding Output Plugins
+49.7. Logical Decoding Output Writers
+49.8. Synchronous Replication Support for Logical Decoding
+49.9. Streaming of Large Transactions for Logical Decoding
+49.10. Two-phase Commit Support for Logical Decoding
+
+
+50. Replication Progress Tracking
+51. Archive Modules
+
+
+51.1. Initialization Functions
+51.2. Archive Module Callbacks
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+37.66. views 
+Home
+ Chapter 38. Extending SQL
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

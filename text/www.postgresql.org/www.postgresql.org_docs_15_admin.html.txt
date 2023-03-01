@@ -1,0 +1,475 @@
+
+
+
+PostgreSQL: Documentation: 15: Part III. Server Administration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+                    
+                       / 
+                      8.2
+                    
+                       / 
+                      8.1
+                    
+                       / 
+                      8.0
+                    
+                       / 
+                      7.4
+                    
+                       / 
+                      7.3
+                    
+                       / 
+                      7.2
+                    
+                       / 
+                      7.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Part III. Server Administration
+
+
+Prev 
+Up
+PostgreSQL 15.2 Documentation
+Home
+ Next
+
+
+
+
+
+
+
+
+Part III. Server Administration
+
+
+
+
+This part covers topics that are of interest to a PostgreSQL database administrator. This includes installation of the software, set up and configuration of the server, management of users and databases, and maintenance tasks. Anyone who runs a PostgreSQL server, even for personal use, but especially in production, should be familiar with the topics covered in this part.
+The information in this part is arranged approximately in the order in which a new user should read it. But the chapters are self-contained and can be read individually as desired. The information in this part is presented in a narrative fashion in topical units. Readers looking for a complete description of a particular command should see Part VI.
+The first few chapters are written so they can be understood without prerequisite knowledge, so new users who need to set up their own server can begin their exploration with this part. The rest of this part is about tuning and management; that material assumes that the reader is familiar with the general use of the PostgreSQL database system. Readers are encouraged to look at Part I and Part II for additional information.
+
+Table of Contents
+
+16. Installation from Binaries
+17. Installation from Source Code
+
+
+17.1. Short Version
+17.2. Requirements
+17.3. Getting the Source
+17.4. Installation Procedure
+17.5. Post-Installation Setup
+17.6. Supported Platforms
+17.7. Platform-Specific Notes
+
+
+18. Installation from Source Code on Windows
+
+
+18.1. Building with Visual C++ or the Microsoft Windows SDK
+
+
+19. Server Setup and Operation
+
+
+19.1. The PostgreSQL User Account
+19.2. Creating a Database Cluster
+19.3. Starting the Database Server
+19.4. Managing Kernel Resources
+19.5. Shutting Down the Server
+19.6. Upgrading a PostgreSQL Cluster
+19.7. Preventing Server Spoofing
+19.8. Encryption Options
+19.9. Secure TCP/IP Connections with SSL
+19.10. Secure TCP/IP Connections with GSSAPI Encryption
+19.11. Secure TCP/IP Connections with SSH Tunnels
+19.12. Registering Event Log on Windows
+
+
+20. Server Configuration
+
+
+20.1. Setting Parameters
+20.2. File Locations
+20.3. Connections and Authentication
+20.4. Resource Consumption
+20.5. Write Ahead Log
+20.6. Replication
+20.7. Query Planning
+20.8. Error Reporting and Logging
+20.9. Run-time Statistics
+20.10. Automatic Vacuuming
+20.11. Client Connection Defaults
+20.12. Lock Management
+20.13. Version and Platform Compatibility
+20.14. Error Handling
+20.15. Preset Options
+20.16. Customized Options
+20.17. Developer Options
+20.18. Short Options
+
+
+21. Client Authentication
+
+
+21.1. The pg_hba.conf File
+21.2. User Name Maps
+21.3. Authentication Methods
+21.4. Trust Authentication
+21.5. Password Authentication
+21.6. GSSAPI Authentication
+21.7. SSPI Authentication
+21.8. Ident Authentication
+21.9. Peer Authentication
+21.10. LDAP Authentication
+21.11. RADIUS Authentication
+21.12. Certificate Authentication
+21.13. PAM Authentication
+21.14. BSD Authentication
+21.15. Authentication Problems
+
+
+22. Database Roles
+
+
+22.1. Database Roles
+22.2. Role Attributes
+22.3. Role Membership
+22.4. Dropping Roles
+22.5. Predefined Roles
+22.6. Function Security
+
+
+23. Managing Databases
+
+
+23.1. Overview
+23.2. Creating a Database
+23.3. Template Databases
+23.4. Database Configuration
+23.5. Destroying a Database
+23.6. Tablespaces
+
+
+24. Localization
+
+
+24.1. Locale Support
+24.2. Collation Support
+24.3. Character Set Support
+
+
+25. Routine Database Maintenance Tasks
+
+
+25.1. Routine Vacuuming
+25.2. Routine Reindexing
+25.3. Log File Maintenance
+
+
+26. Backup and Restore
+
+
+26.1. SQL Dump
+26.2. File System Level Backup
+26.3. Continuous Archiving and Point-in-Time Recovery (PITR)
+
+
+27. High Availability, Load Balancing, and Replication
+
+
+27.1. Comparison of Different Solutions
+27.2. Log-Shipping Standby Servers
+27.3. Failover
+27.4. Hot Standby
+
+
+28. Monitoring Database Activity
+
+
+28.1. Standard Unix Tools
+28.2. The Cumulative Statistics System
+28.3. Viewing Locks
+28.4. Progress Reporting
+28.5. Dynamic Tracing
+
+
+29. Monitoring Disk Usage
+
+
+29.1. Determining Disk Usage
+29.2. Disk Full Failure
+
+
+30. Reliability and the Write-Ahead Log
+
+
+30.1. Reliability
+30.2. Data Checksums
+30.3. Write-Ahead Logging (WAL)
+30.4. Asynchronous Commit
+30.5. WAL Configuration
+30.6. WAL Internals
+
+
+31. Logical Replication
+
+
+31.1. Publication
+31.2. Subscription
+31.3. Row Filters
+31.4. Column Lists
+31.5. Conflicts
+31.6. Restrictions
+31.7. Architecture
+31.8. Monitoring
+31.9. Security
+31.10. Configuration Settings
+31.11. Quick Setup
+
+
+32. Just-in-Time Compilation (JIT)
+
+
+32.1. What Is JIT compilation?
+32.2. When to JIT?
+32.3. Configuration
+32.4. Extensibility
+
+
+33. Regression Tests
+
+
+33.1. Running the Tests
+33.2. Test Evaluation
+33.3. Variant Comparison Files
+33.4. TAP Tests
+33.5. Test Coverage Examination
+
+
+
+
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+15.4. Parallel Safety 
+Home
+ Chapter 16. Installation from Binaries
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+

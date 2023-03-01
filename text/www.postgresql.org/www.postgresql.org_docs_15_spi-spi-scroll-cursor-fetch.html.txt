@@ -1,0 +1,284 @@
+
+
+
+PostgreSQL: Documentation: 15: SPI_scroll_cursor_fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+About
+Download
+Documentation
+Community
+Developers
+Support
+Donate
+Your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9th February 2023: 
+  PostgreSQL 15.2, 14.7, 13.10, 12.14, and 11.19 Released!
+
+
+
+
+
+
+
+
+
+
+
+
+Documentation → PostgreSQL 15
+
+
+
+
+
+                    Supported Versions:
+                      
+                        
+                        
+                          Current
+                          (15)
+                        
+                      
+                         / 
+                        
+                          14
+                        
+                      
+                         / 
+                        
+                          13
+                        
+                      
+                         / 
+                        
+                          12
+                        
+                      
+                         / 
+                        
+                          11
+
+
+
+
+                    Development Versions:
+                    
+                      
+                      devel
+
+
+
+
+                    Unsupported versions:
+                    
+                      
+                      10
+                    
+                       / 
+                      9.6
+                    
+                       / 
+                      9.5
+                    
+                       / 
+                      9.4
+                    
+                       / 
+                      9.3
+                    
+                       / 
+                      9.2
+                    
+                       / 
+                      9.1
+                    
+                       / 
+                      9.0
+                    
+                       / 
+                      8.4
+                    
+                       / 
+                      8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SPI_scroll_cursor_fetch
+
+
+Prev 
+Up
+47.1. Interface Functions
+Home
+ Next
+
+
+
+
+
+
+
+SPI_scroll_cursor_fetch
+SPI_scroll_cursor_fetch — fetch some rows from a cursor
+
+
+Synopsis
+
+void SPI_scroll_cursor_fetch(Portal portal, FetchDirection direction,
+                             long count)
+
+
+
+Description
+SPI_scroll_cursor_fetch fetches some rows from a cursor. This is equivalent to the SQL command FETCH.
+
+
+Arguments
+
+
+Portal portal
+
+portal containing the cursor
+
+FetchDirection direction
+
+one of FETCH_FORWARD, FETCH_BACKWARD, FETCH_ABSOLUTE or FETCH_RELATIVE
+
+long count
+
+number of rows to fetch for FETCH_FORWARD or FETCH_BACKWARD; absolute row number to fetch for FETCH_ABSOLUTE; or relative row number to fetch for FETCH_RELATIVE
+
+
+
+
+
+Return Value
+SPI_processed and SPI_tuptable are set as in SPI_execute if successful.
+
+
+Notes
+See the SQL FETCH command for details of the interpretation of the direction and count parameters.
+Direction values other than FETCH_FORWARD may fail if the cursor's plan was not created with the CURSOR_OPT_SCROLL option.
+
+
+
+
+
+
+Prev 
+Up
+ Next
+
+
+SPI_cursor_move 
+Home
+ SPI_scroll_cursor_move
+
+
+
+
+
+Submit correction
+
+              If you see anything in the documentation that is not correct, does not match
+              your experience with the particular feature or requires further clarification,
+              please use
+              this form
+              to report a documentation issue.
+              
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy |
+        Code of Conduct |
+        About PostgreSQL |
+        Contact
+Copyright © 1996-2023 The PostgreSQL Global Development Group
+
+
+
+
+
+
+
+
