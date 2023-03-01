@@ -12,7 +12,7 @@ Once you have the prerequisites installed, follow these steps to get the project
 
 Clone the repository:
 
-bash```
+```
 git clone https://github.com/neondatabase/postgres-qa.git
 ```
 Install the project dependencies:
