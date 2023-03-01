@@ -1,7 +1,8 @@
 
 # Postgres Q&A
 
-![Screen_Recording_2023-03-01_at_17_58_11_AdobeExpress](https://user-images.githubusercontent.com/13738772/222214698-6620aa13-4e54-4acb-8716-d5311cd12440.gif)
+![Screen_Recording_2023-03-01_at_17_58_11_AdobeExpress (1)](https://user-images.githubusercontent.com/13738772/222217144-2c741b78-7a27-44ed-be95-6a3ee3e42cbe.gif)
+
 
 Postgres Q&A is a project that demonstrates how to use word embeddings and Postgres to build a chatbot. The chatbot is implemented using Vercel Edge Functions and the @neondatabase/serverless driver, and relies on OpenAI's GPT-3 API to generate responses.
 
