@@ -28,17 +28,17 @@ DATABASE_URL: The connection URL for your Neon database.
 
 Create the `documents` and `openai_ft_data` tables in your Neon database by running the following command:
 
-bash```
+```bash
 psql <database-url> -f database.sql
 ```
 Start the server:
 
-bash```
+```bash
 npm run dev
 ```
 Use the chatbot by sending a POST request to the /api/askme endpoint with a JSON payload containing the query parameter:
 
-json```
+```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"query": "What is the meaning of life?"}' \
   http://localhost:3000/api/askme
